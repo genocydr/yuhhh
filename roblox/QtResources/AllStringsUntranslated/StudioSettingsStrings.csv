@@ -1,0 +1,3 @@
+Key,Context,Source,en-us
+Studio.Settings.BetaFeature.HighDpiRestartTitle,,Beta Feature is in Invalid State,Beta Feature is in Invalid State
+Studio.Settings.BetaFeature.HighDpiRestartDescription,"Studio is in a potentially invalid state, and should be restarted to ensure propper functionality","New Icons / DPI Aware Studio Beta Feature has been changed, and requires a restart to take effect.","New Icons / DPI Aware Studio Beta Feature has been changed, and requires a restart to take effect."

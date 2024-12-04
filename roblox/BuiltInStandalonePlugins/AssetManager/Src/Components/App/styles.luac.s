@@ -1,0 +1,159 @@
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AssetManager"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["Framework"]
+  CALL R1 1 1
+  GETTABLEKS R3 R1 K8 ["Styling"]
+  GETTABLEKS R2 R3 K9 ["createStyleRule"]
+  MOVE R3 R2
+  LOADK R4 K10 [".App"]
+  NEWTABLE R5 0 0
+  NEWTABLE R6 0 5
+  MOVE R7 R2
+  LOADK R8 K11 [">> .TopBar"]
+  DUPTABLE R9 K13 [{"Size"}]
+  GETIMPORT R10 K16 [UDim2.new]
+  LOADN R11 1
+  LOADN R12 0
+  LOADN R13 0
+  LOADN R14 42
+  CALL R10 4 1
+  SETTABLEKS R10 R9 K12 ["Size"]
+  CALL R7 2 1
+  MOVE R8 R2
+  LOADK R9 K17 [">> .Explorer"]
+  DUPTABLE R10 K13 [{"Size"}]
+  GETIMPORT R11 K16 [UDim2.new]
+  LOADN R12 1
+  LOADN R13 0
+  LOADN R14 1
+  LOADN R15 214
+  CALL R11 4 1
+  SETTABLEKS R11 R10 K12 ["Size"]
+  CALL R8 2 1
+  MOVE R9 R2
+  LOADK R10 K18 [">> .MainContents"]
+  DUPTABLE R11 K13 [{"Size"}]
+  GETIMPORT R12 K16 [UDim2.new]
+  LOADN R13 1
+  LOADN R14 0
+  LOADN R15 1
+  LOADN R16 214
+  CALL R12 4 1
+  SETTABLEKS R12 R11 K12 ["Size"]
+  NEWTABLE R12 0 3
+  MOVE R13 R2
+  LOADK R14 K19 ["::UIFlexItem"]
+  DUPTABLE R15 K21 [{"FlexMode"}]
+  GETIMPORT R16 K25 [Enum.UIFlexMode.Fill]
+  SETTABLEKS R16 R15 K20 ["FlexMode"]
+  CALL R13 2 1
+  MOVE R14 R2
+  LOADK R15 K26 ["::UIPadding"]
+  DUPTABLE R16 K28 [{"PaddingTop"}]
+  GETIMPORT R17 K30 [UDim.new]
+  LOADN R18 0
+  LOADN R19 1
+  CALL R17 2 1
+  SETTABLEKS R17 R16 K27 ["PaddingTop"]
+  CALL R14 2 1
+  MOVE R15 R2
+  LOADK R16 K31 [".HasLoadingBar"]
+  DUPTABLE R17 K13 [{"Size"}]
+  GETIMPORT R18 K16 [UDim2.new]
+  LOADN R19 1
+  LOADN R20 0
+  LOADN R21 1
+  LOADN R22 206
+  CALL R18 4 1
+  SETTABLEKS R18 R17 K12 ["Size"]
+  CALL R15 2 -1
+  SETLIST R12 R13 -1 [1]
+  CALL R9 3 1
+  MOVE R10 R2
+  LOADK R11 K32 [">> .ProgressBar"]
+  DUPTABLE R12 K13 [{"Size"}]
+  GETIMPORT R13 K16 [UDim2.new]
+  LOADN R14 1
+  LOADN R15 0
+  LOADN R16 0
+  LOADN R17 8
+  CALL R13 4 1
+  SETTABLEKS R13 R12 K12 ["Size"]
+  CALL R10 2 1
+  MOVE R11 R2
+  LOADK R12 K33 ["> .SidebarButton"]
+  DUPTABLE R13 K36 [{"AnchorPoint", "Position"}]
+  GETIMPORT R14 K38 [Vector2.new]
+  LOADN R15 0
+  LOADN R16 1
+  CALL R14 2 1
+  SETTABLEKS R14 R13 K34 ["AnchorPoint"]
+  GETIMPORT R14 K16 [UDim2.new]
+  LOADN R15 0
+  LOADN R16 5
+  LOADN R17 1
+  LOADN R18 246
+  CALL R14 4 1
+  SETTABLEKS R14 R13 K35 ["Position"]
+  NEWTABLE R14 0 1
+  MOVE R15 R2
+  LOADK R16 K39 ["> Frame"]
+  NEWTABLE R17 0 0
+  NEWTABLE R18 0 2
+  MOVE R19 R2
+  LOADK R20 K26 ["::UIPadding"]
+  DUPTABLE R21 K43 [{"PaddingLeft", "PaddingRight", "PaddingTop", "PaddingBottom"}]
+  LOADK R22 K44 ["$PaddingSmall"]
+  SETTABLEKS R22 R21 K40 ["PaddingLeft"]
+  LOADK R22 K44 ["$PaddingSmall"]
+  SETTABLEKS R22 R21 K41 ["PaddingRight"]
+  LOADK R22 K44 ["$PaddingSmall"]
+  SETTABLEKS R22 R21 K27 ["PaddingTop"]
+  LOADK R22 K44 ["$PaddingSmall"]
+  SETTABLEKS R22 R21 K42 ["PaddingBottom"]
+  CALL R19 2 1
+  MOVE R20 R2
+  LOADK R21 K45 ["> ImageLabel"]
+  DUPTABLE R22 K13 [{"Size"}]
+  GETIMPORT R23 K16 [UDim2.new]
+  LOADN R24 0
+  LOADN R25 12
+  LOADN R26 0
+  LOADN R27 12
+  CALL R23 4 1
+  SETTABLEKS R23 R22 K12 ["Size"]
+  CALL R20 2 -1
+  SETLIST R18 R19 -1 [1]
+  CALL R15 3 -1
+  SETLIST R14 R15 -1 [1]
+  CALL R11 3 -1
+  SETLIST R6 R7 -1 [1]
+  DUPTABLE R7 K50 [{"DefaultSizeSidebar", "MinimumSizeSidebar", "DefaultSizeMainView", "MinimumSizeMainView"}]
+  GETIMPORT R8 K30 [UDim.new]
+  LOADK R9 K51 [0.2]
+  LOADN R10 0
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K46 ["DefaultSizeSidebar"]
+  GETIMPORT R8 K30 [UDim.new]
+  LOADN R9 0
+  LOADN R10 100
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K47 ["MinimumSizeSidebar"]
+  GETIMPORT R8 K30 [UDim.new]
+  LOADK R9 K52 [0.8]
+  LOADN R10 0
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K48 ["DefaultSizeMainView"]
+  GETIMPORT R8 K30 [UDim.new]
+  LOADN R9 0
+  LOADN R10 144
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K49 ["MinimumSizeMainView"]
+  CALL R3 4 -1
+  RETURN R3 -1

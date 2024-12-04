@@ -1,0 +1,157 @@
+PROTO_0:
+  GETUPVAL R0 0
+  CALL R0 0 1
+  JUMPIFNOT R0 [+43]
+  GETUPVAL R0 1
+  CALL R0 0 1
+  JUMPIFNOT R0 [+40]
+  GETUPVAL R0 2
+  CALL R0 0 2
+  GETUPVAL R2 3
+  MOVE R3 R0
+  CALL R2 1 2
+  JUMPIFNOT R0 [+10]
+  JUMPIFNOT R1 [+9]
+  DUPTABLE R4 K3 [{"autoSetupTarget", "avatar", "isSelected"}]
+  LOADNIL R5
+  SETTABLEKS R5 R4 K0 ["autoSetupTarget"]
+  SETTABLEKS R0 R4 K1 ["avatar"]
+  SETTABLEKS R1 R4 K2 ["isSelected"]
+  RETURN R4 1
+  JUMPIFNOT R2 [+11]
+  JUMPIFNOT R3 [+10]
+  DUPTABLE R4 K3 [{"autoSetupTarget", "avatar", "isSelected"}]
+  SETTABLEKS R2 R4 K0 ["autoSetupTarget"]
+  LOADNIL R5
+  SETTABLEKS R5 R4 K1 ["avatar"]
+  LOADB R5 1
+  SETTABLEKS R5 R4 K2 ["isSelected"]
+  RETURN R4 1
+  JUMPIFNOT R0 [+9]
+  DUPTABLE R4 K3 [{"autoSetupTarget", "avatar", "isSelected"}]
+  LOADNIL R5
+  SETTABLEKS R5 R4 K0 ["autoSetupTarget"]
+  SETTABLEKS R0 R4 K1 ["avatar"]
+  SETTABLEKS R1 R4 K2 ["isSelected"]
+  RETURN R4 1
+  LOADNIL R4
+  RETURN R4 1
+  LOADNIL R0
+  LOADNIL R1
+  GETUPVAL R2 1
+  CALL R2 0 1
+  JUMPIFNOT R2 [+4]
+  GETUPVAL R2 3
+  CALL R2 0 2
+  MOVE R0 R2
+  MOVE R1 R3
+  GETUPVAL R2 2
+  CALL R2 0 2
+  GETUPVAL R5 4
+  GETTABLEKS R4 R5 K4 ["useRef"]
+  LOADNIL R5
+  CALL R4 1 1
+  GETUPVAL R6 4
+  GETTABLEKS R5 R6 K4 ["useRef"]
+  LOADNIL R6
+  CALL R5 1 1
+  GETUPVAL R7 4
+  GETTABLEKS R6 R7 K4 ["useRef"]
+  LOADNIL R7
+  CALL R6 1 1
+  GETTABLEKS R7 R5 K5 ["current"]
+  JUMPIFNOTEQ R7 R0 [+2]
+  JUMPIFNOT R1 [+41]
+  JUMPIFNOTEQKNIL R0 [+15]
+  GETTABLEKS R7 R6 K5 ["current"]
+  JUMPIFEQKNIL R7 [+11]
+  GETTABLEKS R8 R6 K5 ["current"]
+  GETTABLEKS R7 R8 K0 ["autoSetupTarget"]
+  JUMPIFEQKNIL R7 [+5]
+  LOADNIL R7
+  SETTABLEKS R7 R6 K5 ["current"]
+  JUMP [+23]
+  JUMPIFEQKNIL R0 [+22]
+  GETTABLEKS R7 R6 K5 ["current"]
+  JUMPIFEQKNIL R7 [+7]
+  GETTABLEKS R8 R6 K5 ["current"]
+  GETTABLEKS R7 R8 K0 ["autoSetupTarget"]
+  JUMPIFEQ R7 R0 [+12]
+  DUPTABLE R7 K6 [{"avatar", "autoSetupTarget", "isSelected"}]
+  LOADNIL R8
+  SETTABLEKS R8 R7 K1 ["avatar"]
+  SETTABLEKS R0 R7 K0 ["autoSetupTarget"]
+  LOADB R8 0
+  SETTABLEKS R8 R7 K2 ["isSelected"]
+  SETTABLEKS R7 R6 K5 ["current"]
+  SETTABLEKS R0 R5 K5 ["current"]
+  GETTABLEKS R7 R4 K5 ["current"]
+  JUMPIFNOTEQ R7 R2 [+2]
+  JUMPIFNOT R3 [+41]
+  JUMPIFNOTEQKNIL R2 [+15]
+  GETTABLEKS R7 R6 K5 ["current"]
+  JUMPIFEQKNIL R7 [+11]
+  GETTABLEKS R8 R6 K5 ["current"]
+  GETTABLEKS R7 R8 K1 ["avatar"]
+  JUMPIFEQKNIL R7 [+5]
+  LOADNIL R7
+  SETTABLEKS R7 R6 K5 ["current"]
+  JUMP [+23]
+  JUMPIFEQKNIL R2 [+22]
+  GETTABLEKS R7 R6 K5 ["current"]
+  JUMPIFEQKNIL R7 [+7]
+  GETTABLEKS R8 R6 K5 ["current"]
+  GETTABLEKS R7 R8 K1 ["avatar"]
+  JUMPIFEQ R7 R2 [+12]
+  DUPTABLE R7 K6 [{"avatar", "autoSetupTarget", "isSelected"}]
+  SETTABLEKS R2 R7 K1 ["avatar"]
+  LOADNIL R8
+  SETTABLEKS R8 R7 K0 ["autoSetupTarget"]
+  LOADB R8 0
+  SETTABLEKS R8 R7 K2 ["isSelected"]
+  SETTABLEKS R7 R6 K5 ["current"]
+  SETTABLEKS R2 R4 K5 ["current"]
+  GETTABLEKS R7 R6 K5 ["current"]
+  RETURN R7 1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AvatarCompatibilityPreviewer"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K8 ["Src"]
+  GETTABLEKS R3 R4 K9 ["Types"]
+  CALL R2 1 1
+  GETIMPORT R3 K5 [require]
+  GETTABLEKS R6 R0 K8 ["Src"]
+  GETTABLEKS R5 R6 K10 ["Hooks"]
+  GETTABLEKS R4 R5 K11 ["useSelectedAutoSetupTarget"]
+  CALL R3 1 1
+  GETIMPORT R4 K5 [require]
+  GETTABLEKS R7 R0 K8 ["Src"]
+  GETTABLEKS R6 R7 K10 ["Hooks"]
+  GETTABLEKS R5 R6 K12 ["useSelectedAvatar"]
+  CALL R4 1 1
+  GETIMPORT R5 K5 [require]
+  GETTABLEKS R8 R0 K8 ["Src"]
+  GETTABLEKS R7 R8 K13 ["Flags"]
+  GETTABLEKS R6 R7 K14 ["getFFlagAvatarPreviewerAutoSetup"]
+  CALL R5 1 1
+  GETIMPORT R6 K5 [require]
+  GETTABLEKS R9 R0 K8 ["Src"]
+  GETTABLEKS R8 R9 K13 ["Flags"]
+  GETTABLEKS R7 R8 K15 ["getFFlagAvatarPreviewerUseAnyModel"]
+  CALL R6 1 1
+  DUPCLOSURE R7 K16 [PROTO_0]
+  CAPTURE VAL R6
+  CAPTURE VAL R5
+  CAPTURE VAL R4
+  CAPTURE VAL R3
+  CAPTURE VAL R1
+  RETURN R7 1

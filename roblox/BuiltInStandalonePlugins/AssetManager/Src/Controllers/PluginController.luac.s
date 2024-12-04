@@ -1,0 +1,377 @@
+PROTO_0:
+  RETURN R0 0
+
+PROTO_1:
+  JUMPIFNOT R1 [+38]
+  GETUPVAL R2 0
+  CALL R2 0 1
+  JUMPIFNOT R2 [+9]
+  GETIMPORT R2 K1 [warn]
+  GETUPVAL R3 1
+  LOADK R5 K2 ["PluginErrors"]
+  LOADK R6 K3 ["ErrorFetchUsername"]
+  NAMECALL R3 R3 K4 ["getText"]
+  CALL R3 3 -1
+  CALL R2 -1 0
+  GETUPVAL R2 1
+  LOADK R4 K5 ["Plugin"]
+  LOADK R5 K6 ["PlaceholderUsername"]
+  NAMECALL R2 R2 K4 ["getText"]
+  CALL R2 3 1
+  GETUPVAL R5 2
+  GETTABLEKS R4 R5 K7 ["_user"]
+  GETTABLEKS R3 R4 K8 ["Name"]
+  JUMPIFEQ R3 R2 [+26]
+  GETUPVAL R4 2
+  GETTABLEKS R3 R4 K7 ["_user"]
+  SETTABLEKS R2 R3 K8 ["Name"]
+  GETUPVAL R4 2
+  GETTABLEKS R3 R4 K9 ["OnUsernameFetched"]
+  MOVE R5 R2
+  NAMECALL R3 R3 K10 ["Fire"]
+  CALL R3 2 0
+  RETURN R0 0
+  GETUPVAL R3 2
+  GETTABLEKS R2 R3 K7 ["_user"]
+  SETTABLEKS R0 R2 K8 ["Name"]
+  GETUPVAL R3 2
+  GETTABLEKS R2 R3 K9 ["OnUsernameFetched"]
+  MOVE R4 R0
+  NAMECALL R2 R2 K10 ["Fire"]
+  CALL R2 2 0
+  RETURN R0 0
+
+PROTO_2:
+  DUPTABLE R4 K16 [{"_isMock", "_networking", "_plugin", "_pressedKeys", "_user", "_universe", "_bulkImportService", "_pluginWidth", "_showSidebar", "OnUsernameFetched", "OnGameNameFetched", "OnSelectionChanged", "OnInputChanged", "OnSidebarToggled", "OnPluginWidthChanged", "OnIsCompactChanged"}]
+  SETTABLEKS R3 R4 K0 ["_isMock"]
+  SETTABLEKS R1 R4 K1 ["_networking"]
+  SETTABLEKS R0 R4 K2 ["_plugin"]
+  NEWTABLE R5 0 0
+  SETTABLEKS R5 R4 K3 ["_pressedKeys"]
+  DUPTABLE R5 K20 [{"Id", "Name", "Scope"}]
+  GETUPVAL R6 0
+  NAMECALL R6 R6 K21 ["GetUserId"]
+  CALL R6 1 1
+  SETTABLEKS R6 R5 K17 ["Id"]
+  LOADK R8 K22 ["Plugin"]
+  LOADK R9 K23 ["PlaceholderUsername"]
+  NAMECALL R6 R2 K24 ["getText"]
+  CALL R6 3 1
+  SETTABLEKS R6 R5 K18 ["Name"]
+  GETUPVAL R8 1
+  GETTABLEKS R7 R8 K19 ["Scope"]
+  GETTABLEKS R6 R7 K25 ["User"]
+  SETTABLEKS R6 R5 K19 ["Scope"]
+  SETTABLEKS R5 R4 K4 ["_user"]
+  DUPTABLE R5 K20 [{"Id", "Name", "Scope"}]
+  GETIMPORT R7 K27 [game]
+  GETTABLEKS R6 R7 K28 ["GameId"]
+  SETTABLEKS R6 R5 K17 ["Id"]
+  LOADK R8 K22 ["Plugin"]
+  LOADK R9 K29 ["PlaceholderGameName"]
+  NAMECALL R6 R2 K24 ["getText"]
+  CALL R6 3 1
+  SETTABLEKS R6 R5 K18 ["Name"]
+  GETUPVAL R8 1
+  GETTABLEKS R7 R8 K19 ["Scope"]
+  GETTABLEKS R6 R7 K30 ["Universe"]
+  SETTABLEKS R6 R5 K19 ["Scope"]
+  SETTABLEKS R5 R4 K5 ["_universe"]
+  JUMPIFNOT R3 [+5]
+  DUPTABLE R5 K32 [{"LaunchBulkImport"}]
+  DUPCLOSURE R6 K33 [PROTO_0]
+  SETTABLEKS R6 R5 K31 ["LaunchBulkImport"]
+  JUMP [+6]
+  GETIMPORT R5 K27 [game]
+  LOADK R7 K34 ["BulkImportService"]
+  NAMECALL R5 R5 K35 ["GetService"]
+  CALL R5 2 1
+  SETTABLEKS R5 R4 K6 ["_bulkImportService"]
+  LOADN R5 0
+  SETTABLEKS R5 R4 K7 ["_pluginWidth"]
+  LOADB R5 1
+  SETTABLEKS R5 R4 K8 ["_showSidebar"]
+  GETUPVAL R6 2
+  GETTABLEKS R5 R6 K36 ["new"]
+  CALL R5 0 1
+  SETTABLEKS R5 R4 K9 ["OnUsernameFetched"]
+  GETUPVAL R6 2
+  GETTABLEKS R5 R6 K36 ["new"]
+  CALL R5 0 1
+  SETTABLEKS R5 R4 K10 ["OnGameNameFetched"]
+  GETUPVAL R6 2
+  GETTABLEKS R5 R6 K36 ["new"]
+  CALL R5 0 1
+  SETTABLEKS R5 R4 K11 ["OnSelectionChanged"]
+  GETUPVAL R6 2
+  GETTABLEKS R5 R6 K36 ["new"]
+  CALL R5 0 1
+  SETTABLEKS R5 R4 K12 ["OnInputChanged"]
+  GETUPVAL R6 2
+  GETTABLEKS R5 R6 K36 ["new"]
+  CALL R5 0 1
+  SETTABLEKS R5 R4 K13 ["OnSidebarToggled"]
+  GETUPVAL R6 2
+  GETTABLEKS R5 R6 K36 ["new"]
+  CALL R5 0 1
+  SETTABLEKS R5 R4 K14 ["OnPluginWidthChanged"]
+  GETUPVAL R6 2
+  GETTABLEKS R5 R6 K36 ["new"]
+  CALL R5 0 1
+  SETTABLEKS R5 R4 K15 ["OnIsCompactChanged"]
+  GETTABLEKS R5 R4 K1 ["_networking"]
+  NEWCLOSURE R7 P1
+  CAPTURE UPVAL U3
+  CAPTURE VAL R2
+  CAPTURE VAL R4
+  NAMECALL R5 R5 K37 ["fetchUsername"]
+  CALL R5 2 0
+  GETTABLEKS R5 R4 K1 ["_networking"]
+  NAMECALL R5 R5 K38 ["fetchGameName"]
+  CALL R5 1 2
+  JUMPIFNOT R5 [+11]
+  GETTABLEKS R7 R4 K5 ["_universe"]
+  SETTABLEKS R6 R7 K18 ["Name"]
+  GETTABLEKS R7 R4 K10 ["OnGameNameFetched"]
+  MOVE R9 R6
+  NAMECALL R7 R7 K39 ["Fire"]
+  CALL R7 2 0
+  JUMP [+32]
+  GETUPVAL R7 3
+  CALL R7 0 1
+  JUMPIFNOT R7 [+8]
+  GETIMPORT R7 K41 [warn]
+  LOADK R10 K42 ["PluginErrors"]
+  LOADK R11 K43 ["ErrorFetchGameName"]
+  NAMECALL R8 R2 K24 ["getText"]
+  CALL R8 3 -1
+  CALL R7 -1 0
+  LOADK R9 K22 ["Plugin"]
+  LOADK R10 K29 ["PlaceholderGameName"]
+  NAMECALL R7 R2 K24 ["getText"]
+  CALL R7 3 1
+  GETTABLEKS R9 R4 K5 ["_universe"]
+  GETTABLEKS R8 R9 K18 ["Name"]
+  JUMPIFEQ R8 R7 [+11]
+  GETTABLEKS R8 R4 K5 ["_universe"]
+  SETTABLEKS R7 R8 K18 ["Name"]
+  GETTABLEKS R8 R4 K10 ["OnGameNameFetched"]
+  MOVE R10 R7
+  NAMECALL R8 R8 K39 ["Fire"]
+  CALL R8 2 0
+  GETUPVAL R9 4
+  FASTCALL2 SETMETATABLE R4 R9 [+4]
+  MOVE R8 R4
+  GETIMPORT R7 K45 [setmetatable]
+  CALL R7 2 0
+  RETURN R4 1
+
+PROTO_3:
+  GETUPVAL R4 0
+  GETTABLEKS R3 R4 K0 ["new"]
+  MOVE R4 R0
+  MOVE R5 R1
+  MOVE R6 R2
+  LOADB R7 1
+  CALL R3 4 -1
+  RETURN R3 -1
+
+PROTO_4:
+  LOADNIL R1
+  SETTABLEKS R1 R0 K0 ["_pressedKeys"]
+  LOADNIL R1
+  SETTABLEKS R1 R0 K1 ["_user"]
+  LOADNIL R1
+  SETTABLEKS R1 R0 K2 ["OnUsernameFetched"]
+  LOADNIL R1
+  SETTABLEKS R1 R0 K3 ["OnSelectionChanged"]
+  LOADNIL R1
+  SETTABLEKS R1 R0 K4 ["OnInputChanged"]
+  RETURN R0 0
+
+PROTO_5:
+  GETTABLEKS R1 R0 K0 ["_plugin"]
+  RETURN R1 1
+
+PROTO_6:
+  SETTABLEKS R1 R0 K0 ["_root"]
+  RETURN R0 0
+
+PROTO_7:
+  GETTABLEKS R1 R0 K0 ["_root"]
+  RETURN R1 1
+
+PROTO_8:
+  GETTABLEKS R2 R0 K0 ["_pressedKeys"]
+  LOADB R3 1
+  SETTABLE R3 R2 R1
+  GETTABLEKS R2 R0 K1 ["OnInputChanged"]
+  GETTABLEKS R4 R0 K0 ["_pressedKeys"]
+  NAMECALL R2 R2 K2 ["Fire"]
+  CALL R2 2 0
+  RETURN R0 0
+
+PROTO_9:
+  GETTABLEKS R2 R0 K0 ["_pressedKeys"]
+  LOADNIL R3
+  SETTABLE R3 R2 R1
+  GETTABLEKS R2 R0 K1 ["OnInputChanged"]
+  GETTABLEKS R4 R0 K0 ["_pressedKeys"]
+  NAMECALL R2 R2 K2 ["Fire"]
+  CALL R2 2 0
+  RETURN R0 0
+
+PROTO_10:
+  GETTABLEKS R1 R0 K0 ["_user"]
+  RETURN R1 1
+
+PROTO_11:
+  GETTABLEKS R1 R0 K0 ["_universe"]
+  RETURN R1 1
+
+PROTO_12:
+  GETTABLEKS R1 R0 K0 ["_bulkImportService"]
+  LOADN R3 0
+  NAMECALL R1 R1 K1 ["LaunchBulkImport"]
+  CALL R1 2 0
+  RETURN R0 0
+
+PROTO_13:
+  GETTABLEKS R1 R0 K0 ["_showSidebar"]
+  RETURN R1 1
+
+PROTO_14:
+  GETTABLEKS R2 R0 K0 ["_showSidebar"]
+  NOT R1 R2
+  SETTABLEKS R1 R0 K0 ["_showSidebar"]
+  GETTABLEKS R1 R0 K1 ["OnSidebarToggled"]
+  GETTABLEKS R3 R0 K0 ["_showSidebar"]
+  NAMECALL R1 R1 K2 ["Fire"]
+  CALL R1 2 0
+  RETURN R0 0
+
+PROTO_15:
+  SETTABLEKS R1 R0 K0 ["_showSidebar"]
+  GETTABLEKS R2 R0 K1 ["OnSidebarToggled"]
+  GETTABLEKS R4 R0 K0 ["_showSidebar"]
+  NAMECALL R2 R2 K2 ["Fire"]
+  CALL R2 2 0
+  RETURN R0 0
+
+PROTO_16:
+  GETTABLEKS R2 R0 K0 ["_pluginWidth"]
+  JUMPIFNOT R2 [+8]
+  GETTABLEKS R2 R0 K0 ["_pluginWidth"]
+  LOADN R3 144
+  JUMPIFLT R2 R3 [+2]
+  LOADB R1 0 +1
+  LOADB R1 1
+  RETURN R1 1
+  LOADB R1 0
+  RETURN R1 1
+
+PROTO_17:
+  GETTABLEKS R1 R0 K0 ["_pluginWidth"]
+  RETURN R1 1
+
+PROTO_18:
+  NAMECALL R2 R0 K0 ["getIsCompact"]
+  CALL R2 1 1
+  GETTABLEKS R3 R0 K1 ["_pluginWidth"]
+  SETTABLEKS R1 R0 K1 ["_pluginWidth"]
+  JUMPIFEQ R3 R1 [+7]
+  GETTABLEKS R4 R0 K2 ["OnPluginWidthChanged"]
+  MOVE R6 R1
+  NAMECALL R4 R4 K3 ["Fire"]
+  CALL R4 2 0
+  NAMECALL R4 R0 K0 ["getIsCompact"]
+  CALL R4 1 1
+  JUMPIFEQ R2 R4 [+22]
+  NAMECALL R4 R0 K0 ["getIsCompact"]
+  CALL R4 1 1
+  JUMPIFNOT R4 [+5]
+  LOADB R6 0
+  NAMECALL R4 R0 K4 ["setShowSidebar"]
+  CALL R4 2 0
+  JUMP [+4]
+  LOADB R6 1
+  NAMECALL R4 R0 K4 ["setShowSidebar"]
+  CALL R4 2 0
+  GETTABLEKS R4 R0 K5 ["OnIsCompactChanged"]
+  NAMECALL R6 R0 K0 ["getIsCompact"]
+  CALL R6 1 -1
+  NAMECALL R4 R4 K3 ["Fire"]
+  CALL R4 -1 0
+  RETURN R0 0
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AssetManager"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["Framework"]
+  CALL R1 1 1
+  GETTABLEKS R2 R1 K8 ["ContextServices"]
+  GETTABLEKS R3 R2 K9 ["ContextItem"]
+  GETTABLEKS R5 R1 K10 ["Util"]
+  GETTABLEKS R4 R5 K11 ["Signal"]
+  GETIMPORT R5 K5 [require]
+  GETTABLEKS R7 R0 K12 ["Src"]
+  GETTABLEKS R6 R7 K13 ["Types"]
+  CALL R5 1 1
+  GETIMPORT R6 K15 [game]
+  LOADK R8 K16 ["StudioService"]
+  NAMECALL R6 R6 K17 ["GetService"]
+  CALL R6 2 1
+  GETIMPORT R7 K5 [require]
+  GETTABLEKS R10 R0 K12 ["Src"]
+  GETTABLEKS R9 R10 K18 ["Flags"]
+  GETTABLEKS R8 R9 K19 ["getFFlagDebugAmrOutput"]
+  CALL R7 1 1
+  LOADK R10 K20 ["PluginController"]
+  NAMECALL R8 R3 K21 ["extend"]
+  CALL R8 2 1
+  DUPCLOSURE R9 K22 [PROTO_2]
+  CAPTURE VAL R6
+  CAPTURE VAL R5
+  CAPTURE VAL R4
+  CAPTURE VAL R7
+  CAPTURE VAL R8
+  SETTABLEKS R9 R8 K23 ["new"]
+  DUPCLOSURE R9 K24 [PROTO_3]
+  CAPTURE VAL R8
+  SETTABLEKS R9 R8 K25 ["mock"]
+  DUPCLOSURE R9 K26 [PROTO_4]
+  SETTABLEKS R9 R8 K27 ["destroy"]
+  DUPCLOSURE R9 K28 [PROTO_5]
+  SETTABLEKS R9 R8 K29 ["getPlugin"]
+  DUPCLOSURE R9 K30 [PROTO_6]
+  SETTABLEKS R9 R8 K31 ["setRoot"]
+  DUPCLOSURE R9 K32 [PROTO_7]
+  SETTABLEKS R9 R8 K33 ["getRoot"]
+  DUPCLOSURE R9 K34 [PROTO_8]
+  SETTABLEKS R9 R8 K35 ["addKeyPress"]
+  DUPCLOSURE R9 K36 [PROTO_9]
+  SETTABLEKS R9 R8 K37 ["removeKeyPress"]
+  DUPCLOSURE R9 K38 [PROTO_10]
+  SETTABLEKS R9 R8 K39 ["getUser"]
+  DUPCLOSURE R9 K40 [PROTO_11]
+  SETTABLEKS R9 R8 K41 ["getUniverse"]
+  DUPCLOSURE R9 K42 [PROTO_12]
+  SETTABLEKS R9 R8 K43 ["launchBulkImport"]
+  DUPCLOSURE R9 K44 [PROTO_13]
+  SETTABLEKS R9 R8 K45 ["getShowSidebar"]
+  DUPCLOSURE R9 K46 [PROTO_14]
+  SETTABLEKS R9 R8 K47 ["toggleSidebar"]
+  DUPCLOSURE R9 K48 [PROTO_15]
+  SETTABLEKS R9 R8 K49 ["setShowSidebar"]
+  DUPCLOSURE R9 K50 [PROTO_16]
+  SETTABLEKS R9 R8 K51 ["getIsCompact"]
+  DUPCLOSURE R9 K52 [PROTO_17]
+  SETTABLEKS R9 R8 K53 ["getPluginWidth"]
+  DUPCLOSURE R9 K54 [PROTO_18]
+  SETTABLEKS R9 R8 K55 ["setPluginWidth"]
+  RETURN R8 1

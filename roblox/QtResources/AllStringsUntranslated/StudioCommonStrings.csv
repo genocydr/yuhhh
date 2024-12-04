@@ -1,0 +1,82 @@
+Key,Context,Source,en-us
+Studio.Common.Action.SaveToRoblox,,Save to Roblox,Save to Roblox
+Studio.Common.Action.Okay,,Okay,Okay
+Studio.Common.Action.Remove,,Remove,Remove
+Studio.Common.Action.Cancel,,Cancel,Cancel
+Studio.Common.Action.Close,,Close,Close
+Studio.Common.Action.Continue,,Continue,Continue
+Studio.Common.Action.Copy,,Copy,Copy
+Studio.Common.Action.Create,,Create,Create
+Studio.Common.Action.Delete,,Delete,Delete
+Studio.Common.Action.Edit,,Edit,Edit
+Studio.Common.Action.Error,,Error,Error
+Studio.Common.Action.Exit,,Exit,Exit
+Studio.Common.Action.Find,,Find,Find
+Studio.Common.Action.Help,,Help,Help
+Studio.Common.Action.Insert,,Insert,Insert
+Studio.Common.Action.LabelWithColon1,,%1:,%1:
+Studio.Common.Action.LearnMore,,Learn More,Learn More
+Studio.Common.Action.Name,,Name,Name
+Studio.Common.Action.New,,New,New
+Studio.Common.Action.No,,No,No
+Studio.Common.Action.OK,,OK,OK
+Studio.Common.Action.Open,,Open,Open
+Studio.Common.Action.Pause,,Pause,Pause
+Studio.Common.Action.PauseAllPhysics,,Pause Physics: All,Pause Physics: All
+Studio.Common.Action.PauseScripts,,Pause Scripts,Pause Scripts
+Studio.Common.Action.PauseCurrentPhysics,"Pauses the currently visible workspace physics simulation, namely client or server.",Pause Physics: Current,Pause Physics: Current
+Studio.Common.Action.PauseCurrentClient,,Pause Physics: Client,Pause Physics: Client
+Studio.Common.Action.PauseCurrentServer,,Pause Physics: Server,Pause Physics: Server
+Studio.Common.Action.Play,,Play,Play
+Studio.Common.Action.PublishToRobloxAs,,Publish to Roblox As...,Publish to Roblox As...
+Studio.Common.Action.Redo,,Redo,Redo
+Studio.Common.Action.Replace,,Replace,Replace
+Studio.Common.Action.ReportBug,,Report Bug,Report Bug
+Studio.Common.Action.Resume,,Resume,Resume
+Studio.Common.Action.ResumeAllPhysics,,Resume Physics: All,Resume Physics: All
+Studio.Common.Action.ResumeScripts,,Resume Scripts,Resume Scripts
+Studio.Common.Action.ResumeCurrentPhysics,"Resumes the currently visible workspace physics simulation, namely client or server.",Resume Physics: Current,Resume Physics: Current
+Studio.Common.Action.ResumeCurrentClient,,Resume Physics: Client,Resume Physics: Client
+Studio.Common.Action.ResumeCurrentServer,,Resume Physics: Server,Resume Physics: Server
+Studio.Common.Action.Rename,,Rename,Rename
+Studio.Common.Action.Reset,,Reset,Reset
+Studio.Common.Action.Retry,,Retry,Retry
+Studio.Common.Action.Save,,Save,Save
+Studio.Common.Action.SaveToRobloxAs,,Save to Roblox As...,Save to Roblox As...
+Studio.Common.Action.Search,,Search,Search
+Studio.Common.Action.Share,,Share,Share
+Studio.Common.Action.ShowDetails,,Show Details,Show Details
+Studio.Common.Action.StepForwardPhysicsCurrent,"Steps simulation forward in the currently visible workspace, namely client or server.",Step Forward Physics: Current,Step Forward Physics: Current
+Studio.Common.Action.StepForwardPhysicsClient,Steps simulation forward for the client.,Step Forward Physics: Client,Step Forward Physics: Client
+Studio.Common.Action.StepForwardPhysicsServer,Steps simulation forward for the server.,Step Forward Physics: Server,Step Forward Physics: Server
+Studio.Common.Action.StepForward,,Step Forward Physics: All,Step Forward Physics: All
+Studio.Common.Action.Stop,,Stop,Stop
+Studio.Common.Action.Undo,,Undo,Undo
+Studio.Common.Action.Value,,Value,Value
+Studio.Common.Action.Yes,,Yes,Yes
+Studio.Common.Action.Next,,Next,Next
+Studio.Common.Action.Ignore,,Ignore,Ignore
+Studio.Common.Action.Goto,,Goto,Goto
+Studio.Common.Action.Reload,,Reload,Reload
+Studio.Common.Action.SelectAll,,Select All,Select All
+Studio.Common.Action.Warning,,Warning,Warning
+Studio.Common.Action.Apply,,Apply,Apply
+Studio.Common.Action.Confirm,,Confirm,Confirm
+Studio.Common.Action.HideDetails,,Hide Details,Hide Details
+Studio.Common.Action.Update,,Update,Update
+Studio.Common.Action.Cut,,Cut,Cut
+Studio.Common.Action.Paste,,Paste,Paste
+Studio.Common.Action.Select,,Select,Select
+Studio.Common.Action.Clear,,Clear,Clear
+Studio.Common.Action.Previous,,Previous,Previous
+Studio.Common.Action.Back,,Back,Back
+Studio.Common.Action.Height,,Height,Height
+Studio.Common.Action.Width,,Width,Width
+Studio.Common.Action.Accessory,,Accessory,Accessory
+Studio.Common.Action.Rig,,Rig,Rig
+Studio.Common.Action.Preview,,Setup,Setup
+Studio.Common.Action.Animation,,Animation,Animation
+Studio.Common.Action.AvatarUnification,,Avatar Unification,Avatar Unification
+Studio.Common.Action.File,,File,File
+Studio.Common.Action.Home,,Home,Home
+Studio.Common.Action.Resize,,Resize,Resize

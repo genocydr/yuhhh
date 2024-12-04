@@ -1,0 +1,155 @@
+PROTO_0:
+  GETUPVAL R0 0
+  DUPTABLE R2 K2 [{"Sender", "MimeType"}]
+  LOADK R3 K3 ["Explorer"]
+  SETTABLEKS R3 R2 K0 ["Sender"]
+  LOADK R3 K4 ["roblox/selection"]
+  SETTABLEKS R3 R2 K1 ["MimeType"]
+  NAMECALL R0 R0 K5 ["StartDrag"]
+  CALL R0 2 0
+  GETUPVAL R1 1
+  GETTABLEKS R0 R1 K6 ["enable"]
+  CALL R0 0 0
+  RETURN R0 0
+
+PROTO_1:
+  GETTABLEKS R1 R0 K0 ["MimeType"]
+  JUMPIFEQKS R1 K1 ["roblox/selection"] [+2]
+  RETURN R0 0
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K2 ["enable"]
+  CALL R1 0 0
+  RETURN R0 0
+
+PROTO_2:
+  GETTABLEKS R1 R0 K0 ["MimeType"]
+  JUMPIFEQKS R1 K1 ["roblox/selection"] [+2]
+  RETURN R0 0
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K2 ["disable"]
+  CALL R1 0 0
+  RETURN R0 0
+
+PROTO_3:
+  GETTABLEKS R1 R0 K0 ["MimeType"]
+  JUMPIFEQKS R1 K1 ["roblox/selection"] [+2]
+  RETURN R0 0
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K2 ["disable"]
+  CALL R1 0 0
+  GETUPVAL R2 1
+  GETTABLEKS R1 R2 K3 ["current"]
+  NAMECALL R1 R1 K4 ["Fire"]
+  CALL R1 1 0
+  RETURN R0 0
+
+PROTO_4:
+  GETTABLEKS R1 R0 K0 ["MimeType"]
+  JUMPIFEQKS R1 K1 ["roblox/selection"] [+2]
+  RETURN R0 0
+  RETURN R0 0
+
+PROTO_5:
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["ContextServices"]
+  GETTABLEKS R1 R2 K1 ["Plugin"]
+  NAMECALL R1 R1 K2 ["use"]
+  CALL R1 1 1
+  NAMECALL R1 R1 K3 ["get"]
+  CALL R1 1 1
+  GETUPVAL R3 1
+  GETTABLEKS R2 R3 K4 ["useToggleState"]
+  CALL R2 0 1
+  GETUPVAL R4 2
+  GETTABLEKS R3 R4 K5 ["useCallback"]
+  NEWCLOSURE R4 P0
+  CAPTURE VAL R1
+  CAPTURE VAL R2
+  NEWTABLE R5 0 1
+  MOVE R6 R1
+  SETLIST R5 R6 1 [1]
+  CALL R3 2 1
+  GETUPVAL R5 1
+  GETTABLEKS R4 R5 K6 ["useEventConnection"]
+  GETTABLEKS R6 R0 K7 ["dockWidget"]
+  GETTABLEKS R5 R6 K8 ["PluginDragEntered"]
+  NEWCLOSURE R6 P1
+  CAPTURE VAL R2
+  NEWTABLE R7 0 0
+  CALL R4 3 0
+  GETUPVAL R5 1
+  GETTABLEKS R4 R5 K6 ["useEventConnection"]
+  GETTABLEKS R6 R0 K7 ["dockWidget"]
+  GETTABLEKS R5 R6 K9 ["PluginDragLeft"]
+  NEWCLOSURE R6 P2
+  CAPTURE VAL R2
+  NEWTABLE R7 0 0
+  CALL R4 3 0
+  GETUPVAL R5 2
+  GETTABLEKS R4 R5 K10 ["useRef"]
+  GETUPVAL R7 3
+  GETTABLEKS R6 R7 K11 ["Signal"]
+  GETTABLEKS R5 R6 K12 ["new"]
+  CALL R5 0 -1
+  CALL R4 -1 1
+  GETUPVAL R6 1
+  GETTABLEKS R5 R6 K6 ["useEventConnection"]
+  GETTABLEKS R7 R0 K7 ["dockWidget"]
+  GETTABLEKS R6 R7 K13 ["PluginDragDropped"]
+  NEWCLOSURE R7 P3
+  CAPTURE VAL R2
+  CAPTURE VAL R4
+  NEWTABLE R8 0 0
+  CALL R5 3 0
+  GETUPVAL R6 1
+  GETTABLEKS R5 R6 K6 ["useEventConnection"]
+  GETTABLEKS R7 R0 K7 ["dockWidget"]
+  GETTABLEKS R6 R7 K14 ["PluginDragMoved"]
+  DUPCLOSURE R7 K15 [PROTO_4]
+  NEWTABLE R8 0 0
+  CALL R5 3 0
+  GETUPVAL R5 4
+  GETUPVAL R9 3
+  GETTABLEKS R8 R9 K16 ["Components"]
+  GETTABLEKS R7 R8 K17 ["Contexts"]
+  GETTABLEKS R6 R7 K18 ["DragDropContextProvider"]
+  DUPTABLE R7 K22 [{"startSelectionDrag", "selectionDragInProgress", "selectionDragDropped"}]
+  SETTABLEKS R3 R7 K19 ["startSelectionDrag"]
+  GETTABLEKS R8 R2 K23 ["enabled"]
+  SETTABLEKS R8 R7 K20 ["selectionDragInProgress"]
+  GETTABLEKS R8 R4 K24 ["current"]
+  SETTABLEKS R8 R7 K21 ["selectionDragDropped"]
+  GETTABLEKS R8 R0 K25 ["children"]
+  CALL R5 3 -1
+  RETURN R5 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["ExplorerPlugin"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["Explorer"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Framework"]
+  CALL R2 1 1
+  GETIMPORT R3 K5 [require]
+  GETTABLEKS R5 R0 K6 ["Packages"]
+  GETTABLEKS R4 R5 K9 ["React"]
+  CALL R3 1 1
+  GETIMPORT R4 K5 [require]
+  GETTABLEKS R6 R0 K6 ["Packages"]
+  GETTABLEKS R5 R6 K10 ["ReactUtils"]
+  CALL R4 1 1
+  GETTABLEKS R5 R3 K11 ["createElement"]
+  DUPCLOSURE R6 K12 [PROTO_5]
+  CAPTURE VAL R2
+  CAPTURE VAL R4
+  CAPTURE VAL R3
+  CAPTURE VAL R1
+  CAPTURE VAL R5
+  RETURN R6 1

@@ -1,0 +1,172 @@
+PROTO_0:
+  DUPTABLE R0 K2 [{"_publishService", "_promises"}]
+  GETUPVAL R1 0
+  SETTABLEKS R1 R0 K0 ["_publishService"]
+  NEWTABLE R1 0 0
+  SETTABLEKS R1 R0 K1 ["_promises"]
+  GETUPVAL R3 1
+  FASTCALL2 SETMETATABLE R0 R3 [+4]
+  MOVE R2 R0
+  GETIMPORT R1 K4 [setmetatable]
+  CALL R1 2 0
+  RETURN R0 1
+
+PROTO_1:
+  FASTCALL2K ASSERT R0 K0 [+5]
+  MOVE R2 R0
+  LOADK R3 K0 ["ImageUploader.mock expects a mock PublishService"]
+  GETIMPORT R1 K2 [assert]
+  CALL R1 2 0
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K3 ["new"]
+  CALL R1 0 1
+  SETTABLEKS R0 R1 K4 ["_publishService"]
+  RETURN R1 1
+
+PROTO_2:
+  LOADNIL R1
+  SETTABLEKS R1 R0 K0 ["_publishService"]
+  NEWTABLE R1 0 0
+  SETTABLEKS R1 R0 K1 ["_promises"]
+  RETURN R0 0
+
+PROTO_3:
+  GETIMPORT R3 K3 [Enum.AssetCreatorType.User]
+  GETUPVAL R4 0
+  NAMECALL R4 R4 K4 ["GetUserId"]
+  CALL R4 1 1
+  MOVE R5 R0
+  GETUPVAL R7 1
+  GETTABLEKS R6 R7 K5 ["_publishService"]
+  GETUPVAL R8 2
+  MOVE R9 R3
+  MOVE R10 R4
+  LOADK R11 K6 ["Image"]
+  LOADN R12 0
+  GETUPVAL R13 3
+  GETUPVAL R14 4
+  LOADK R15 K7 [""]
+  LOADK R16 K7 [""]
+  LOADN R17 0
+  NAMECALL R6 R6 K8 ["CreateAssetOrAssetVersionAndPollAssetWithTelemetryAsync"]
+  CALL R6 11 -1
+  CALL R5 -1 0
+  RETURN R0 0
+
+PROTO_4:
+  GETTABLEKS R1 R0 K0 ["AssetId"]
+  RETURN R1 1
+
+PROTO_5:
+  FASTCALL1 TYPE R1 [+3]
+  MOVE R8 R1
+  GETIMPORT R7 K1 [type]
+  CALL R7 1 1
+  JUMPIFEQKS R7 K2 ["string"] [+2]
+  LOADB R6 0 +1
+  LOADB R6 1
+  FASTCALL2K ASSERT R6 K3 [+4]
+  LOADK R7 K3 ["ImageUploader:upload() expects tempId to be a string"]
+  GETIMPORT R5 K5 [assert]
+  CALL R5 2 0
+  FASTCALL1 TYPE R2 [+3]
+  MOVE R8 R2
+  GETIMPORT R7 K1 [type]
+  CALL R7 1 1
+  JUMPIFEQKS R7 K2 ["string"] [+2]
+  LOADB R6 0 +1
+  LOADB R6 1
+  FASTCALL2K ASSERT R6 K6 [+4]
+  LOADK R7 K6 ["ImageUploader:upload() expects name to be a string"]
+  GETIMPORT R5 K5 [assert]
+  CALL R5 2 0
+  LOADB R6 1
+  FASTCALL1 TYPE R3 [+3]
+  MOVE R8 R3
+  GETIMPORT R7 K1 [type]
+  CALL R7 1 1
+  JUMPIFEQKS R7 K2 ["string"] [+10]
+  FASTCALL1 TYPE R3 [+3]
+  MOVE R8 R3
+  GETIMPORT R7 K1 [type]
+  CALL R7 1 1
+  JUMPIFEQKS R7 K7 ["nil"] [+2]
+  LOADB R6 0 +1
+  LOADB R6 1
+  FASTCALL2K ASSERT R6 K8 [+4]
+  LOADK R7 K8 ["ImageUploader:upload() expects description to be a string or nil"]
+  GETIMPORT R5 K5 [assert]
+  CALL R5 2 0
+  FASTCALL1 TYPE R4 [+3]
+  MOVE R8 R4
+  GETIMPORT R7 K1 [type]
+  CALL R7 1 1
+  JUMPIFEQKS R7 K2 ["string"] [+2]
+  LOADB R6 0 +1
+  LOADB R6 1
+  FASTCALL2K ASSERT R6 K9 [+4]
+  LOADK R7 K9 ["ImageUploader:upload() expects contents to be a string"]
+  GETIMPORT R5 K5 [assert]
+  CALL R5 2 0
+  ORK R3 R3 K10 [""]
+  GETTABLEKS R6 R0 K11 ["_promises"]
+  GETTABLE R5 R6 R1
+  JUMPIFNOT R5 [+5]
+  GETTABLEKS R6 R0 K11 ["_promises"]
+  GETTABLE R5 R6 R1
+  CLOSEUPVALS R3
+  RETURN R5 1
+  GETUPVAL R6 0
+  GETTABLEKS R5 R6 K12 ["new"]
+  NEWCLOSURE R6 P0
+  CAPTURE UPVAL U1
+  CAPTURE VAL R0
+  CAPTURE VAL R4
+  CAPTURE VAL R2
+  CAPTURE REF R3
+  CALL R5 1 1
+  DUPCLOSURE R8 K13 [PROTO_4]
+  NAMECALL R6 R5 K14 ["andThen"]
+  CALL R6 2 1
+  MOVE R5 R6
+  GETTABLEKS R6 R0 K11 ["_promises"]
+  SETTABLE R5 R6 R1
+  CLOSEUPVALS R3
+  RETURN R5 1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R3 K1 [script]
+  GETTABLEKS R2 R3 K2 ["Parent"]
+  GETTABLEKS R1 R2 K2 ["Parent"]
+  GETTABLEKS R0 R1 K2 ["Parent"]
+  GETIMPORT R1 K4 [game]
+  LOADK R3 K5 ["PublishService"]
+  NAMECALL R1 R1 K6 ["GetService"]
+  CALL R1 2 1
+  GETIMPORT R2 K4 [game]
+  LOADK R4 K7 ["StudioService"]
+  NAMECALL R2 R2 K6 ["GetService"]
+  CALL R2 2 1
+  GETIMPORT R5 K9 [require]
+  GETTABLEKS R7 R0 K10 ["Packages"]
+  GETTABLEKS R6 R7 K11 ["Framework"]
+  CALL R5 1 1
+  GETTABLEKS R4 R5 K12 ["Util"]
+  GETTABLEKS R3 R4 K13 ["Promise"]
+  NEWTABLE R4 8 0
+  SETTABLEKS R4 R4 K14 ["__index"]
+  DUPCLOSURE R5 K15 [PROTO_0]
+  CAPTURE VAL R1
+  CAPTURE VAL R4
+  SETTABLEKS R5 R4 K16 ["new"]
+  DUPCLOSURE R5 K17 [PROTO_1]
+  CAPTURE VAL R4
+  SETTABLEKS R5 R4 K18 ["mock"]
+  DUPCLOSURE R5 K19 [PROTO_2]
+  SETTABLEKS R5 R4 K20 ["destroy"]
+  DUPCLOSURE R5 K21 [PROTO_5]
+  CAPTURE VAL R3
+  CAPTURE VAL R2
+  SETTABLEKS R5 R4 K22 ["upload"]
+  RETURN R4 1

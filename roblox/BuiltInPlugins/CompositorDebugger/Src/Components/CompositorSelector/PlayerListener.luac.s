@@ -1,0 +1,210 @@
+PROTO_0:
+  LOADK R3 K0 ["Script"]
+  NAMECALL R1 R0 K1 ["IsA"]
+  CALL R1 2 1
+  JUMPIF R1 [+5]
+  LOADK R3 K2 ["BindableEvent"]
+  NAMECALL R1 R0 K1 ["IsA"]
+  CALL R1 2 1
+  JUMPIFNOT R1 [+25]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["props"]
+  GETTABLEKS R1 R2 K4 ["IsSelectedInstanceValid"]
+  GETUPVAL R2 1
+  CALL R1 1 1
+  JUMPIFNOT R1 [+17]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K5 ["descendantAddedEvent"]
+  NAMECALL R1 R1 K6 ["Disconnect"]
+  CALL R1 1 0
+  GETUPVAL R1 0
+  LOADNIL R2
+  SETTABLEKS R2 R1 K5 ["descendantAddedEvent"]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["props"]
+  GETTABLEKS R1 R2 K7 ["OnValidSelection"]
+  GETUPVAL R2 1
+  CALL R1 1 0
+  RETURN R0 0
+
+PROTO_1:
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["props"]
+  GETTABLEKS R1 R2 K1 ["IsSelectedInstanceValid"]
+  MOVE R2 R0
+  CALL R1 1 1
+  JUMPIFNOT R1 [+8]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["props"]
+  GETTABLEKS R1 R2 K2 ["OnValidSelection"]
+  MOVE R2 R0
+  CALL R1 1 0
+  RETURN R0 0
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K3 ["descendantAddedEvent"]
+  JUMPIFNOT R1 [+6]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["descendantAddedEvent"]
+  GETTABLEKS R1 R2 K4 ["Disconnect"]
+  CALL R1 0 0
+  GETUPVAL R1 0
+  GETTABLEKS R2 R0 K5 ["DescendantAdded"]
+  NEWCLOSURE R4 P0
+  CAPTURE UPVAL U0
+  CAPTURE VAL R0
+  NAMECALL R2 R2 K6 ["Connect"]
+  CALL R2 2 1
+  SETTABLEKS R2 R1 K3 ["descendantAddedEvent"]
+  RETURN R0 0
+
+PROTO_2:
+  GETTABLEKS R1 R0 K0 ["Character"]
+  JUMPIFNOT R1 [+6]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K1 ["onCharacterAdded"]
+  GETTABLEKS R2 R0 K0 ["Character"]
+  CALL R1 1 0
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K2 ["onCharacterAddedEvent"]
+  JUMPIFNOT R1 [+6]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K2 ["onCharacterAddedEvent"]
+  NAMECALL R1 R1 K3 ["Disconnect"]
+  CALL R1 1 0
+  GETUPVAL R1 0
+  GETTABLEKS R2 R0 K4 ["CharacterAdded"]
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K1 ["onCharacterAdded"]
+  NAMECALL R2 R2 K5 ["Connect"]
+  CALL R2 2 1
+  SETTABLEKS R2 R1 K2 ["onCharacterAddedEvent"]
+  RETURN R0 0
+
+PROTO_3:
+  NEWCLOSURE R1 P0
+  CAPTURE VAL R0
+  SETTABLEKS R1 R0 K0 ["onCharacterAdded"]
+  NEWCLOSURE R1 P1
+  CAPTURE VAL R0
+  SETTABLEKS R1 R0 K1 ["onPlayerAdded"]
+  RETURN R0 0
+
+PROTO_4:
+  GETUPVAL R1 0
+  NAMECALL R1 R1 K0 ["IsRunning"]
+  CALL R1 1 1
+  JUMPIF R1 [+1]
+  RETURN R0 0
+  GETUPVAL R1 0
+  NAMECALL R1 R1 K1 ["IsClient"]
+  CALL R1 1 1
+  JUMPIFNOT R1 [+39]
+  GETUPVAL R2 1
+  GETTABLEKS R1 R2 K2 ["LocalPlayer"]
+  JUMPIFNOT R1 [+35]
+  GETUPVAL R3 1
+  GETTABLEKS R2 R3 K2 ["LocalPlayer"]
+  GETTABLEKS R1 R2 K3 ["Character"]
+  JUMPIFNOT R1 [+8]
+  GETTABLEKS R1 R0 K4 ["onCharacterAdded"]
+  GETUPVAL R4 1
+  GETTABLEKS R3 R4 K2 ["LocalPlayer"]
+  GETTABLEKS R2 R3 K3 ["Character"]
+  CALL R1 1 0
+  GETTABLEKS R1 R0 K5 ["onCharacterAddedEvent"]
+  JUMPIFNOT R1 [+5]
+  GETTABLEKS R1 R0 K5 ["onCharacterAddedEvent"]
+  NAMECALL R1 R1 K6 ["Disconnect"]
+  CALL R1 1 0
+  GETUPVAL R3 1
+  GETTABLEKS R2 R3 K2 ["LocalPlayer"]
+  GETTABLEKS R1 R2 K7 ["CharacterAdded"]
+  GETTABLEKS R3 R0 K4 ["onCharacterAdded"]
+  NAMECALL R1 R1 K8 ["Connect"]
+  CALL R1 2 1
+  SETTABLEKS R1 R0 K5 ["onCharacterAddedEvent"]
+  RETURN R0 0
+  GETUPVAL R1 1
+  NAMECALL R1 R1 K9 ["GetPlayers"]
+  CALL R1 1 1
+  GETTABLEN R2 R1 1
+  JUMPIFNOT R2 [+18]
+  GETTABLEN R3 R1 1
+  GETTABLEKS R2 R3 K3 ["Character"]
+  JUMPIFNOT R2 [+6]
+  GETTABLEKS R2 R0 K4 ["onCharacterAdded"]
+  GETTABLEN R4 R1 1
+  GETTABLEKS R3 R4 K3 ["Character"]
+  CALL R2 1 0
+  GETTABLEN R3 R1 1
+  GETTABLEKS R2 R3 K7 ["CharacterAdded"]
+  GETTABLEKS R4 R0 K4 ["onCharacterAdded"]
+  NAMECALL R2 R2 K8 ["Connect"]
+  CALL R2 2 0
+  GETTABLEKS R2 R0 K10 ["onPlayerAddedEvent"]
+  JUMPIFNOT R2 [+5]
+  GETTABLEKS R2 R0 K10 ["onPlayerAddedEvent"]
+  NAMECALL R2 R2 K6 ["Disconnect"]
+  CALL R2 1 0
+  GETUPVAL R3 1
+  GETTABLEKS R2 R3 K11 ["PlayerAdded"]
+  GETTABLEKS R4 R0 K12 ["onPlayerAdded"]
+  NAMECALL R2 R2 K8 ["Connect"]
+  CALL R2 2 1
+  SETTABLEKS R2 R0 K10 ["onPlayerAddedEvent"]
+  RETURN R0 0
+
+PROTO_5:
+  GETTABLEKS R1 R0 K0 ["onPlayerAddedEvent"]
+  JUMPIFNOT R1 [+8]
+  GETTABLEKS R1 R0 K0 ["onPlayerAddedEvent"]
+  NAMECALL R1 R1 K1 ["Disconnect"]
+  CALL R1 1 0
+  LOADNIL R1
+  SETTABLEKS R1 R0 K2 ["onPlayerAdded"]
+  GETTABLEKS R1 R0 K3 ["onCharacterAddedEvent"]
+  JUMPIFNOT R1 [+8]
+  GETTABLEKS R1 R0 K3 ["onCharacterAddedEvent"]
+  NAMECALL R1 R1 K1 ["Disconnect"]
+  CALL R1 1 0
+  LOADNIL R1
+  SETTABLEKS R1 R0 K3 ["onCharacterAddedEvent"]
+  RETURN R0 0
+
+PROTO_6:
+  LOADNIL R1
+  RETURN R1 1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [game]
+  LOADK R2 K2 ["Players"]
+  NAMECALL R0 R0 K3 ["GetService"]
+  CALL R0 2 1
+  GETIMPORT R1 K1 [game]
+  LOADK R3 K4 ["RunService"]
+  NAMECALL R1 R1 K3 ["GetService"]
+  CALL R1 2 1
+  GETIMPORT R2 K6 [script]
+  LOADK R4 K7 ["CompositorDebugger"]
+  NAMECALL R2 R2 K8 ["FindFirstAncestor"]
+  CALL R2 2 1
+  GETIMPORT R3 K10 [require]
+  GETTABLEKS R5 R2 K11 ["Packages"]
+  GETTABLEKS R4 R5 K12 ["React"]
+  CALL R3 1 1
+  GETTABLEKS R4 R3 K13 ["PureComponent"]
+  LOADK R6 K14 ["PlayerListener"]
+  NAMECALL R4 R4 K15 ["extend"]
+  CALL R4 2 1
+  DUPCLOSURE R5 K16 [PROTO_3]
+  SETTABLEKS R5 R4 K17 ["init"]
+  DUPCLOSURE R5 K18 [PROTO_4]
+  CAPTURE VAL R1
+  CAPTURE VAL R0
+  SETTABLEKS R5 R4 K19 ["didMount"]
+  DUPCLOSURE R5 K20 [PROTO_5]
+  SETTABLEKS R5 R4 K21 ["willUnmount"]
+  DUPCLOSURE R5 K22 [PROTO_6]
+  SETTABLEKS R5 R4 K23 ["render"]
+  RETURN R4 1

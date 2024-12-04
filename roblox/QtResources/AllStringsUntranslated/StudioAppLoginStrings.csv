@@ -1,0 +1,15 @@
+Key,Context,Source,en-us
+Studio.App.Login.UnableToLogin,,Unable to log in,Unable to log in
+Studio.App.Login.EnterUsernameAndPassword,,Please enter your username and password.,Please enter your username and password.
+Studio.App.Login.EnterUsername,,Please enter your username.,Please enter your username.
+Studio.App.Login.EnterPassword,,Please enter your password.,Please enter your password.
+Studio.App.Login.IncorrectUsernamePassword,,Incorrect username or password. Please try again.,Incorrect username or password. Please try again.
+Studio.App.Login.StudioVersion1,,Roblox Studio Version %1,Roblox Studio Version %1
+Studio.App.Login.UnableToConnect,This error is shown to users when Studio fails initially because Studio could not connect.,Studio is unable to connect. Please check your internet connection and try again.,Studio is unable to connect. Please check your internet connection and try again.
+Studio.App.Login.TooManyLogins,,Too many logins were attempted from this network. You must log in through a web browser.,Too many logins were attempted from this network. You must log in through a web browser.
+Studio.App.Login.LoginThroughBrowser,,Log in through browser,Log in through browser
+Studio.App.Login.AddAccount,,Add Account,Add Account
+Studio.App.Login.UserModerated,,"User is moderated, please check website for more details.","User is moderated, please check website for more details."
+Studio.App.Login.UnableToLogout,,Unable to log out. Please save modified places in other Studio instances and then proceed with log out.,Unable to log out. Please save modified places in other Studio instances and then proceed with log out.
+Studio.App.Login.LogOutOf1,,Log out of @%1?,Log out of @%1?
+Studio.App.Login.AreYouSureLogoutDetails,,Logging out will remove all existing credentials for this account. All instances of Studio under this account will be closed.,Logging out will remove all existing credentials for this account. All instances of Studio under this account will be closed.

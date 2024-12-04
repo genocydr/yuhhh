@@ -1,0 +1,11 @@
+Key,Context,Source,en-us
+Studio.App.RobloxTextOutputWidget.OpenLink,,Open link,Open link
+Studio.App.RobloxTextOutputWidget.Copy,,Copy,Copy
+Studio.App.RobloxTextOutputWidget.SelectAll,,Select All,Select All
+Studio.App.RobloxTextOutputWidget.ClearOutput,,Clear Output,Clear Output
+Studio.App.RobloxTextOutputWidget.LuaTableIndicator1,,table: %1,table: %1
+Studio.App.RobloxTextOutputWidget.Filter,,Filter...,Filter...
+Studio.App.RobloxTextOutputWidget.MaxTableDepthReached,,Max table depth reached,Max table depth reached
+Studio.App.RobloxTextOutputWidget.Timestamp,,Timestamp,Timestamp
+Studio.App.RobloxTextOutputWidget.Message,,Message,Message
+Studio.App.RobloxTextOutputWidget.Context,,Context,Context

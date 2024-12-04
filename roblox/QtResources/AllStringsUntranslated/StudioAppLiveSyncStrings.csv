@@ -1,0 +1,20 @@
+Key,Context,Source,en-us
+Studio.App.LiveSync.ErrorWritingToFile,,Can't sync %1 to disk: Unable to write to file,Can't sync %1 to disk: Unable to write to file
+Studio.App.LiveSync.ErrorReadingFromFile,,Can't sync %1 to disk: Unable to read from file,Can't sync %1 to disk: Unable to read from file
+Studio.App.LiveSync.ErrorWritingToScript,,Can't sync %1 to disk: Unable to write to the data model,Can't sync %1 to disk: Unable to write to the data model
+Studio.App.LiveSync.ErrorUnsupportedFileType,,Can't sync %1 to disk: Unsupported file type,Can't sync %1 to disk: Unsupported file type
+Studio.App.LiveSync.ErrorStartingSync,,Can't start syncing %1 to disk: Unable to initiate sync,Can't start syncing %1 to disk: Unable to initiate sync
+Studio.App.LiveSync.ErrorDuringSync,,Can't sync scripts to disk: Unable to read from data model or disk,Can't sync scripts to disk: Unable to read from data model or disk
+Studio.App.LiveSync.StartingSyncInfo,,Started syncing %1 at %2,Started syncing %1 at %2
+Studio.App.LiveSync.StoppingSyncInfo,,Stopped syncing %1 at %2,Stopped syncing %1 at %2
+Studio.App.LiveSync.ErrorCreatingDirectory,,Can't sync %1 to disk: Failed to create directory,Can't sync %1 to disk: Failed to create directory
+Studio.App.LiveSync.InstanceDeletedStoppingSync,,Can't sync %1 to disk: Instance deleted,Can't sync %1 to disk: Instance deleted
+Studio.App.LiveSync.FileNotFoundStoppingSync,,Can't sync %1 to disk: File not found,Can't sync %1 to disk: File not found
+Studio.App.LiveSync.PathAlreadyInUse,,Can't sync %1 to disk at %2: Path in use,Can't sync %1 to disk at %2: Path in use
+Studio.App.LiveSync.SyncLimitReached,,Can't sync %1 to disk: Too many files in sync,Can't sync %1 to disk: Too many files in sync
+Studio.App.LiveSync.PackageLinkAdded,,Can't sync %1 to disk: Script is linked to a package,Can't sync %1 to disk: Script is linked to a package
+Studio.App.LiveSync.FileTooLarge,,Can't sync %1 to disk: File too large,Can't sync %1 to disk: File too large
+Studio.App.LiveSync.DuplicateFilesOutput,,Duplicate file names found: ,Duplicate file names found: 
+Studio.App.LiveSync.InvalidFilesOutput,,Invalid file names: ,Invalid file names: 
+Studio.App.LiveSync.ExcessPathLengthsOutput,,Path length exceeded: ,Path length exceeded: 
+Studio.App.LiveSync.ContainsForbiddenCharactersOutput,,Names contain invalid characters: ,Names contain invalid characters: 

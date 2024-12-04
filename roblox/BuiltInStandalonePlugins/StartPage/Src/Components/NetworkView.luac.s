@@ -1,0 +1,167 @@
+PROTO_0:
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K0 ["OnItemCountUpdated"]
+  JUMPIFNOT R0 [+8]
+  GETUPVAL R0 1
+  JUMPIFNOT R0 [+6]
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K0 ["OnItemCountUpdated"]
+  GETUPVAL R2 2
+  LENGTH R1 R2
+  CALL R0 1 0
+  RETURN R0 0
+
+PROTO_1:
+  GETTABLEKS R2 R0 K0 ["Query"]
+  GETTABLEKS R1 R2 K1 ["searchKey"]
+  GETUPVAL R2 0
+  MOVE R3 R1
+  GETTABLEKS R4 R0 K0 ["Query"]
+  CALL R2 2 1
+  GETTABLEKS R4 R0 K0 ["Query"]
+  GETTABLEKS R3 R4 K2 ["pageSize"]
+  JUMPIF R3 [+6]
+  GETIMPORT R4 K4 [warn]
+  MOVE R5 R3
+  LOADK R6 K5 ["Should have a page size in the query"]
+  CALL R4 2 0
+  LOADN R3 30
+  GETUPVAL R4 1
+  GETTABLEKS R6 R0 K0 ["Query"]
+  MOVE R7 R2
+  GETTABLEKS R8 R0 K6 ["FetchItems"]
+  NAMECALL R4 R4 K7 ["use"]
+  CALL R4 4 3
+  GETUPVAL R7 2
+  LOADB R8 0
+  CALL R7 1 1
+  GETTABLEKS R8 R7 K8 ["current"]
+  JUMPIF R8 [+21]
+  GETTABLEKS R8 R0 K9 ["InitialContentHasLoaded"]
+  JUMPIFNOT R8 [+18]
+  JUMPIFEQKNIL R5 [+17]
+  LOADB R8 1
+  SETTABLEKS R8 R7 K8 ["current"]
+  GETTABLEKS R8 R0 K9 ["InitialContentHasLoaded"]
+  LENGTH R10 R4
+  GETTABLEKS R11 R0 K10 ["MaxCount"]
+  JUMPIF R11 [+1]
+  LENGTH R11 R4
+  FASTCALL2 MATH_MIN R10 R11 [+3]
+  GETIMPORT R9 K13 [math.min]
+  CALL R9 2 1
+  CALL R8 1 0
+  GETUPVAL R8 3
+  NEWCLOSURE R9 P0
+  CAPTURE VAL R0
+  CAPTURE VAL R5
+  CAPTURE VAL R4
+  NEWTABLE R10 0 2
+  LENGTH R11 R4
+  MOVE R12 R5
+  SETLIST R10 R11 2 [1]
+  CALL R8 2 0
+  JUMPIFNOTEQKN R5 K14 [0] [+16]
+  GETTABLEKS R8 R0 K15 ["NoContentDisplayComponent"]
+  JUMPIFNOT R8 [+12]
+  GETUPVAL R9 4
+  GETTABLEKS R8 R9 K16 ["createElement"]
+  GETTABLEKS R9 R0 K15 ["NoContentDisplayComponent"]
+  DUPTABLE R10 K18 [{"Size"}]
+  GETTABLEKS R11 R0 K17 ["Size"]
+  SETTABLEKS R11 R10 K17 ["Size"]
+  CALL R8 2 -1
+  RETURN R8 -1
+  GETUPVAL R9 4
+  GETTABLEKS R8 R9 K16 ["createElement"]
+  GETTABLEKS R9 R0 K19 ["DisplayComponent"]
+  DUPTABLE R10 K28 [{"Cells", "OnLoadRange", "LayoutOrder", "CellComponent", "CellSize", "CellPadding", "Size", "DisplayComponentHasAdjustedQuery", "CanDisplayComponentAdjustQuery", "Query"}]
+  GETTABLEKS R12 R0 K10 ["MaxCount"]
+  JUMPIFNOT R12 [+7]
+  GETUPVAL R11 5
+  MOVE R12 R4
+  LOADN R13 1
+  GETTABLEKS R14 R0 K10 ["MaxCount"]
+  CALL R11 3 1
+  JUMP [+1]
+  MOVE R11 R4
+  SETTABLEKS R11 R10 K20 ["Cells"]
+  SETTABLEKS R6 R10 K21 ["OnLoadRange"]
+  GETTABLEKS R11 R0 K22 ["LayoutOrder"]
+  SETTABLEKS R11 R10 K22 ["LayoutOrder"]
+  GETTABLEKS R11 R0 K23 ["CellComponent"]
+  SETTABLEKS R11 R10 K23 ["CellComponent"]
+  GETTABLEKS R11 R0 K24 ["CellSize"]
+  SETTABLEKS R11 R10 K24 ["CellSize"]
+  GETTABLEKS R11 R0 K25 ["CellPadding"]
+  SETTABLEKS R11 R10 K25 ["CellPadding"]
+  GETTABLEKS R11 R0 K17 ["Size"]
+  SETTABLEKS R11 R10 K17 ["Size"]
+  GETTABLEKS R12 R0 K27 ["CanDisplayComponentAdjustQuery"]
+  JUMPIFNOT R12 [+3]
+  GETTABLEKS R11 R0 K26 ["DisplayComponentHasAdjustedQuery"]
+  JUMP [+1]
+  LOADNIL R11
+  SETTABLEKS R11 R10 K26 ["DisplayComponentHasAdjustedQuery"]
+  GETTABLEKS R12 R0 K27 ["CanDisplayComponentAdjustQuery"]
+  ORK R11 R12 K29 []
+  SETTABLEKS R11 R10 K27 ["CanDisplayComponentAdjustQuery"]
+  GETTABLEKS R12 R0 K27 ["CanDisplayComponentAdjustQuery"]
+  JUMPIFNOT R12 [+3]
+  GETTABLEKS R11 R0 K0 ["Query"]
+  JUMP [+1]
+  LOADNIL R11
+  SETTABLEKS R11 R10 K0 ["Query"]
+  CALL R8 2 -1
+  RETURN R8 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["StartPage"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETTABLEKS R2 R1 K8 ["memo"]
+  GETTABLEKS R3 R1 K9 ["useEffect"]
+  GETTABLEKS R4 R1 K10 ["useRef"]
+  GETIMPORT R5 K5 [require]
+  GETTABLEKS R7 R0 K6 ["Packages"]
+  GETTABLEKS R6 R7 K11 ["Dash"]
+  CALL R5 1 1
+  GETTABLEKS R6 R5 K12 ["slice"]
+  GETIMPORT R7 K5 [require]
+  GETTABLEKS R11 R0 K13 ["Src"]
+  GETTABLEKS R10 R11 K14 ["Util"]
+  GETTABLEKS R9 R10 K15 ["Telemetry"]
+  GETTABLEKS R8 R9 K16 ["TelemetryContext"]
+  CALL R7 1 1
+  GETIMPORT R8 K5 [require]
+  GETTABLEKS R11 R0 K13 ["Src"]
+  GETTABLEKS R10 R11 K17 ["Network"]
+  GETTABLEKS R9 R10 K18 ["GameCache"]
+  CALL R8 1 1
+  GETIMPORT R9 K5 [require]
+  GETTABLEKS R11 R0 K13 ["Src"]
+  GETTABLEKS R10 R11 K19 ["Types"]
+  CALL R9 1 1
+  GETIMPORT R10 K5 [require]
+  GETTABLEKS R13 R0 K13 ["Src"]
+  GETTABLEKS R12 R13 K14 ["Util"]
+  GETTABLEKS R11 R12 K20 ["getQueryString"]
+  CALL R10 1 1
+  DUPCLOSURE R11 K21 [PROTO_1]
+  CAPTURE VAL R10
+  CAPTURE VAL R8
+  CAPTURE VAL R4
+  CAPTURE VAL R3
+  CAPTURE VAL R1
+  CAPTURE VAL R6
+  SETGLOBAL R11 K22 ["NetworkView"]
+  MOVE R11 R2
+  GETGLOBAL R12 K22 ["NetworkView"]
+  CALL R11 1 -1
+  RETURN R11 -1

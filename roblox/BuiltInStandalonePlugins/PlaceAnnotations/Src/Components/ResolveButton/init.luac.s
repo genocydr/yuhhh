@@ -1,0 +1,61 @@
+PROTO_0:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["createElement"]
+  LOADK R2 K1 ["TextButton"]
+  NEWTABLE R3 4 0
+  GETTABLEKS R5 R0 K2 ["Disabled"]
+  NOT R4 R5
+  SETTABLEKS R4 R3 K3 ["Interactable"]
+  GETUPVAL R6 0
+  GETTABLEKS R5 R6 K4 ["Event"]
+  GETTABLEKS R4 R5 K5 ["Activated"]
+  GETTABLEKS R5 R0 K6 ["OnClick"]
+  SETTABLE R5 R3 R4
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K7 ["Tag"]
+  GETUPVAL R5 1
+  LOADK R6 K8 ["Component-ResolveButton"]
+  GETTABLEKS R8 R0 K9 ["Resolved"]
+  JUMPIFNOT R8 [+2]
+  LOADK R7 K9 ["Resolved"]
+  JUMP [+1]
+  LOADNIL R7
+  GETTABLEKS R9 R0 K2 ["Disabled"]
+  JUMPIFNOT R9 [+2]
+  LOADK R8 K2 ["Disabled"]
+  JUMP [+1]
+  LOADNIL R8
+  GETUPVAL R11 0
+  GETTABLEKS R10 R11 K7 ["Tag"]
+  GETTABLE R9 R0 R10
+  CALL R5 4 1
+  SETTABLE R5 R3 R4
+  DUPTABLE R4 K11 [{"Icon"}]
+  GETUPVAL R6 0
+  GETTABLEKS R5 R6 K0 ["createElement"]
+  LOADK R6 K12 ["ImageLabel"]
+  CALL R5 1 1
+  SETTABLEKS R5 R4 K10 ["Icon"]
+  CALL R1 3 -1
+  RETURN R1 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["PlaceAnnotations"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Framework"]
+  CALL R2 1 1
+  GETTABLEKS R4 R2 K9 ["Styling"]
+  GETTABLEKS R3 R4 K10 ["joinTags"]
+  DUPCLOSURE R4 K11 [PROTO_0]
+  CAPTURE VAL R1
+  CAPTURE VAL R3
+  RETURN R4 1

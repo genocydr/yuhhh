@@ -1,0 +1,295 @@
+PROTO_0:
+  GETUPVAL R0 0
+  RETURN R0 1
+
+PROTO_1:
+  JUMPIF R0 [+2]
+  LOADB R1 0
+  RETURN R1 1
+  GETTABLEKS R1 R0 K0 ["ClassName"]
+  GETUPVAL R3 0
+  GETTABLE R2 R3 R1
+  JUMPIFNOT R2 [+4]
+  GETUPVAL R4 0
+  GETTABLE R3 R4 R1
+  GETTABLEKS R2 R3 K1 ["HasInput"]
+  RETURN R2 1
+
+PROTO_2:
+  JUMPIF R0 [+2]
+  LOADB R1 0
+  RETURN R1 1
+  GETTABLEKS R1 R0 K0 ["ClassName"]
+  GETUPVAL R3 0
+  GETTABLE R2 R3 R1
+  JUMPIFNOT R2 [+4]
+  GETUPVAL R4 0
+  GETTABLE R3 R4 R1
+  GETTABLEKS R2 R3 K1 ["HasOutput"]
+  RETURN R2 1
+
+PROTO_3:
+  JUMPIF R0 [+2]
+  LOADB R1 0
+  RETURN R1 1
+  GETTABLEKS R1 R0 K0 ["ClassName"]
+  GETUPVAL R3 0
+  GETTABLE R2 R3 R1
+  JUMPIFNOT R2 [+8]
+  GETUPVAL R5 0
+  GETTABLE R4 R5 R1
+  GETTABLEKS R3 R4 K1 ["HasSidechain"]
+  JUMPIFEQKB R3 TRUE [+2]
+  LOADB R2 0 +1
+  LOADB R2 1
+  RETURN R2 1
+
+PROTO_4:
+  JUMPIFNOT R0 [+7]
+  LENGTH R1 R0
+  JUMPIFNOTEQKN R1 K0 [2] [+5]
+  GETTABLEN R1 R0 1
+  JUMPIFNOT R1 [+2]
+  GETTABLEN R1 R0 2
+  JUMPIF R1 [+3]
+  LOADNIL R1
+  LOADNIL R2
+  RETURN R1 2
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K1 ["hasOutputPin"]
+  GETTABLEN R2 R0 1
+  CALL R1 1 1
+  JUMPIFNOT R1 [+9]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K2 ["hasInputPin"]
+  GETTABLEN R2 R0 2
+  CALL R1 1 1
+  JUMPIFNOT R1 [+3]
+  GETTABLEN R1 R0 1
+  GETTABLEN R2 R0 2
+  RETURN R1 2
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K2 ["hasInputPin"]
+  GETTABLEN R2 R0 1
+  CALL R1 1 1
+  JUMPIFNOT R1 [+9]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K1 ["hasOutputPin"]
+  GETTABLEN R2 R0 2
+  CALL R1 1 1
+  JUMPIFNOT R1 [+3]
+  GETTABLEN R1 R0 2
+  GETTABLEN R2 R0 1
+  RETURN R1 2
+  LOADNIL R1
+  LOADNIL R2
+  RETURN R1 2
+
+PROTO_5:
+  LOADK R4 K0 ["Output"]
+  NAMECALL R2 R0 K1 ["GetConnectedWires"]
+  CALL R2 2 3
+  FORGPREP R2
+  GETTABLEKS R7 R6 K2 ["TargetInstance"]
+  JUMPIFNOTEQ R7 R1 [+2]
+  RETURN R6 1
+  FORGLOOP R2 2 [-6]
+  LOADNIL R2
+  RETURN R2 1
+
+PROTO_6:
+  LOADK R6 K0 ["AudioDeviceInput"]
+  NAMECALL R4 R1 K1 ["IsA"]
+  CALL R4 2 1
+  JUMPIFNOT R4 [+2]
+  MOVE R3 R2
+  JUMP [+1]
+  MOVE R3 R1
+  SETTABLEKS R3 R0 K2 ["Parent"]
+  SETTABLEKS R1 R0 K3 ["SourceInstance"]
+  SETTABLEKS R2 R0 K4 ["TargetInstance"]
+  GETTABLEKS R4 R0 K3 ["SourceInstance"]
+  JUMPIFNOTEQ R4 R1 [+17]
+  GETTABLEKS R4 R0 K4 ["TargetInstance"]
+  JUMPIFNOTEQ R4 R2 [+13]
+  LOADK R5 K5 ["%* -> %*"]
+  GETTABLEKS R7 R1 K6 ["Name"]
+  GETTABLEKS R8 R2 K6 ["Name"]
+  NAMECALL R5 R5 K7 ["format"]
+  CALL R5 3 1
+  MOVE R4 R5
+  SETTABLEKS R4 R0 K6 ["Name"]
+  RETURN R0 1
+  NAMECALL R4 R0 K8 ["Destroy"]
+  CALL R4 1 0
+  LOADNIL R4
+  RETURN R4 1
+
+PROTO_7:
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["hasOutputPin"]
+  MOVE R3 R0
+  CALL R2 1 1
+  JUMPIFNOT R2 [+6]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K1 ["hasInputPin"]
+  MOVE R3 R1
+  CALL R2 1 1
+  JUMPIF R2 [+2]
+  LOADNIL R2
+  RETURN R2 1
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K2 ["findWire"]
+  MOVE R3 R0
+  MOVE R4 R1
+  CALL R2 2 1
+  JUMPIFNOT R2 [+1]
+  RETURN R2 1
+  GETIMPORT R3 K5 [Instance.new]
+  LOADK R4 K6 ["Wire"]
+  CALL R3 1 1
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K7 ["rewire"]
+  MOVE R5 R3
+  MOVE R6 R0
+  MOVE R7 R1
+  CALL R4 3 -1
+  RETURN R4 -1
+
+MAIN:
+  PREPVARARGS 0
+  NEWTABLE R0 8 0
+  DUPTABLE R1 K18 [{"AudioPlayer", "AudioDeviceInput", "AudioDeviceOutput", "AudioEmitter", "AudioListener", "AudioChorus", "AudioCompressor", "AudioDistortion", "AudioEcho", "AudioEqualizer", "AudioFader", "AudioFilter", "AudioFlanger", "AudioLimiter", "AudioPitchShifter", "AudioReverb", "AudioAnalyzer", "Wire"}]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K0 ["AudioPlayer"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K1 ["AudioDeviceInput"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K2 ["AudioDeviceOutput"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K3 ["AudioEmitter"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K4 ["AudioListener"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K5 ["AudioChorus"]
+  DUPTABLE R2 K23 [{"HasInput", "HasOutput", "HasSidechain"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K22 ["HasSidechain"]
+  SETTABLEKS R2 R1 K6 ["AudioCompressor"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K7 ["AudioDistortion"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K8 ["AudioEcho"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K9 ["AudioEqualizer"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K10 ["AudioFader"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K11 ["AudioFilter"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K12 ["AudioFlanger"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K13 ["AudioLimiter"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K14 ["AudioPitchShifter"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K15 ["AudioReverb"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 1
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K16 ["AudioAnalyzer"]
+  DUPTABLE R2 K21 [{"HasInput", "HasOutput"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K19 ["HasInput"]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K20 ["HasOutput"]
+  SETTABLEKS R2 R1 K17 ["Wire"]
+  DUPCLOSURE R2 K24 [PROTO_0]
+  CAPTURE VAL R1
+  SETTABLEKS R2 R0 K25 ["getAudioInstanceDefs"]
+  DUPCLOSURE R2 K26 [PROTO_1]
+  CAPTURE VAL R1
+  SETTABLEKS R2 R0 K27 ["hasInputPin"]
+  DUPCLOSURE R2 K28 [PROTO_2]
+  CAPTURE VAL R1
+  SETTABLEKS R2 R0 K29 ["hasOutputPin"]
+  DUPCLOSURE R2 K30 [PROTO_3]
+  CAPTURE VAL R1
+  SETTABLEKS R2 R0 K31 ["hasSidechainPin"]
+  DUPCLOSURE R2 K32 [PROTO_4]
+  CAPTURE VAL R0
+  SETTABLEKS R2 R0 K33 ["getWirableInstances"]
+  DUPCLOSURE R2 K34 [PROTO_5]
+  SETTABLEKS R2 R0 K35 ["findWire"]
+  DUPCLOSURE R2 K36 [PROTO_6]
+  SETTABLEKS R2 R0 K37 ["rewire"]
+  DUPCLOSURE R2 K38 [PROTO_7]
+  CAPTURE VAL R0
+  SETTABLEKS R2 R0 K39 ["connectByWire"]
+  RETURN R0 1

@@ -1,0 +1,375 @@
+PROTO_0:
+  GETIMPORT R0 K2 [table.clone]
+  GETUPVAL R1 0
+  CALL R0 1 -1
+  RETURN R0 -1
+
+PROTO_1:
+  GETTABLEKS R5 R0 K0 ["sessionQueue"]
+  GETTABLEKS R7 R1 K1 ["queueItem"]
+  GETTABLEKS R6 R7 K2 ["filepath"]
+  GETTABLE R4 R5 R6
+  JUMPIFEQKNIL R4 [+2]
+  LOADB R3 0 +1
+  LOADB R3 1
+  FASTCALL2K ASSERT R3 K3 [+4]
+  LOADK R4 K3 ["Session must not exist to be added"]
+  GETIMPORT R2 K5 [assert]
+  CALL R2 2 0
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K8 [{"activeSessionCount", "sessionCount", "sessionQueue"}]
+  GETUPVAL R6 1
+  GETTABLEKS R7 R1 K1 ["queueItem"]
+  CALL R6 1 1
+  JUMPIFNOT R6 [+4]
+  GETTABLEKS R6 R0 K6 ["activeSessionCount"]
+  ADDK R5 R6 K9 [1]
+  JUMP [+2]
+  GETTABLEKS R5 R0 K6 ["activeSessionCount"]
+  SETTABLEKS R5 R4 K6 ["activeSessionCount"]
+  GETTABLEKS R6 R0 K7 ["sessionCount"]
+  ADDK R5 R6 K9 [1]
+  SETTABLEKS R5 R4 K7 ["sessionCount"]
+  GETUPVAL R5 0
+  GETTABLEKS R6 R0 K0 ["sessionQueue"]
+  NEWTABLE R7 1 0
+  GETTABLEKS R9 R1 K1 ["queueItem"]
+  GETTABLEKS R8 R9 K2 ["filepath"]
+  GETTABLEKS R9 R1 K1 ["queueItem"]
+  SETTABLE R9 R7 R8
+  CALL R5 2 1
+  SETTABLEKS R5 R4 K0 ["sessionQueue"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_2:
+  GETUPVAL R2 0
+  CALL R2 0 1
+  JUMPIFNOT R2 [+52]
+  GETTABLEKS R3 R0 K0 ["sessionQueue"]
+  GETTABLEKS R5 R1 K1 ["queueItem"]
+  GETTABLEKS R4 R5 K2 ["filepath"]
+  GETTABLE R2 R3 R4
+  FASTCALL2K ASSERT R2 K3 [+5]
+  MOVE R4 R2
+  LOADK R5 K3 ["Session must exist to be updated"]
+  GETIMPORT R3 K5 [assert]
+  CALL R3 2 0
+  GETUPVAL R3 1
+  MOVE R4 R2
+  CALL R3 1 1
+  GETUPVAL R4 1
+  GETTABLEKS R5 R1 K1 ["queueItem"]
+  CALL R4 1 1
+  GETTABLEKS R5 R0 K6 ["activeSessionCount"]
+  JUMPIFNOT R3 [+3]
+  JUMPIF R4 [+2]
+  SUBK R5 R5 K7 [1]
+  JUMP [+3]
+  JUMPIF R3 [+2]
+  JUMPIFNOT R4 [+1]
+  ADDK R5 R5 K7 [1]
+  GETUPVAL R6 2
+  MOVE R7 R0
+  DUPTABLE R8 K8 [{"activeSessionCount", "sessionQueue"}]
+  SETTABLEKS R5 R8 K6 ["activeSessionCount"]
+  GETUPVAL R9 2
+  GETTABLEKS R10 R0 K0 ["sessionQueue"]
+  NEWTABLE R11 1 0
+  GETTABLEKS R13 R1 K1 ["queueItem"]
+  GETTABLEKS R12 R13 K2 ["filepath"]
+  GETTABLEKS R13 R1 K1 ["queueItem"]
+  SETTABLE R13 R11 R12
+  CALL R9 2 1
+  SETTABLEKS R9 R8 K0 ["sessionQueue"]
+  CALL R6 2 -1
+  RETURN R6 -1
+  GETUPVAL R2 2
+  MOVE R3 R0
+  DUPTABLE R4 K9 [{"sessionQueue"}]
+  GETUPVAL R5 2
+  GETTABLEKS R6 R0 K0 ["sessionQueue"]
+  NEWTABLE R7 1 0
+  GETTABLEKS R9 R1 K1 ["queueItem"]
+  GETTABLEKS R8 R9 K2 ["filepath"]
+  GETTABLEKS R9 R1 K1 ["queueItem"]
+  SETTABLE R9 R7 R8
+  CALL R5 2 1
+  SETTABLEKS R5 R4 K0 ["sessionQueue"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_3:
+  GETTABLEKS R4 R0 K0 ["sessionQueue"]
+  GETTABLEKS R5 R1 K1 ["filepath"]
+  GETTABLE R3 R4 R5
+  FASTCALL2K ASSERT R3 K2 [+4]
+  LOADK R4 K2 ["Session must exist to be removed"]
+  GETIMPORT R2 K4 [assert]
+  CALL R2 2 0
+  GETIMPORT R2 K7 [table.clone]
+  GETTABLEKS R3 R0 K0 ["sessionQueue"]
+  CALL R2 1 1
+  GETTABLEKS R4 R1 K1 ["filepath"]
+  GETTABLE R3 R2 R4
+  GETTABLEKS R4 R1 K1 ["filepath"]
+  LOADNIL R5
+  SETTABLE R5 R2 R4
+  DUPTABLE R4 K10 [{"activeSessionCount", "sessionCount", "sessionQueue"}]
+  GETUPVAL R6 0
+  MOVE R7 R3
+  CALL R6 1 1
+  JUMPIFNOT R6 [+4]
+  GETTABLEKS R6 R0 K8 ["activeSessionCount"]
+  SUBK R5 R6 K11 [1]
+  JUMP [+2]
+  GETTABLEKS R5 R0 K8 ["activeSessionCount"]
+  SETTABLEKS R5 R4 K8 ["activeSessionCount"]
+  GETTABLEKS R6 R0 K9 ["sessionCount"]
+  SUBK R5 R6 K11 [1]
+  SETTABLEKS R5 R4 K9 ["sessionCount"]
+  SETTABLEKS R2 R4 K0 ["sessionQueue"]
+  RETURN R4 1
+
+PROTO_4:
+  DUPTABLE R0 K3 [{"activeSessionCount", "sessionCount", "sessionQueue"}]
+  LOADN R1 0
+  SETTABLEKS R1 R0 K0 ["activeSessionCount"]
+  LOADN R1 0
+  SETTABLEKS R1 R0 K1 ["sessionCount"]
+  NEWTABLE R1 0 0
+  SETTABLEKS R1 R0 K2 ["sessionQueue"]
+  RETURN R0 1
+
+PROTO_5:
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K1 [{"sessionQueue"}]
+  GETTABLEKS R5 R1 K0 ["sessionQueue"]
+  SETTABLEKS R5 R4 K0 ["sessionQueue"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_6:
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K1 [{"activeSessionCount"}]
+  GETTABLEKS R5 R1 K0 ["activeSessionCount"]
+  SETTABLEKS R5 R4 K0 ["activeSessionCount"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_7:
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K1 [{"parsing"}]
+  GETTABLEKS R5 R1 K0 ["parsing"]
+  SETTABLEKS R5 R4 K0 ["parsing"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_8:
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K1 [{"progress"}]
+  GETTABLEKS R5 R1 K0 ["progress"]
+  SETTABLEKS R5 R4 K0 ["progress"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_9:
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K1 [{"progressGoal"}]
+  GETTABLEKS R5 R1 K0 ["progressGoal"]
+  SETTABLEKS R5 R4 K0 ["progressGoal"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_10:
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K1 [{"sessionCount"}]
+  GETTABLEKS R5 R1 K0 ["sessionCount"]
+  SETTABLEKS R5 R4 K0 ["sessionCount"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_11:
+  GETUPVAL R2 0
+  MOVE R3 R0
+  DUPTABLE R4 K1 [{"searchTerm"}]
+  GETTABLEKS R5 R1 K0 ["searchTerm"]
+  SETTABLEKS R5 R4 K0 ["searchTerm"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AssetImporter"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["Rodux"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Dash"]
+  CALL R2 1 1
+  GETTABLEKS R3 R2 K9 ["join"]
+  GETTABLEKS R5 R0 K10 ["Src"]
+  GETTABLEKS R4 R5 K11 ["Actions"]
+  GETIMPORT R5 K5 [require]
+  GETTABLEKS R6 R4 K12 ["AddQueueItem"]
+  CALL R5 1 1
+  GETIMPORT R6 K5 [require]
+  GETTABLEKS R7 R4 K13 ["ClearQueue"]
+  CALL R6 1 1
+  GETIMPORT R7 K5 [require]
+  GETTABLEKS R8 R4 K14 ["RemoveQueueItem"]
+  CALL R7 1 1
+  GETIMPORT R8 K5 [require]
+  GETTABLEKS R9 R4 K15 ["ResetQueue"]
+  CALL R8 1 1
+  GETIMPORT R9 K5 [require]
+  GETTABLEKS R10 R4 K16 ["DEPRECATED_SetActiveSessionCount"]
+  CALL R9 1 1
+  GETIMPORT R10 K5 [require]
+  GETTABLEKS R11 R4 K17 ["SetParsing"]
+  CALL R10 1 1
+  GETIMPORT R11 K5 [require]
+  GETTABLEKS R12 R4 K18 ["SetProgress"]
+  CALL R11 1 1
+  GETIMPORT R12 K5 [require]
+  GETTABLEKS R13 R4 K19 ["SetProgressGoal"]
+  CALL R12 1 1
+  GETIMPORT R13 K5 [require]
+  GETTABLEKS R14 R4 K20 ["SetSearchTerm"]
+  CALL R13 1 1
+  GETIMPORT R14 K5 [require]
+  GETTABLEKS R15 R4 K21 ["DEPRECATED_SetSessionCount"]
+  CALL R14 1 1
+  GETIMPORT R15 K5 [require]
+  GETTABLEKS R16 R4 K22 ["DEPRECATED_SetSessionQueue"]
+  CALL R15 1 1
+  GETIMPORT R16 K5 [require]
+  GETTABLEKS R17 R4 K23 ["UpdateQueueItem"]
+  CALL R16 1 1
+  GETIMPORT R17 K5 [require]
+  GETTABLEKS R20 R0 K10 ["Src"]
+  GETTABLEKS R19 R20 K24 ["DataTypes"]
+  GETTABLEKS R18 R19 K25 ["QueuedSession"]
+  CALL R17 1 1
+  GETIMPORT R18 K5 [require]
+  GETTABLEKS R21 R0 K10 ["Src"]
+  GETTABLEKS R20 R21 K26 ["Utility"]
+  GETTABLEKS R19 R20 K27 ["shouldImportItem"]
+  CALL R18 1 1
+  GETIMPORT R19 K5 [require]
+  GETTABLEKS R22 R0 K10 ["Src"]
+  GETTABLEKS R21 R22 K28 ["Flags"]
+  GETTABLEKS R20 R21 K29 ["getFFlagImportQueueFixFileMiscount"]
+  CALL R19 1 1
+  DUPTABLE R20 K37 [{"activeSessionCount", "parsing", "progress", "progressGoal", "searchTerm", "sessionCount", "sessionQueue"}]
+  LOADN R21 0
+  SETTABLEKS R21 R20 K30 ["activeSessionCount"]
+  LOADB R21 0
+  SETTABLEKS R21 R20 K31 ["parsing"]
+  LOADN R21 0
+  SETTABLEKS R21 R20 K32 ["progress"]
+  LOADN R21 0
+  SETTABLEKS R21 R20 K33 ["progressGoal"]
+  LOADK R21 K38 [""]
+  SETTABLEKS R21 R20 K34 ["searchTerm"]
+  LOADN R21 0
+  SETTABLEKS R21 R20 K35 ["sessionCount"]
+  NEWTABLE R21 0 0
+  SETTABLEKS R21 R20 K36 ["sessionQueue"]
+  GETTABLEKS R21 R1 K39 ["createReducer"]
+  MOVE R22 R20
+  NEWTABLE R23 16 0
+  GETTABLEKS R24 R8 K40 ["name"]
+  DUPCLOSURE R25 K41 [PROTO_0]
+  CAPTURE VAL R20
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R5 K40 ["name"]
+  MOVE R26 R19
+  CALL R26 0 1
+  JUMPIFNOT R26 [+4]
+  DUPCLOSURE R25 K42 [PROTO_1]
+  CAPTURE VAL R3
+  CAPTURE VAL R18
+  JUMP [+1]
+  LOADNIL R25
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R16 K40 ["name"]
+  DUPCLOSURE R25 K43 [PROTO_2]
+  CAPTURE VAL R19
+  CAPTURE VAL R18
+  CAPTURE VAL R3
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R7 K40 ["name"]
+  MOVE R26 R19
+  CALL R26 0 1
+  JUMPIFNOT R26 [+3]
+  DUPCLOSURE R25 K44 [PROTO_3]
+  CAPTURE VAL R18
+  JUMP [+1]
+  LOADNIL R25
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R6 K40 ["name"]
+  MOVE R26 R19
+  CALL R26 0 1
+  JUMPIFNOT R26 [+2]
+  DUPCLOSURE R25 K45 [PROTO_4]
+  JUMP [+1]
+  LOADNIL R25
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R15 K40 ["name"]
+  MOVE R26 R19
+  CALL R26 0 1
+  JUMPIF R26 [+3]
+  DUPCLOSURE R25 K46 [PROTO_5]
+  CAPTURE VAL R3
+  JUMP [+1]
+  LOADNIL R25
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R9 K40 ["name"]
+  MOVE R26 R19
+  CALL R26 0 1
+  JUMPIF R26 [+3]
+  DUPCLOSURE R25 K47 [PROTO_6]
+  CAPTURE VAL R3
+  JUMP [+1]
+  LOADNIL R25
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R10 K40 ["name"]
+  DUPCLOSURE R25 K48 [PROTO_7]
+  CAPTURE VAL R3
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R11 K40 ["name"]
+  DUPCLOSURE R25 K49 [PROTO_8]
+  CAPTURE VAL R3
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R12 K40 ["name"]
+  DUPCLOSURE R25 K50 [PROTO_9]
+  CAPTURE VAL R3
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R14 K40 ["name"]
+  MOVE R26 R19
+  CALL R26 0 1
+  JUMPIF R26 [+3]
+  DUPCLOSURE R25 K51 [PROTO_10]
+  CAPTURE VAL R3
+  JUMP [+1]
+  LOADNIL R25
+  SETTABLE R25 R23 R24
+  GETTABLEKS R24 R13 K40 ["name"]
+  DUPCLOSURE R25 K52 [PROTO_11]
+  CAPTURE VAL R3
+  SETTABLE R25 R23 R24
+  CALL R21 2 -1
+  RETURN R21 -1

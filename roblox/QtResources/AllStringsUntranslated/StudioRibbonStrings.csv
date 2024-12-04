@@ -1,0 +1,4 @@
+Key,Context,Source,en-us
+Studio.Ribbon.Actions.AdGui,A GUI object that displays ads,AdGui,AdGui
+Studio.Ribbon.Actions.LaunchTestMode,Launches a testing session for the currently selected test mode,Launch Test Mode,Launch Test Mode
+Studio.Ribbon.Actions.UIFlexItem,Defines flex behavior for its parent GuiObject under the control of a UIListLayout.,UIFlexItem,UIFlexItem

@@ -1,0 +1,325 @@
+PROTO_0:
+  GETTABLEKS R1 R0 K0 ["fiatProduct"]
+  JUMPIFNOT R1 [+34]
+  GETTABLEKS R2 R0 K0 ["fiatProduct"]
+  GETTABLEKS R1 R2 K1 ["purchasable"]
+  GETTABLEKS R3 R0 K0 ["fiatProduct"]
+  GETTABLEKS R2 R3 K2 ["purchasePrice"]
+  JUMPIFNOT R1 [+1]
+  JUMPIF R2 [+6]
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K3 ["ASSET_STATUS"]
+  GETTABLEKS R3 R4 K4 ["OffSale"]
+  RETURN R3 1
+  GETUPVAL R5 1
+  GETTABLEKS R4 R5 K5 ["isFree"]
+  MOVE R5 R2
+  CALL R4 1 1
+  JUMPIFNOT R4 [+6]
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K3 ["ASSET_STATUS"]
+  GETTABLEKS R3 R4 K6 ["Free"]
+  RETURN R3 1
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K3 ["ASSET_STATUS"]
+  GETTABLEKS R3 R4 K7 ["OnSale"]
+  RETURN R3 1
+  GETTABLEKS R1 R0 K8 ["product"]
+  JUMPIFNOT R1 [+40]
+  GETTABLEKS R2 R0 K8 ["product"]
+  GETTABLEKS R1 R2 K9 ["isForSaleOrIsPublicDomain"]
+  JUMPIFNOT R1 [+29]
+  GETTABLEKS R4 R0 K8 ["product"]
+  GETTABLEKS R3 R4 K10 ["price"]
+  FASTCALL1 TYPEOF R3 [+2]
+  GETIMPORT R2 K12 [typeof]
+  CALL R2 1 1
+  JUMPIFNOTEQKS R2 K13 ["number"] [+14]
+  GETTABLEKS R3 R0 K8 ["product"]
+  GETTABLEKS R2 R3 K10 ["price"]
+  LOADN R3 0
+  JUMPIFNOTLT R3 R2 [+7]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["ASSET_STATUS"]
+  GETTABLEKS R1 R2 K7 ["OnSale"]
+  RETURN R1 1
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["ASSET_STATUS"]
+  GETTABLEKS R1 R2 K6 ["Free"]
+  RETURN R1 1
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["ASSET_STATUS"]
+  GETTABLEKS R1 R2 K4 ["OffSale"]
+  RETURN R1 1
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["ASSET_STATUS"]
+  GETTABLEKS R1 R2 K4 ["OffSale"]
+  RETURN R1 1
+
+PROTO_1:
+  NEWTABLE R0 0 0
+  RETURN R0 1
+
+PROTO_2:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["new"]
+  CALL R1 0 1
+  GETTABLEKS R2 R0 K1 ["asset"]
+  JUMPIFNOT R2 [+149]
+  DUPTABLE R2 K16 [{"Id", "Name", "TypeId", "AssetGenres", "AssetSubTypes", "IsEndorsed", "Description", "Duration", "Created", "Updated", "HasScripts", "CreatingUniverseId", "Status", "IsOpenUse"}]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K17 ["id"]
+  SETTABLEKS R3 R2 K2 ["Id"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K18 ["name"]
+  SETTABLEKS R3 R2 K3 ["Name"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K19 ["typeId"]
+  SETTABLEKS R3 R2 K4 ["TypeId"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K20 ["assetGenres"]
+  SETTABLEKS R3 R2 K5 ["AssetGenres"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K21 ["assetSubTypes"]
+  SETTABLEKS R3 R2 K6 ["AssetSubTypes"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K22 ["isEndorsed"]
+  SETTABLEKS R3 R2 K7 ["IsEndorsed"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K23 ["description"]
+  SETTABLEKS R3 R2 K8 ["Description"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K24 ["duration"]
+  SETTABLEKS R3 R2 K9 ["Duration"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K25 ["createdUtc"]
+  SETTABLEKS R3 R2 K10 ["Created"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K26 ["updatedUtc"]
+  SETTABLEKS R3 R2 K11 ["Updated"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K27 ["hasScripts"]
+  SETTABLEKS R3 R2 K12 ["HasScripts"]
+  GETTABLEKS R4 R0 K1 ["asset"]
+  GETTABLEKS R3 R4 K28 ["creatingUniverseId"]
+  SETTABLEKS R3 R2 K13 ["CreatingUniverseId"]
+  GETGLOBAL R3 K29 ["itemsDetailsToCreationsDistributionStatus"]
+  MOVE R4 R0
+  CALL R3 1 1
+  SETTABLEKS R3 R2 K14 ["Status"]
+  GETUPVAL R4 1
+  CALL R4 0 1
+  JUMPIFNOT R4 [+6]
+  GETTABLEKS R5 R0 K1 ["asset"]
+  GETTABLEKS R4 R5 K31 ["isOpenUse"]
+  ORK R3 R4 K30 [False]
+  JUMP [+1]
+  LOADNIL R3
+  SETTABLEKS R3 R2 K15 ["IsOpenUse"]
+  SETTABLEKS R2 R1 K32 ["Asset"]
+  GETTABLEKS R3 R0 K1 ["asset"]
+  GETTABLEKS R2 R3 K33 ["audioDetails"]
+  JUMPIFNOT R2 [+51]
+  DUPTABLE R2 K40 [{"Type", "Artist", "MusicAlbum", "MusicGenre", "SoundEffectCategory", "SoundEffectSubcategory"}]
+  GETTABLEKS R5 R0 K1 ["asset"]
+  GETTABLEKS R4 R5 K33 ["audioDetails"]
+  GETTABLEKS R3 R4 K41 ["audioType"]
+  SETTABLEKS R3 R2 K34 ["Type"]
+  GETTABLEKS R5 R0 K1 ["asset"]
+  GETTABLEKS R4 R5 K33 ["audioDetails"]
+  GETTABLEKS R3 R4 K42 ["artist"]
+  SETTABLEKS R3 R2 K35 ["Artist"]
+  GETTABLEKS R5 R0 K1 ["asset"]
+  GETTABLEKS R4 R5 K33 ["audioDetails"]
+  GETTABLEKS R3 R4 K43 ["musicAlbum"]
+  SETTABLEKS R3 R2 K36 ["MusicAlbum"]
+  GETTABLEKS R5 R0 K1 ["asset"]
+  GETTABLEKS R4 R5 K33 ["audioDetails"]
+  GETTABLEKS R3 R4 K44 ["musicGenre"]
+  SETTABLEKS R3 R2 K37 ["MusicGenre"]
+  GETTABLEKS R5 R0 K1 ["asset"]
+  GETTABLEKS R4 R5 K33 ["audioDetails"]
+  GETTABLEKS R3 R4 K45 ["soundEffectCategory"]
+  SETTABLEKS R3 R2 K38 ["SoundEffectCategory"]
+  GETTABLEKS R5 R0 K1 ["asset"]
+  GETTABLEKS R4 R5 K33 ["audioDetails"]
+  GETTABLEKS R3 R4 K46 ["soundEffectSubcategory"]
+  SETTABLEKS R3 R2 K39 ["SoundEffectSubcategory"]
+  SETTABLEKS R2 R1 K47 ["AudioDetails"]
+  GETTABLEKS R2 R0 K48 ["creator"]
+  JUMPIFNOT R2 [+27]
+  DUPTABLE R2 K50 [{"Id", "Name", "Type", "IsVerifiedCreator"}]
+  GETTABLEKS R4 R0 K48 ["creator"]
+  GETTABLEKS R3 R4 K17 ["id"]
+  SETTABLEKS R3 R2 K2 ["Id"]
+  GETTABLEKS R4 R0 K48 ["creator"]
+  GETTABLEKS R3 R4 K18 ["name"]
+  SETTABLEKS R3 R2 K3 ["Name"]
+  GETTABLEKS R4 R0 K48 ["creator"]
+  GETTABLEKS R3 R4 K51 ["type"]
+  SETTABLEKS R3 R2 K34 ["Type"]
+  GETTABLEKS R4 R0 K48 ["creator"]
+  GETTABLEKS R3 R4 K52 ["isVerifiedCreator"]
+  SETTABLEKS R3 R2 K49 ["IsVerifiedCreator"]
+  SETTABLEKS R2 R1 K53 ["Creator"]
+  GETTABLEKS R2 R0 K54 ["product"]
+  JUMPIFNOT R2 [+15]
+  DUPTABLE R2 K57 [{"ProductId", "Price"}]
+  GETTABLEKS R4 R0 K54 ["product"]
+  GETTABLEKS R3 R4 K58 ["productId"]
+  SETTABLEKS R3 R2 K55 ["ProductId"]
+  GETTABLEKS R4 R0 K54 ["product"]
+  GETTABLEKS R3 R4 K59 ["price"]
+  SETTABLEKS R3 R2 K56 ["Price"]
+  SETTABLEKS R2 R1 K60 ["Product"]
+  GETTABLEKS R2 R0 K61 ["fiatProduct"]
+  JUMPIFNOT R2 [+15]
+  DUPTABLE R2 K64 [{"PurchasePrice", "Purchasable"}]
+  GETTABLEKS R4 R0 K61 ["fiatProduct"]
+  GETTABLEKS R3 R4 K65 ["purchasePrice"]
+  SETTABLEKS R3 R2 K62 ["PurchasePrice"]
+  GETTABLEKS R4 R0 K61 ["fiatProduct"]
+  GETTABLEKS R3 R4 K66 ["purchasable"]
+  SETTABLEKS R3 R2 K63 ["Purchasable"]
+  SETTABLEKS R2 R1 K67 ["FiatProduct"]
+  GETTABLEKS R2 R0 K68 ["thumbnail"]
+  JUMPIFNOT R2 [+33]
+  DUPTABLE R2 K74 [{"Final", "Url", "RetryUrl", "UserId", "EndpointType"}]
+  GETTABLEKS R4 R0 K68 ["thumbnail"]
+  GETTABLEKS R3 R4 K75 ["final"]
+  SETTABLEKS R3 R2 K69 ["Final"]
+  GETTABLEKS R4 R0 K68 ["thumbnail"]
+  GETTABLEKS R3 R4 K76 ["url"]
+  SETTABLEKS R3 R2 K70 ["Url"]
+  GETTABLEKS R4 R0 K68 ["thumbnail"]
+  GETTABLEKS R3 R4 K77 ["retryUrl"]
+  SETTABLEKS R3 R2 K71 ["RetryUrl"]
+  GETTABLEKS R4 R0 K68 ["thumbnail"]
+  GETTABLEKS R3 R4 K78 ["userId"]
+  SETTABLEKS R3 R2 K72 ["UserId"]
+  GETTABLEKS R4 R0 K68 ["thumbnail"]
+  GETTABLEKS R3 R4 K79 ["endpointType"]
+  SETTABLEKS R3 R2 K73 ["EndpointType"]
+  SETTABLEKS R2 R1 K80 ["Thumbnail"]
+  GETTABLEKS R2 R0 K81 ["voting"]
+  JUMPIFNOT R2 [+57]
+  DUPTABLE R2 K91 [{"ShowVotes", "UpVotes", "DownVotes", "VoteCount", "UpVotePercent", "CanVote", "UserVote", "HasVoted", "ReasonForNotVoteable"}]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K92 ["showVotes"]
+  SETTABLEKS R3 R2 K82 ["ShowVotes"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K93 ["upVotes"]
+  SETTABLEKS R3 R2 K83 ["UpVotes"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K94 ["downVotes"]
+  SETTABLEKS R3 R2 K84 ["DownVotes"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K95 ["voteCount"]
+  SETTABLEKS R3 R2 K85 ["VoteCount"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K96 ["upVotePercent"]
+  SETTABLEKS R3 R2 K86 ["UpVotePercent"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K97 ["canVote"]
+  SETTABLEKS R3 R2 K87 ["CanVote"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K98 ["userVote"]
+  SETTABLEKS R3 R2 K88 ["UserVote"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K99 ["hasVoted"]
+  SETTABLEKS R3 R2 K89 ["HasVoted"]
+  GETTABLEKS R4 R0 K81 ["voting"]
+  GETTABLEKS R3 R4 K100 ["reasonForNotVoteable"]
+  SETTABLEKS R3 R2 K90 ["ReasonForNotVoteable"]
+  SETTABLEKS R2 R1 K101 ["Voting"]
+  RETURN R1 1
+
+PROTO_3:
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["join"]
+  GETTABLEKS R3 R0 K1 ["Context"]
+  MOVE R4 R1
+  CALL R2 2 1
+  SETTABLEKS R2 R0 K1 ["Context"]
+  RETURN R0 1
+
+PROTO_4:
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K0 ["new"]
+  CALL R4 0 1
+  DUPTABLE R5 K7 [{"Description", "Id", "Name", "TypeId", "AssetGenres", "Status"}]
+  GETTABLEKS R6 R0 K8 ["description"]
+  SETTABLEKS R6 R5 K1 ["Description"]
+  GETTABLEKS R6 R0 K9 ["assetId"]
+  SETTABLEKS R6 R5 K2 ["Id"]
+  GETTABLEKS R6 R0 K10 ["name"]
+  SETTABLEKS R6 R5 K3 ["Name"]
+  MOVE R6 R1
+  JUMPIFNOT R6 [+2]
+  GETTABLEKS R6 R1 K11 ["Value"]
+  SETTABLEKS R6 R5 K4 ["TypeId"]
+  NEWTABLE R6 0 0
+  SETTABLEKS R6 R5 K5 ["AssetGenres"]
+  GETTABLEKS R6 R0 K12 ["status"]
+  SETTABLEKS R6 R5 K6 ["Status"]
+  SETTABLEKS R5 R4 K13 ["Asset"]
+  DUPTABLE R5 K15 [{"Id", "Name", "Type"}]
+  GETTABLEKS R6 R0 K16 ["creatorTargetId"]
+  SETTABLEKS R6 R5 K2 ["Id"]
+  SETTABLEKS R2 R5 K3 ["Name"]
+  SETTABLEKS R3 R5 K14 ["Type"]
+  SETTABLEKS R5 R4 K17 ["Creator"]
+  RETURN R4 1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R3 K1 [script]
+  GETTABLEKS R2 R3 K2 ["Parent"]
+  GETTABLEKS R1 R2 K2 ["Parent"]
+  GETTABLEKS R0 R1 K2 ["Parent"]
+  GETTABLEKS R1 R0 K3 ["Packages"]
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R3 R1 K6 ["Framework"]
+  CALL R2 1 1
+  GETIMPORT R3 K5 [require]
+  GETTABLEKS R4 R1 K7 ["Dash"]
+  CALL R3 1 1
+  GETIMPORT R4 K5 [require]
+  GETTABLEKS R7 R0 K8 ["Core"]
+  GETTABLEKS R6 R7 K9 ["Util"]
+  GETTABLEKS R5 R6 K10 ["AssetConfigConstants"]
+  CALL R4 1 1
+  GETIMPORT R5 K5 [require]
+  GETTABLEKS R8 R0 K8 ["Core"]
+  GETTABLEKS R7 R8 K9 ["Util"]
+  GETTABLEKS R6 R7 K11 ["FiatUtil"]
+  CALL R5 1 1
+  GETIMPORT R6 K5 [require]
+  GETTABLEKS R9 R0 K8 ["Core"]
+  GETTABLEKS R8 R9 K12 ["Types"]
+  GETTABLEKS R7 R8 K13 ["MarketplaceFiatServiceTypes"]
+  CALL R6 1 1
+  GETIMPORT R7 K5 [require]
+  GETTABLEKS R11 R0 K8 ["Core"]
+  GETTABLEKS R10 R11 K9 ["Util"]
+  GETTABLEKS R9 R10 K14 ["SharedFlags"]
+  GETTABLEKS R8 R9 K15 ["getFFlagToolboxOnlyPreviewOpenUseModels"]
+  CALL R7 1 1
+  DUPCLOSURE R8 K16 [PROTO_0]
+  CAPTURE VAL R4
+  CAPTURE VAL R5
+  SETGLOBAL R8 K17 ["itemsDetailsToCreationsDistributionStatus"]
+  NEWTABLE R8 4 0
+  DUPCLOSURE R9 K18 [PROTO_1]
+  SETTABLEKS R9 R8 K19 ["new"]
+  DUPCLOSURE R9 K20 [PROTO_2]
+  CAPTURE VAL R8
+  CAPTURE VAL R7
+  SETTABLEKS R9 R8 K21 ["fromItemDetailsRequest"]
+  DUPCLOSURE R9 K22 [PROTO_3]
+  CAPTURE VAL R3
+  SETTABLEKS R9 R8 K23 ["AddContextToItemDetails"]
+  DUPCLOSURE R9 K24 [PROTO_4]
+  CAPTURE VAL R8
+  SETTABLEKS R9 R8 K25 ["fromCreationsDetails"]
+  RETURN R8 1

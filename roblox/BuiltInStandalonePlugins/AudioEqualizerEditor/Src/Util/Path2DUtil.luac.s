@@ -1,0 +1,40 @@
+PROTO_0:
+  JUMPIF R0 [+4]
+  GETIMPORT R3 K2 [Path2DControlPoint.new]
+  CALL R3 0 -1
+  RETURN R3 -1
+  JUMPIFNOT R1 [+1]
+  JUMPIF R2 [+11]
+  GETIMPORT R3 K2 [Path2DControlPoint.new]
+  GETIMPORT R4 K5 [UDim2.fromOffset]
+  GETTABLEKS R5 R0 K6 ["X"]
+  GETTABLEKS R6 R0 K7 ["Y"]
+  CALL R4 2 -1
+  CALL R3 -1 -1
+  RETURN R3 -1
+  GETIMPORT R3 K2 [Path2DControlPoint.new]
+  GETIMPORT R4 K5 [UDim2.fromOffset]
+  GETTABLEKS R5 R0 K6 ["X"]
+  GETTABLEKS R6 R0 K7 ["Y"]
+  CALL R4 2 1
+  GETIMPORT R5 K5 [UDim2.fromOffset]
+  GETTABLEKS R6 R1 K6 ["X"]
+  GETTABLEKS R7 R1 K7 ["Y"]
+  CALL R5 2 1
+  GETIMPORT R6 K5 [UDim2.fromOffset]
+  GETTABLEKS R7 R2 K6 ["X"]
+  GETTABLEKS R8 R2 K7 ["Y"]
+  CALL R6 2 -1
+  CALL R3 -1 -1
+  RETURN R3 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AudioEqualizerEditor"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  NEWTABLE R1 1 0
+  DUPCLOSURE R2 K4 [PROTO_0]
+  SETTABLEKS R2 R1 K5 ["makeControlPoint"]
+  RETURN R1 1

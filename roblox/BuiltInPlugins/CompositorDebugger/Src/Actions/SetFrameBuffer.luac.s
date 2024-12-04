@@ -1,0 +1,37 @@
+PROTO_0:
+  DUPTABLE R1 K1 [{"frameBuffer"}]
+  MOVE R2 R0
+  JUMPIF R2 [+1]
+  GETUPVAL R2 0
+  SETTABLEKS R2 R1 K0 ["frameBuffer"]
+  RETURN R1 1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["CompositorDebugger"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["Dash"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Framework"]
+  CALL R2 1 1
+  GETTABLEKS R3 R1 K9 ["None"]
+  GETTABLEKS R5 R2 K10 ["Util"]
+  GETTABLEKS R4 R5 K11 ["Action"]
+  GETTABLEKS R6 R0 K12 ["Src"]
+  GETTABLEKS R5 R6 K10 ["Util"]
+  GETIMPORT R6 K5 [require]
+  GETTABLEKS R7 R5 K13 ["CircularBuffer"]
+  CALL R6 1 1
+  MOVE R7 R4
+  GETIMPORT R9 K1 [script]
+  GETTABLEKS R8 R9 K14 ["Name"]
+  DUPCLOSURE R9 K15 [PROTO_0]
+  CAPTURE VAL R3
+  CALL R7 2 -1
+  RETURN R7 -1

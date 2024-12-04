@@ -1,0 +1,77 @@
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AssetManager"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["Framework"]
+  CALL R1 1 1
+  GETTABLEKS R3 R1 K8 ["Styling"]
+  GETTABLEKS R2 R3 K9 ["createStyleRule"]
+  MOVE R3 R2
+  LOADK R4 K10 [".HeaderBar"]
+  NEWTABLE R5 0 0
+  NEWTABLE R6 0 1
+  MOVE R7 R2
+  LOADK R8 K11 ["> .HeaderTitle"]
+  DUPTABLE R9 K13 [{"Size"}]
+  GETIMPORT R10 K16 [UDim2.new]
+  LOADN R11 0
+  LOADN R12 30
+  LOADN R13 1
+  LOADN R14 0
+  CALL R10 4 1
+  SETTABLEKS R10 R9 K12 ["Size"]
+  NEWTABLE R10 0 2
+  MOVE R11 R2
+  LOADK R12 K17 ["::UIFlexItem"]
+  DUPTABLE R13 K19 [{"FlexMode"}]
+  GETIMPORT R14 K23 [Enum.UIFlexMode.Grow]
+  SETTABLEKS R14 R13 K18 ["FlexMode"]
+  CALL R11 2 1
+  MOVE R12 R2
+  LOADK R13 K24 ["> .ScopeThumbnail"]
+  DUPTABLE R14 K13 [{"Size"}]
+  GETIMPORT R15 K26 [UDim2.fromOffset]
+  LOADN R16 20
+  LOADN R17 20
+  CALL R15 2 1
+  SETTABLEKS R15 R14 K12 ["Size"]
+  NEWTABLE R15 0 4
+  MOVE R16 R2
+  LOADK R17 K27 [".SearchResults"]
+  DUPTABLE R18 K29 [{"Image"}]
+  LOADK R19 K30 ["$SearchIcon"]
+  SETTABLEKS R19 R18 K28 ["Image"]
+  CALL R16 2 1
+  MOVE R17 R2
+  LOADK R18 K31 [".User"]
+  DUPTABLE R19 K29 [{"Image"}]
+  LOADK R20 K32 ["$UserLargeDefaultIcon"]
+  SETTABLEKS R20 R19 K28 ["Image"]
+  CALL R17 2 1
+  MOVE R18 R2
+  LOADK R19 K33 [".Group"]
+  DUPTABLE R20 K29 [{"Image"}]
+  LOADK R21 K34 ["$GroupLargeDefaultIcon"]
+  SETTABLEKS R21 R20 K28 ["Image"]
+  CALL R18 2 1
+  MOVE R19 R2
+  LOADK R20 K35 ["::UICorner"]
+  DUPTABLE R21 K37 [{"CornerRadius"}]
+  GETIMPORT R22 K39 [UDim.new]
+  LOADN R23 1
+  LOADN R24 0
+  CALL R22 2 1
+  SETTABLEKS R22 R21 K36 ["CornerRadius"]
+  CALL R19 2 -1
+  SETLIST R15 R16 -1 [1]
+  CALL R12 3 -1
+  SETLIST R10 R11 -1 [1]
+  CALL R7 3 -1
+  SETLIST R6 R7 -1 [1]
+  NEWTABLE R7 0 0
+  CALL R3 4 -1
+  RETURN R3 -1

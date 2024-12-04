@@ -1,0 +1,392 @@
+PROTO_0:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["state"]
+  GETTABLEKS R0 R1 K1 ["closeDMConnection"]
+  JUMPIFNOT R0 [+8]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["state"]
+  GETTABLEKS R0 R1 K1 ["closeDMConnection"]
+  NAMECALL R0 R0 K2 ["Disconnect"]
+  CALL R0 1 0
+  GETUPVAL R1 1
+  GETTABLEKS R0 R1 K3 ["Plugin"]
+  LOADK R2 K4 ["OnStopEditing"]
+  NAMECALL R0 R0 K5 ["Invoke"]
+  CALL R0 2 0
+  GETUPVAL R0 0
+  DUPTABLE R2 K10 [{"enabled", "initialCurveData", "instanceId", "instanceName", "closeDMConnection"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K6 ["enabled"]
+  NEWTABLE R3 0 0
+  SETTABLEKS R3 R2 K7 ["initialCurveData"]
+  LOADN R3 255
+  SETTABLEKS R3 R2 K8 ["instanceId"]
+  LOADK R3 K11 [""]
+  SETTABLEKS R3 R2 K9 ["instanceName"]
+  LOADNIL R3
+  SETTABLEKS R3 R2 K1 ["closeDMConnection"]
+  NAMECALL R0 R0 K12 ["setState"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_1:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["Plugin"]
+  LOADK R3 K1 ["OnEdit"]
+  GETUPVAL R5 1
+  GETTABLEKS R4 R5 K2 ["stringifyCurveTable"]
+  MOVE R5 R0
+  CALL R4 1 -1
+  NAMECALL R1 R1 K3 ["Invoke"]
+  CALL R1 -1 0
+  RETURN R0 0
+
+PROTO_2:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["setDisabled"]
+  CALL R1 0 0
+  GETUPVAL R1 0
+  DUPTABLE R3 K2 [{"forceRerender"}]
+  GETUPVAL R7 0
+  GETTABLEKS R6 R7 K3 ["state"]
+  GETTABLEKS R5 R6 K1 ["forceRerender"]
+  NOT R4 R5
+  SETTABLEKS R4 R3 K1 ["forceRerender"]
+  NAMECALL R1 R1 K4 ["setState"]
+  CALL R1 2 0
+  RETURN R0 0
+
+PROTO_3:
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K0 ["setDisabled"]
+  CALL R0 0 0
+  RETURN R0 0
+
+PROTO_4:
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["Plugin"]
+  GETTABLEKS R1 R2 K1 ["MultipleDocumentInterfaceInstance"]
+  GETTABLEKS R0 R1 K2 ["FocusedDataModelSession"]
+  JUMPIFNOT R0 [+14]
+  GETTABLEKS R1 R0 K3 ["CurrentDataModelTypeAboutToChange"]
+  NEWCLOSURE R3 P0
+  CAPTURE UPVAL U1
+  NAMECALL R1 R1 K4 ["Connect"]
+  CALL R1 2 1
+  GETUPVAL R2 1
+  DUPTABLE R4 K6 [{"closeDMConnection"}]
+  SETTABLEKS R1 R4 K5 ["closeDMConnection"]
+  NAMECALL R2 R2 K7 ["setState"]
+  CALL R2 2 0
+  RETURN R0 0
+
+PROTO_5:
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["closeOnDMChange"]
+  CALL R2 0 0
+  GETUPVAL R3 1
+  GETTABLEKS R2 R3 K1 ["destringifyCurveTable"]
+  MOVE R3 R0
+  CALL R2 1 1
+  GETUPVAL R3 0
+  DUPTABLE R5 K6 [{"enabled", "instanceId", "instanceName", "initialCurveData"}]
+  LOADB R6 1
+  SETTABLEKS R6 R5 K2 ["enabled"]
+  GETUPVAL R9 0
+  GETTABLEKS R8 R9 K8 ["state"]
+  GETTABLEKS R7 R8 K3 ["instanceId"]
+  ADDK R6 R7 K7 [1]
+  SETTABLEKS R6 R5 K3 ["instanceId"]
+  SETTABLEKS R1 R5 K4 ["instanceName"]
+  SETTABLEKS R2 R5 K5 ["initialCurveData"]
+  NAMECALL R3 R3 K9 ["setState"]
+  CALL R3 2 0
+  RETURN R0 0
+
+PROTO_6:
+  GETUPVAL R1 0
+  DUPTABLE R3 K1 [{"initialCurveData"}]
+  GETUPVAL R5 1
+  GETTABLEKS R4 R5 K2 ["destringifyCurveTable"]
+  MOVE R5 R0
+  CALL R4 1 1
+  SETTABLEKS R4 R3 K0 ["initialCurveData"]
+  NAMECALL R1 R1 K3 ["setState"]
+  CALL R1 2 0
+  RETURN R0 0
+
+PROTO_7:
+  NEWTABLE R0 0 0
+  RETURN R0 1
+
+PROTO_8:
+  DUPTABLE R2 K6 [{"enabled", "instanceId", "instanceName", "initialCurveData", "closeDMConnection", "forceRerender"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K0 ["enabled"]
+  LOADN R3 255
+  SETTABLEKS R3 R2 K1 ["instanceId"]
+  LOADK R3 K7 [""]
+  SETTABLEKS R3 R2 K2 ["instanceName"]
+  NEWTABLE R3 0 0
+  SETTABLEKS R3 R2 K3 ["initialCurveData"]
+  LOADNIL R3
+  SETTABLEKS R3 R2 K4 ["closeDMConnection"]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K5 ["forceRerender"]
+  SETTABLEKS R2 R0 K8 ["state"]
+  NEWCLOSURE R2 P0
+  CAPTURE VAL R0
+  CAPTURE VAL R1
+  SETTABLEKS R2 R0 K9 ["setDisabled"]
+  NEWCLOSURE R2 P1
+  CAPTURE VAL R1
+  CAPTURE UPVAL U0
+  SETTABLEKS R2 R0 K10 ["onChanged"]
+  NEWCLOSURE R2 P2
+  CAPTURE VAL R0
+  SETTABLEKS R2 R0 K11 ["onWidgetEnabledChanged"]
+  NEWCLOSURE R2 P3
+  CAPTURE VAL R1
+  CAPTURE VAL R0
+  SETTABLEKS R2 R0 K12 ["closeOnDMChange"]
+  GETTABLEKS R2 R1 K13 ["Plugin"]
+  LOADK R4 K14 ["OnOpen"]
+  NEWCLOSURE R5 P4
+  CAPTURE VAL R0
+  CAPTURE UPVAL U0
+  NAMECALL R2 R2 K15 ["OnInvoke"]
+  CALL R2 3 0
+  GETTABLEKS R2 R1 K13 ["Plugin"]
+  LOADK R4 K16 ["OnInstanceChanged"]
+  NEWCLOSURE R5 P5
+  CAPTURE VAL R0
+  CAPTURE UPVAL U0
+  NAMECALL R2 R2 K15 ["OnInvoke"]
+  CALL R2 3 0
+  GETUPVAL R4 1
+  GETTABLEKS R3 R4 K17 ["Store"]
+  GETTABLEKS R2 R3 K18 ["new"]
+  GETUPVAL R3 2
+  LOADNIL R4
+  NEWTABLE R5 0 1
+  GETUPVAL R7 1
+  GETTABLEKS R6 R7 K19 ["thunkMiddleware"]
+  SETLIST R5 R6 1 [1]
+  LOADNIL R6
+  CALL R2 4 1
+  SETTABLEKS R2 R0 K20 ["store"]
+  GETUPVAL R4 3
+  GETTABLEKS R3 R4 K21 ["Localization"]
+  GETTABLEKS R2 R3 K18 ["new"]
+  DUPTABLE R3 K25 [{"stringResourceTable", "translationResourceTable", "pluginName"}]
+  GETUPVAL R4 4
+  SETTABLEKS R4 R3 K22 ["stringResourceTable"]
+  GETUPVAL R4 5
+  SETTABLEKS R4 R3 K23 ["translationResourceTable"]
+  LOADK R4 K26 ["AttenuationCurveEditor"]
+  SETTABLEKS R4 R3 K24 ["pluginName"]
+  CALL R2 1 1
+  SETTABLEKS R2 R0 K27 ["localization"]
+  GETUPVAL R4 3
+  GETTABLEKS R3 R4 K28 ["Analytics"]
+  GETTABLEKS R2 R3 K18 ["new"]
+  DUPCLOSURE R3 K29 [PROTO_7]
+  NEWTABLE R4 0 0
+  CALL R2 2 1
+  SETTABLEKS R2 R0 K30 ["analytics"]
+  GETUPVAL R3 6
+  GETTABLEKS R2 R3 K18 ["new"]
+  CALL R2 0 1
+  SETTABLEKS R2 R0 K31 ["DEPRECATED_stylizer"]
+  GETUPVAL R2 7
+  GETTABLEKS R3 R1 K13 ["Plugin"]
+  CALL R2 1 1
+  SETTABLEKS R2 R0 K32 ["design"]
+  RETURN R0 0
+
+PROTO_9:
+  GETTABLEKS R1 R0 K0 ["props"]
+  GETTABLEKS R2 R0 K1 ["state"]
+  GETTABLEKS R3 R1 K2 ["Plugin"]
+  GETTABLEKS R4 R2 K3 ["enabled"]
+  NEWTABLE R5 0 0
+  GETUPVAL R7 0
+  GETTABLEKS R6 R7 K4 ["createElement"]
+  GETUPVAL R7 1
+  DUPTABLE R8 K9 [{"CurveData", "Enabled", "InstanceId", "OnChanged"}]
+  GETTABLEKS R9 R2 K10 ["initialCurveData"]
+  SETTABLEKS R9 R8 K5 ["CurveData"]
+  SETTABLEKS R4 R8 K6 ["Enabled"]
+  GETTABLEKS R9 R2 K11 ["instanceId"]
+  SETTABLEKS R9 R8 K7 ["InstanceId"]
+  GETTABLEKS R9 R0 K12 ["onChanged"]
+  SETTABLEKS R9 R8 K8 ["OnChanged"]
+  CALL R6 2 1
+  SETTABLEKS R6 R5 K13 ["AttenuationCurveEditor"]
+  GETUPVAL R7 2
+  GETTABLEKS R6 R7 K14 ["provide"]
+  NEWTABLE R7 0 5
+  GETUPVAL R9 3
+  GETTABLEKS R8 R9 K15 ["new"]
+  MOVE R9 R3
+  CALL R8 1 1
+  GETUPVAL R10 4
+  GETTABLEKS R9 R10 K15 ["new"]
+  NAMECALL R10 R3 K16 ["getMouse"]
+  CALL R10 1 -1
+  CALL R9 -1 1
+  GETTABLEKS R10 R0 K17 ["DEPRECATED_stylizer"]
+  GETTABLEKS R11 R0 K18 ["localization"]
+  GETTABLEKS R12 R0 K19 ["analytics"]
+  SETLIST R7 R8 5 [1]
+  DUPTABLE R8 K21 [{"MainWidget"}]
+  GETUPVAL R10 0
+  GETTABLEKS R9 R10 K4 ["createElement"]
+  GETUPVAL R10 5
+  NEWTABLE R11 16 0
+  LOADK R12 K13 ["AttenuationCurveEditor"]
+  SETTABLEKS R12 R11 K22 ["Id"]
+  SETTABLEKS R4 R11 K6 ["Enabled"]
+  GETTABLEKS R16 R0 K18 ["localization"]
+  LOADK R18 K2 ["Plugin"]
+  LOADK R19 K23 ["Name"]
+  NAMECALL R16 R16 K24 ["getText"]
+  CALL R16 3 1
+  MOVE R13 R16
+  LOADK R14 K25 [" - "]
+  GETTABLEKS R15 R2 K26 ["instanceName"]
+  CONCAT R12 R13 R15
+  SETTABLEKS R12 R11 K27 ["Title"]
+  GETIMPORT R12 K31 [Enum.ZIndexBehavior.Sibling]
+  SETTABLEKS R12 R11 K29 ["ZIndexBehavior"]
+  GETIMPORT R12 K34 [Enum.InitialDockState.Float]
+  SETTABLEKS R12 R11 K32 ["InitialDockState"]
+  GETIMPORT R12 K36 [Vector2.new]
+  LOADN R13 128
+  LOADN R14 224
+  CALL R12 2 1
+  SETTABLEKS R12 R11 K37 ["Size"]
+  GETIMPORT R12 K36 [Vector2.new]
+  LOADN R13 28
+  LOADN R14 44
+  CALL R12 2 1
+  SETTABLEKS R12 R11 K38 ["MinSize"]
+  GETTABLEKS R12 R0 K39 ["setDisabled"]
+  SETTABLEKS R12 R11 K40 ["OnClose"]
+  GETTABLEKS R13 R1 K41 ["PluginLoaderContext"]
+  GETTABLEKS R12 R13 K42 ["mainDockWidget"]
+  SETTABLEKS R12 R11 K43 ["Widget"]
+  GETTABLEKS R12 R0 K44 ["onDockWidgetCreated"]
+  SETTABLEKS R12 R11 K45 ["OnWidgetCreated"]
+  LOADB R12 0
+  SETTABLEKS R12 R11 K46 ["ShouldRestore"]
+  GETUPVAL R14 0
+  GETTABLEKS R13 R14 K47 ["Change"]
+  GETTABLEKS R12 R13 K6 ["Enabled"]
+  GETTABLEKS R13 R0 K48 ["onWidgetEnabledChanged"]
+  SETTABLE R13 R11 R12
+  DUPTABLE R12 K51 [{"Wrapper", "StyleLink"}]
+  GETUPVAL R14 0
+  GETTABLEKS R13 R14 K4 ["createElement"]
+  GETUPVAL R14 6
+  NEWTABLE R15 1 0
+  GETUPVAL R17 0
+  GETTABLEKS R16 R17 K52 ["Tag"]
+  LOADK R17 K53 ["X-Fill X-Column"]
+  SETTABLE R17 R15 R16
+  MOVE R16 R5
+  CALL R13 3 1
+  SETTABLEKS R13 R12 K49 ["Wrapper"]
+  GETUPVAL R14 0
+  GETTABLEKS R13 R14 K4 ["createElement"]
+  LOADK R14 K50 ["StyleLink"]
+  DUPTABLE R15 K55 [{"StyleSheet"}]
+  GETTABLEKS R16 R0 K56 ["design"]
+  SETTABLEKS R16 R15 K54 ["StyleSheet"]
+  CALL R13 2 1
+  SETTABLEKS R13 R12 K50 ["StyleLink"]
+  CALL R9 3 1
+  SETTABLEKS R9 R8 K20 ["MainWidget"]
+  CALL R6 2 -1
+  RETURN R6 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AttenuationCurveEditor"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Rodux"]
+  CALL R2 1 1
+  GETIMPORT R3 K5 [require]
+  GETTABLEKS R5 R0 K6 ["Packages"]
+  GETTABLEKS R4 R5 K9 ["Framework"]
+  CALL R3 1 1
+  GETTABLEKS R4 R3 K10 ["UI"]
+  GETTABLEKS R5 R4 K11 ["DockWidget"]
+  GETTABLEKS R6 R4 K12 ["Pane"]
+  GETTABLEKS R7 R3 K13 ["ContextServices"]
+  GETTABLEKS R8 R7 K14 ["Plugin"]
+  GETTABLEKS R9 R7 K15 ["Mouse"]
+  GETIMPORT R10 K5 [require]
+  GETTABLEKS R12 R0 K16 ["Src"]
+  GETTABLEKS R11 R12 K17 ["Types"]
+  CALL R10 1 1
+  GETIMPORT R11 K5 [require]
+  GETTABLEKS R14 R0 K16 ["Src"]
+  GETTABLEKS R13 R14 K18 ["Reducers"]
+  GETTABLEKS R12 R13 K19 ["MainReducer"]
+  CALL R11 1 1
+  GETIMPORT R12 K5 [require]
+  GETTABLEKS R15 R0 K16 ["Src"]
+  GETTABLEKS R14 R15 K20 ["Util"]
+  GETTABLEKS R13 R14 K21 ["AttenuationUtil"]
+  CALL R12 1 1
+  GETTABLEKS R15 R3 K22 ["Style"]
+  GETTABLEKS R14 R15 K23 ["Themes"]
+  GETTABLEKS R13 R14 K24 ["StudioTheme"]
+  GETTABLEKS R15 R3 K25 ["Styling"]
+  GETTABLEKS R14 R15 K26 ["registerPluginStyles"]
+  GETTABLEKS R18 R0 K16 ["Src"]
+  GETTABLEKS R17 R18 K27 ["Resources"]
+  GETTABLEKS R16 R17 K28 ["Localization"]
+  GETTABLEKS R15 R16 K29 ["SourceStrings"]
+  GETTABLEKS R19 R0 K16 ["Src"]
+  GETTABLEKS R18 R19 K27 ["Resources"]
+  GETTABLEKS R17 R18 K28 ["Localization"]
+  GETTABLEKS R16 R17 K30 ["LocalizedStrings"]
+  GETTABLEKS R18 R0 K16 ["Src"]
+  GETTABLEKS R17 R18 K31 ["Components"]
+  GETIMPORT R18 K5 [require]
+  GETTABLEKS R19 R17 K32 ["AttenuationCurveRenderer"]
+  CALL R18 1 1
+  GETTABLEKS R19 R1 K33 ["PureComponent"]
+  LOADK R21 K34 ["MainPlugin"]
+  NAMECALL R19 R19 K35 ["extend"]
+  CALL R19 2 1
+  DUPCLOSURE R20 K36 [PROTO_8]
+  CAPTURE VAL R12
+  CAPTURE VAL R2
+  CAPTURE VAL R11
+  CAPTURE VAL R7
+  CAPTURE VAL R15
+  CAPTURE VAL R16
+  CAPTURE VAL R13
+  CAPTURE VAL R14
+  SETTABLEKS R20 R19 K37 ["init"]
+  DUPCLOSURE R20 K38 [PROTO_9]
+  CAPTURE VAL R1
+  CAPTURE VAL R18
+  CAPTURE VAL R7
+  CAPTURE VAL R8
+  CAPTURE VAL R9
+  CAPTURE VAL R5
+  CAPTURE VAL R6
+  SETTABLEKS R20 R19 K39 ["render"]
+  RETURN R19 1

@@ -1,0 +1,105 @@
+PROTO_0:
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K0 ["onClick"]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K1 ["isChecked"]
+  NOT R1 R2
+  CALL R0 1 0
+  RETURN R0 0
+
+PROTO_1:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["createElement"]
+  LOADK R2 K1 ["Frame"]
+  NEWTABLE R3 2 0
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K2 ["Tag"]
+  GETUPVAL R5 1
+  GETUPVAL R8 0
+  GETTABLEKS R7 R8 K2 ["Tag"]
+  GETTABLE R6 R0 R7
+  LOADK R7 K3 ["Component-CheckButton"]
+  LOADK R8 K4 ["X-Transparent"]
+  LOADK R9 K5 ["data-testid=Component-CheckButtonFrame"]
+  CALL R5 4 1
+  SETTABLE R5 R3 R4
+  GETTABLEKS R4 R0 K6 ["LayoutOrder"]
+  SETTABLEKS R4 R3 K6 ["LayoutOrder"]
+  DUPTABLE R4 K8 [{"Image"}]
+  GETUPVAL R6 0
+  GETTABLEKS R5 R6 K0 ["createElement"]
+  LOADK R6 K9 ["ImageButton"]
+  NEWTABLE R7 4 0
+  GETUPVAL R9 0
+  GETTABLEKS R8 R9 K2 ["Tag"]
+  GETUPVAL R9 1
+  LOADK R10 K10 ["CheckButton-Image"]
+  LOADK R11 K11 ["X-AnchorCenter"]
+  GETTABLEKS R13 R0 K12 ["isChecked"]
+  JUMPIFNOT R13 [+2]
+  LOADK R12 K13 ["Checked"]
+  JUMP [+1]
+  LOADK R12 K14 ["Unchecked"]
+  LOADK R13 K15 ["data-testid=Component-CheckButtonImage"]
+  CALL R9 4 1
+  SETTABLE R9 R7 R8
+  GETUPVAL R8 2
+  NAMECALL R8 R8 K16 ["getNextOrder"]
+  CALL R8 1 1
+  SETTABLEKS R8 R7 K6 ["LayoutOrder"]
+  GETUPVAL R10 0
+  GETTABLEKS R9 R10 K17 ["Event"]
+  GETTABLEKS R8 R9 K18 ["Activated"]
+  NEWCLOSURE R9 P0
+  CAPTURE VAL R0
+  SETTABLE R9 R7 R8
+  DUPTABLE R8 K20 [{"Tooltip"}]
+  GETTABLEKS R10 R0 K21 ["tooltipText"]
+  JUMPIFNOT R10 [+17]
+  GETTABLEKS R11 R0 K21 ["tooltipText"]
+  LENGTH R10 R11
+  LOADN R11 0
+  JUMPIFNOTLT R11 R10 [+12]
+  GETUPVAL R10 0
+  GETTABLEKS R9 R10 K0 ["createElement"]
+  GETUPVAL R10 3
+  DUPTABLE R11 K23 [{"Text"}]
+  GETTABLEKS R12 R0 K21 ["tooltipText"]
+  SETTABLEKS R12 R11 K22 ["Text"]
+  CALL R9 2 1
+  JUMP [+1]
+  LOADNIL R9
+  SETTABLEKS R9 R8 K19 ["Tooltip"]
+  CALL R5 3 1
+  SETTABLEKS R5 R4 K7 ["Image"]
+  CALL R1 3 -1
+  RETURN R1 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["FindReplaceAll"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Framework"]
+  CALL R2 1 1
+  GETTABLEKS R4 R2 K9 ["UI"]
+  GETTABLEKS R3 R4 K10 ["Tooltip"]
+  GETTABLEKS R5 R2 K11 ["Util"]
+  GETTABLEKS R4 R5 K12 ["LayoutOrderIterator"]
+  GETTABLEKS R5 R4 K13 ["new"]
+  CALL R5 0 1
+  GETTABLEKS R7 R2 K14 ["Styling"]
+  GETTABLEKS R6 R7 K15 ["joinTags"]
+  DUPCLOSURE R7 K16 [PROTO_1]
+  CAPTURE VAL R1
+  CAPTURE VAL R6
+  CAPTURE VAL R5
+  CAPTURE VAL R3
+  RETURN R7 1

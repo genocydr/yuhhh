@@ -1,0 +1,14 @@
+Key,Context,Source,en-us
+Studio.App.PackageService.PublishPackageError1,,Package publish error: %1,Package publish error: %1
+Studio.App.PackageService.SetPackageVersionError1,,Set package version error: %1,Set package version error: %1
+Studio.App.PackageService.GetPackageInfoError1,,Get package info error: %1,Get package info error: %1
+Studio.App.PackageService.PackageAPIError.InvalidArgument,,Argument 1 is invalid,Argument 1 is invalid
+Studio.App.PackageService.PackageAPIError.NotAPackage,,Instance is not a package,Instance is not a package
+Studio.App.PackageService.PackageAPIError.NoPermissions,,Insufficient permissions,Insufficient permissions
+Studio.App.PackageService.PackageAPIError.NotArchivable,,Instance is not archivable,Instance is not archivable
+Studio.App.PackageService.PackageAPIError.NotEditMode,,Can only publish packages in Edit Mode,Can only publish packages in Edit Mode
+Studio.App.PackageService.PackageAPIError.NoChanges,,No changes detected,No changes detected
+Studio.App.PackageService.PackageAPIError.UploadPrepFailed,,Failed to prepare instance for upload,Failed to prepare instance for upload
+Studio.App.PackageService.PackageAPIError.LatestVersionFail,,Can't get selected package link latestVersionNum: data not available,Can't get selected package link latestVersionNum: data not available
+Studio.App.PackageService.PackageAPIError.VersionLowerBound,,VersionNumber cannot be less than 1,VersionNumber cannot be less than 1
+Studio.App.PackageService.PackageAPIError.VersionUpperBound.1,%1 is a number. e.g. VersionNumber cannot be greater than 45,VersionNumber cannot be greater than %1,VersionNumber cannot be greater than %1

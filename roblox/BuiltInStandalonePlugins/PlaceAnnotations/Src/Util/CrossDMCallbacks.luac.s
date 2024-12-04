@@ -1,0 +1,331 @@
+PROTO_0:
+  GETUPVAL R1 0
+  GETTABLEKS R2 R0 K0 ["ParentId"]
+  JUMPIFNOT R2 [+21]
+  GETUPVAL R2 0
+  GETTABLEKS R4 R0 K0 ["ParentId"]
+  LOADB R5 1
+  NAMECALL R2 R2 K1 ["FindFirstChild"]
+  CALL R2 3 1
+  MOVE R1 R2
+  LOADK R5 K2 ["Parent annotation %* not found."]
+  GETTABLEKS R7 R0 K0 ["ParentId"]
+  NAMECALL R5 R5 K3 ["format"]
+  CALL R5 2 1
+  MOVE R4 R5
+  FASTCALL2 ASSERT R1 R4 [+4]
+  MOVE R3 R1
+  GETIMPORT R2 K5 [assert]
+  CALL R2 2 0
+  GETIMPORT R2 K8 [Instance.new]
+  LOADK R3 K9 ["Annotation"]
+  CALL R2 1 1
+  SETTABLEKS R1 R2 K10 ["Parent"]
+  GETTABLEKS R3 R0 K11 ["UniqueId"]
+  SETTABLEKS R3 R2 K12 ["Name"]
+  GETTABLEKS R3 R0 K13 ["AuthorId"]
+  SETTABLEKS R3 R2 K13 ["AuthorId"]
+  GETTABLEKS R3 R0 K14 ["CreationTimeUnix"]
+  SETTABLEKS R3 R2 K14 ["CreationTimeUnix"]
+  GETTABLEKS R3 R0 K15 ["LastModifiedTimeUnix"]
+  SETTABLEKS R3 R2 K15 ["LastModifiedTimeUnix"]
+  GETTABLEKS R3 R0 K16 ["Contents"]
+  SETTABLEKS R3 R2 K16 ["Contents"]
+  GETTABLEKS R3 R0 K17 ["Resolved"]
+  SETTABLEKS R3 R2 K17 ["Resolved"]
+  GETTABLEKS R3 R0 K18 ["HeaderInfo"]
+  JUMPIFNOT R3 [+16]
+  LOADK R5 K19 ["HeaderText"]
+  GETTABLEKS R7 R0 K18 ["HeaderInfo"]
+  GETTABLEKS R6 R7 K19 ["HeaderText"]
+  NAMECALL R3 R2 K20 ["SetAttribute"]
+  CALL R3 3 0
+  LOADK R5 K21 ["AdorneeClass"]
+  GETTABLEKS R7 R0 K18 ["HeaderInfo"]
+  GETTABLEKS R6 R7 K21 ["AdorneeClass"]
+  NAMECALL R3 R2 K20 ["SetAttribute"]
+  CALL R3 3 0
+  GETTABLEKS R3 R0 K22 ["ReplyCount"]
+  SETTABLEKS R3 R2 K22 ["ReplyCount"]
+  RETURN R0 0
+
+PROTO_1:
+  GETUPVAL R2 0
+  MOVE R4 R0
+  LOADB R5 1
+  NAMECALL R2 R2 K0 ["FindFirstChild"]
+  CALL R2 3 1
+  JUMPIF R2 [+1]
+  RETURN R0 0
+  GETTABLEKS R3 R1 K1 ["Resolved"]
+  JUMPIFEQKNIL R3 [+5]
+  GETTABLEKS R3 R1 K1 ["Resolved"]
+  SETTABLEKS R3 R2 K1 ["Resolved"]
+  GETTABLEKS R3 R1 K2 ["HeaderInfo"]
+  JUMPIFEQKNIL R3 [+17]
+  LOADK R5 K3 ["HeaderText"]
+  GETTABLEKS R7 R1 K2 ["HeaderInfo"]
+  GETTABLEKS R6 R7 K3 ["HeaderText"]
+  NAMECALL R3 R2 K4 ["SetAttribute"]
+  CALL R3 3 0
+  LOADK R5 K5 ["AdorneeClass"]
+  GETTABLEKS R7 R1 K2 ["HeaderInfo"]
+  GETTABLEKS R6 R7 K5 ["AdorneeClass"]
+  NAMECALL R3 R2 K4 ["SetAttribute"]
+  CALL R3 3 0
+  GETTABLEKS R3 R1 K6 ["Contents"]
+  JUMPIFEQKNIL R3 [+5]
+  GETTABLEKS R3 R1 K6 ["Contents"]
+  SETTABLEKS R3 R2 K6 ["Contents"]
+  GETTABLEKS R3 R1 K7 ["ReplyCount"]
+  JUMPIFEQKNIL R3 [+5]
+  GETTABLEKS R3 R1 K7 ["ReplyCount"]
+  SETTABLEKS R3 R2 K7 ["ReplyCount"]
+  RETURN R0 0
+
+PROTO_2:
+  GETUPVAL R1 0
+  MOVE R3 R0
+  LOADB R4 1
+  NAMECALL R1 R1 K0 ["FindFirstChild"]
+  CALL R1 3 1
+  JUMPIF R1 [+1]
+  RETURN R0 0
+  NAMECALL R2 R1 K1 ["Destroy"]
+  CALL R2 1 0
+  RETURN R0 0
+
+PROTO_3:
+  GETUPVAL R0 0
+  NAMECALL R0 R0 K0 ["ClearAllChildren"]
+  CALL R0 1 0
+  RETURN R0 0
+
+PROTO_4:
+  GETUPVAL R0 0
+  NAMECALL R0 R0 K0 ["ClearAllChildren"]
+  CALL R0 1 0
+  GETUPVAL R0 1
+  NAMECALL R0 R0 K1 ["Disconnect"]
+  CALL R0 1 0
+  GETUPVAL R0 2
+  NAMECALL R0 R0 K1 ["Disconnect"]
+  CALL R0 1 0
+  GETUPVAL R0 3
+  NAMECALL R0 R0 K1 ["Disconnect"]
+  CALL R0 1 0
+  GETUPVAL R0 4
+  JUMPIFNOT R0 [+4]
+  GETUPVAL R0 4
+  NAMECALL R0 R0 K1 ["Disconnect"]
+  CALL R0 1 0
+  RETURN R0 0
+
+PROTO_5:
+  LOADK R3 K0 ["DidInitStandalone"]
+  NAMECALL R1 R0 K1 ["GetAttribute"]
+  CALL R1 2 1
+  JUMPIFNOT R1 [+1]
+  RETURN R0 0
+  LOADK R3 K0 ["DidInitStandalone"]
+  LOADB R4 1
+  NAMECALL R1 R0 K2 ["SetAttribute"]
+  CALL R1 3 0
+  LOADK R3 K3 ["CreateAnnotation"]
+  DUPCLOSURE R4 K4 [PROTO_0]
+  CAPTURE UPVAL U0
+  NAMECALL R1 R0 K5 ["OnInvoke"]
+  CALL R1 3 1
+  LOADK R4 K6 ["UpdateAnnotation"]
+  DUPCLOSURE R5 K7 [PROTO_1]
+  CAPTURE UPVAL U0
+  NAMECALL R2 R0 K5 ["OnInvoke"]
+  CALL R2 3 1
+  LOADK R5 K8 ["AnnotationDeleted"]
+  DUPCLOSURE R6 K9 [PROTO_2]
+  CAPTURE UPVAL U0
+  NAMECALL R3 R0 K5 ["OnInvoke"]
+  CALL R3 3 1
+  GETTABLEKS R5 R0 K10 ["MultipleDocumentInterfaceInstance"]
+  JUMPIFNOT R5 [+10]
+  GETTABLEKS R5 R0 K10 ["MultipleDocumentInterfaceInstance"]
+  GETTABLEKS R4 R5 K11 ["DataModelSessionEnded"]
+  DUPCLOSURE R6 K12 [PROTO_3]
+  CAPTURE UPVAL U0
+  NAMECALL R4 R4 K13 ["Connect"]
+  CALL R4 2 1
+  JUMP [+1]
+  LOADNIL R4
+  GETTABLEKS R5 R0 K14 ["Unloading"]
+  NEWCLOSURE R7 P4
+  CAPTURE UPVAL U0
+  CAPTURE VAL R1
+  CAPTURE VAL R2
+  CAPTURE VAL R3
+  CAPTURE VAL R4
+  NAMECALL R5 R5 K15 ["Once"]
+  CALL R5 2 0
+  RETURN R0 0
+
+PROTO_6:
+  GETUPVAL R0 0
+  NAMECALL R0 R0 K0 ["IsActivated"]
+  CALL R0 1 1
+  JUMPIF R0 [+22]
+  GETUPVAL R0 0
+  LOADB R2 1
+  NAMECALL R0 R0 K1 ["Activate"]
+  CALL R0 2 0
+  GETUPVAL R0 0
+  NAMECALL R0 R0 K2 ["GetMouse"]
+  CALL R0 1 1
+  LOADK R1 K3 ["rbxasset://studio_svg_textures/Lua/PlaceAnnotations/Light/Large/CommentPointer.png"]
+  SETTABLEKS R1 R0 K4 ["Icon"]
+  GETUPVAL R0 1
+  LOADNIL R1
+  SETTABLEKS R1 R0 K5 ["Selected"]
+  GETUPVAL R0 1
+  GETUPVAL R2 2
+  GETTABLEKS R1 R2 K6 ["PlacingNew"]
+  SETTABLEKS R1 R0 K7 ["Mode"]
+  RETURN R0 0
+
+PROTO_7:
+  GETUPVAL R2 0
+  MOVE R4 R0
+  NAMECALL R2 R2 K0 ["FindFirstChild"]
+  CALL R2 2 1
+  JUMPIF R2 [+1]
+  RETURN R0 0
+  GETUPVAL R3 0
+  MOVE R5 R2
+  MOVE R6 R1
+  NAMECALL R3 R3 K1 ["ResolveAnnotation"]
+  CALL R3 3 0
+  RETURN R0 0
+
+PROTO_8:
+  GETUPVAL R1 0
+  MOVE R3 R0
+  NAMECALL R1 R1 K0 ["FindFirstChild"]
+  CALL R1 2 1
+  JUMPIF R1 [+1]
+  RETURN R0 0
+  GETUPVAL R2 1
+  MOVE R3 R1
+  CALL R2 1 0
+  RETURN R0 0
+
+PROTO_9:
+  GETUPVAL R1 0
+  MOVE R3 R0
+  NAMECALL R1 R1 K0 ["FindFirstChild"]
+  CALL R1 2 1
+  JUMPIF R1 [+1]
+  RETURN R0 0
+  GETUPVAL R2 0
+  MOVE R4 R1
+  NAMECALL R2 R2 K1 ["DeleteAnnotation"]
+  CALL R2 2 0
+  RETURN R0 0
+
+PROTO_10:
+  GETUPVAL R1 0
+  MOVE R3 R0
+  NAMECALL R1 R1 K0 ["LoadResolvedAnnotations"]
+  CALL R1 2 0
+  RETURN R0 0
+
+PROTO_11:
+  GETUPVAL R1 0
+  SETTABLEKS R0 R1 K0 ["AnnotationsVisible"]
+  GETIMPORT R2 K2 [game]
+  GETTABLEKS R1 R2 K3 ["CoreGui"]
+  LOADK R3 K4 ["PlaceAnnotations"]
+  NAMECALL R1 R1 K5 ["FindFirstChild"]
+  CALL R1 2 1
+  NAMECALL R2 R1 K6 ["GetChildren"]
+  CALL R2 1 3
+  FORGPREP R2
+  LOADK R9 K7 ["BillboardGui"]
+  NAMECALL R7 R6 K8 ["IsA"]
+  CALL R7 2 1
+  JUMPIFNOT R7 [+7]
+  LOADK R9 K9 ["IsDraft"]
+  NAMECALL R7 R6 K10 ["GetAttribute"]
+  CALL R7 2 1
+  JUMPIF R7 [+2]
+  SETTABLEKS R0 R6 K11 ["Enabled"]
+  FORGLOOP R2 2 [-13]
+  RETURN R0 0
+
+PROTO_12:
+  LOADK R3 K0 ["BeginAddAnnotation"]
+  NEWCLOSURE R4 P0
+  CAPTURE VAL R0
+  CAPTURE UPVAL U0
+  CAPTURE UPVAL U1
+  NAMECALL R1 R0 K1 ["OnInvoke"]
+  CALL R1 3 0
+  LOADK R3 K2 ["ResolveAnnotation"]
+  DUPCLOSURE R4 K3 [PROTO_7]
+  CAPTURE UPVAL U0
+  NAMECALL R1 R0 K1 ["OnInvoke"]
+  CALL R1 3 0
+  LOADK R3 K4 ["ZoomTo"]
+  DUPCLOSURE R4 K5 [PROTO_8]
+  CAPTURE UPVAL U0
+  CAPTURE UPVAL U2
+  NAMECALL R1 R0 K1 ["OnInvoke"]
+  CALL R1 3 0
+  LOADK R3 K6 ["DeleteAnnotation"]
+  DUPCLOSURE R4 K7 [PROTO_9]
+  CAPTURE UPVAL U0
+  NAMECALL R1 R0 K1 ["OnInvoke"]
+  CALL R1 3 0
+  LOADK R3 K8 ["LoadResolvedAnnotations"]
+  DUPCLOSURE R4 K9 [PROTO_10]
+  CAPTURE UPVAL U0
+  NAMECALL R1 R0 K1 ["OnInvoke"]
+  CALL R1 3 0
+  LOADK R3 K10 ["SetVisibility"]
+  DUPCLOSURE R4 K11 [PROTO_11]
+  CAPTURE UPVAL U0
+  NAMECALL R1 R0 K1 ["OnInvoke"]
+  CALL R1 3 0
+  RETURN R0 0
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["PlaceAnnotations"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Src"]
+  GETTABLEKS R3 R4 K7 ["Enums"]
+  GETTABLEKS R2 R3 K8 ["AnnotationEditingMode"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Src"]
+  GETTABLEKS R3 R4 K9 ["Types"]
+  CALL R2 1 1
+  GETIMPORT R3 K5 [require]
+  GETTABLEKS R6 R0 K6 ["Src"]
+  GETTABLEKS R5 R6 K10 ["Util"]
+  GETTABLEKS R4 R5 K11 ["zoomToAnnotation"]
+  CALL R3 1 1
+  GETIMPORT R4 K13 [game]
+  LOADK R6 K14 ["AnnotationsService"]
+  NAMECALL R4 R4 K15 ["GetService"]
+  CALL R4 2 1
+  DUPTABLE R5 K18 [{"registerStandaloneCallbacks", "registerEditCallbacks"}]
+  DUPCLOSURE R6 K19 [PROTO_5]
+  CAPTURE VAL R4
+  SETTABLEKS R6 R5 K16 ["registerStandaloneCallbacks"]
+  DUPCLOSURE R6 K20 [PROTO_12]
+  CAPTURE VAL R4
+  CAPTURE VAL R1
+  CAPTURE VAL R3
+  SETTABLEKS R6 R5 K17 ["registerEditCallbacks"]
+  RETURN R5 1

@@ -1,0 +1,18 @@
+Key,Context,Source,en-us
+Studio.App.FindAllDialog.FindAll,,Find All,Find All
+Studio.App.FindAllDialog.FindInAllScripts,,Find in all scripts,Find in all scripts
+Studio.App.FindAllDialog.ReplaceAll,,Replace All,Replace All
+Studio.App.FindAllDialog.FindWhat,,Find what: ,Find what: 
+Studio.App.FindAllDialog.LookIn,,Look in: ,Look in: 
+Studio.App.FindAllDialog.FindOptions,,Find Options,Find Options
+Studio.App.FindAllDialog.MatchCase,,Match case,Match case
+Studio.App.FindAllDialog.RegularExpression,,Regular expression,Regular expression
+Studio.App.FindAllDialog.MatchWholeWordOnly,,Match whole word only,Match whole word only
+Studio.App.FindAllDialog.AllScripts,,All Scripts,All Scripts
+Studio.App.FindAllDialog.CurrentScript,,Current Script,Current Script
+Studio.App.FindAllDialog.Find,,Find: ,Find: 
+Studio.App.FindAllDialog.FindInAll,,Find and Replace All,Find and Replace All
+Studio.App.FindAllDialog.OpenScriptsUndo,,Undo is not supported by Replace All unless you open all files where a match is found.,Undo is not supported by Replace All unless you open all files where a match is found.
+Studio.App.FindAllDialog.EnableScriptsUndo,,"To enable Undo, select the following option:","To enable Undo, select the following option:"
+Studio.App.FindAllDialog.UndoSelectOption,,Replace All will open all files with changes for editing.,Replace All will open all files with changes for editing.
+Studio.App.FindAllDialog.ReplaceAllContinue,,Do you want to continue with Replace All?,Do you want to continue with Replace All?

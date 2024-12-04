@@ -1,0 +1,102 @@
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["AssetManager"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["Framework"]
+  CALL R1 1 1
+  GETTABLEKS R3 R1 K8 ["Styling"]
+  GETTABLEKS R2 R3 K9 ["createStyleRule"]
+  MOVE R3 R2
+  LOADK R4 K10 [".SearchOptions"]
+  NEWTABLE R5 0 0
+  NEWTABLE R6 0 4
+  MOVE R7 R2
+  LOADK R8 K11 ["> .SearchOptionsContents"]
+  NEWTABLE R9 0 0
+  NEWTABLE R10 0 1
+  MOVE R11 R2
+  LOADK R12 K12 ["::UIFlexItem"]
+  DUPTABLE R13 K14 [{"FlexMode"}]
+  GETIMPORT R14 K18 [Enum.UIFlexMode.Fill]
+  SETTABLEKS R14 R13 K13 ["FlexMode"]
+  CALL R11 2 -1
+  SETLIST R10 R11 -1 [1]
+  CALL R7 3 1
+  MOVE R8 R2
+  LOADK R9 K19 [">> .FilterSection"]
+  NEWTABLE R10 0 0
+  NEWTABLE R11 0 1
+  MOVE R12 R2
+  LOADK R13 K20 ["::UIPadding"]
+  DUPTABLE R14 K25 [{"PaddingLeft", "PaddingRight", "PaddingBottom", "PaddingTop"}]
+  GETIMPORT R15 K28 [UDim.new]
+  LOADN R16 0
+  LOADN R17 10
+  CALL R15 2 1
+  SETTABLEKS R15 R14 K21 ["PaddingLeft"]
+  GETIMPORT R15 K28 [UDim.new]
+  LOADN R16 0
+  LOADN R17 10
+  CALL R15 2 1
+  SETTABLEKS R15 R14 K22 ["PaddingRight"]
+  GETIMPORT R15 K28 [UDim.new]
+  LOADN R16 0
+  LOADN R17 10
+  CALL R15 2 1
+  SETTABLEKS R15 R14 K23 ["PaddingBottom"]
+  GETIMPORT R15 K28 [UDim.new]
+  LOADN R16 0
+  LOADN R17 5
+  CALL R15 2 1
+  SETTABLEKS R15 R14 K24 ["PaddingTop"]
+  CALL R12 2 -1
+  SETLIST R11 R12 -1 [1]
+  CALL R8 3 1
+  MOVE R9 R2
+  LOADK R10 K29 [">> .SourceSection"]
+  NEWTABLE R11 0 0
+  NEWTABLE R12 0 2
+  MOVE R13 R2
+  LOADK R14 K12 ["::UIFlexItem"]
+  DUPTABLE R15 K14 [{"FlexMode"}]
+  GETIMPORT R16 K18 [Enum.UIFlexMode.Fill]
+  SETTABLEKS R16 R15 K13 ["FlexMode"]
+  CALL R13 2 1
+  MOVE R14 R2
+  LOADK R15 K30 [">> .RadioList"]
+  NEWTABLE R16 0 0
+  NEWTABLE R17 0 2
+  MOVE R18 R2
+  LOADK R19 K12 ["::UIFlexItem"]
+  DUPTABLE R20 K14 [{"FlexMode"}]
+  GETIMPORT R21 K18 [Enum.UIFlexMode.Fill]
+  SETTABLEKS R21 R20 K13 ["FlexMode"]
+  CALL R18 2 1
+  MOVE R19 R2
+  LOADK R20 K20 ["::UIPadding"]
+  DUPTABLE R21 K31 [{"PaddingBottom"}]
+  LOADK R22 K32 ["$PaddingSmall"]
+  SETTABLEKS R22 R21 K23 ["PaddingBottom"]
+  CALL R19 2 -1
+  SETLIST R17 R18 -1 [1]
+  CALL R14 3 -1
+  SETLIST R12 R13 -1 [1]
+  CALL R9 3 1
+  MOVE R10 R2
+  LOADK R11 K33 [">> .SearchOptionHeading"]
+  DUPTABLE R12 K35 [{"Size"}]
+  GETIMPORT R13 K37 [UDim2.new]
+  LOADN R14 1
+  LOADN R15 0
+  LOADN R16 0
+  LOADN R17 30
+  CALL R13 4 1
+  SETTABLEKS R13 R12 K34 ["Size"]
+  CALL R10 2 -1
+  SETLIST R6 R7 -1 [1]
+  CALL R3 3 -1
+  RETURN R3 -1

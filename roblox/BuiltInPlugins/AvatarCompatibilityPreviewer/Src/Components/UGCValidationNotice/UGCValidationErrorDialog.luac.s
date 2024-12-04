@@ -1,0 +1,634 @@
+PROTO_0:
+  GETUPVAL R1 0
+  GETTABLEKS R3 R0 K0 ["AbsoluteSize"]
+  GETTABLEKS R2 R3 K1 ["Y"]
+  CALL R1 1 0
+  RETURN R0 0
+
+PROTO_1:
+  GETUPVAL R1 0
+  GETTABLEKS R3 R0 K0 ["AbsolutePosition"]
+  GETTABLEKS R2 R3 K1 ["Y"]
+  CALL R1 1 0
+  RETURN R0 0
+
+PROTO_2:
+  JUMPIFNOTEQKS R0 K0 ["ok"] [+6]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K1 ["OnClose"]
+  CALL R1 0 0
+  RETURN R0 0
+  JUMPIFNOTEQKS R0 K2 ["rerun"] [+14]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K3 ["ValidationCompleted"]
+  JUMPIFNOT R1 [+9]
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K4 ["RunValidation"]
+  CALL R1 0 0
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K1 ["OnClose"]
+  CALL R1 0 0
+  RETURN R0 0
+  RETURN R0 0
+
+PROTO_3:
+  GETUPVAL R0 0
+  GETUPVAL R2 1
+  NAMECALL R0 R0 K0 ["OpenBrowserWindow"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_4:
+  GETUPVAL R0 0
+  GETUPVAL R2 1
+  NAMECALL R0 R0 K0 ["OpenBrowserWindow"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_5:
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K0 ["createElement"]
+  GETUPVAL R3 1
+  DUPTABLE R4 K9 [{"key", "AutomaticSize", "Size", "Text", "TextXAlignment", "TextSize", "TextWrapped", "LayoutOrder"}]
+  LOADK R6 K10 ["Error%*"]
+  MOVE R8 R1
+  NAMECALL R6 R6 K11 ["format"]
+  CALL R6 2 1
+  MOVE R5 R6
+  SETTABLEKS R5 R4 K1 ["key"]
+  GETIMPORT R5 K14 [Enum.AutomaticSize.Y]
+  SETTABLEKS R5 R4 K2 ["AutomaticSize"]
+  GETIMPORT R5 K17 [UDim2.fromScale]
+  LOADN R6 1
+  LOADN R7 0
+  CALL R5 2 1
+  SETTABLEKS R5 R4 K3 ["Size"]
+  GETTABLEKS R7 R0 K18 ["error"]
+  GETTABLEKS R6 R7 K19 ["type"]
+  JUMPIFNOTEQKS R6 K20 ["message"] [+6]
+  GETTABLEKS R6 R0 K18 ["error"]
+  GETTABLEKS R5 R6 K20 ["message"]
+  JUMP [+37]
+  GETTABLEKS R7 R0 K18 ["error"]
+  GETTABLEKS R6 R7 K19 ["type"]
+  JUMPIFNOTEQKS R6 K21 ["notFound"] [+26]
+  GETUPVAL R5 2
+  LOADK R7 K22 ["UGCValidation"]
+  LOADK R8 K23 ["AssetNotFound"]
+  DUPTABLE R9 K25 [{"asset"}]
+  GETUPVAL R10 2
+  LOADK R12 K26 ["AssetType"]
+  GETTABLEKS R15 R0 K27 ["assetType"]
+  FASTCALL2K ASSERT R15 K28 [+4]
+  LOADK R16 K28 ["notFound sent with no error type"]
+  GETIMPORT R14 K30 [assert]
+  CALL R14 2 1
+  GETTABLEKS R13 R14 K31 ["Name"]
+  NAMECALL R10 R10 K32 ["getText"]
+  CALL R10 3 1
+  SETTABLEKS R10 R9 K24 ["asset"]
+  NAMECALL R5 R5 K32 ["getText"]
+  CALL R5 4 1
+  JUMP [+6]
+  GETUPVAL R5 3
+  GETTABLEKS R7 R0 K18 ["error"]
+  GETTABLEKS R6 R7 K19 ["type"]
+  CALL R5 1 1
+  SETTABLEKS R5 R4 K4 ["Text"]
+  GETIMPORT R5 K34 [Enum.TextXAlignment.Left]
+  SETTABLEKS R5 R4 K5 ["TextXAlignment"]
+  GETUPVAL R6 4
+  GETTABLEKS R5 R6 K6 ["TextSize"]
+  SETTABLEKS R5 R4 K6 ["TextSize"]
+  LOADB R5 1
+  SETTABLEKS R5 R4 K7 ["TextWrapped"]
+  GETUPVAL R5 5
+  NAMECALL R5 R5 K35 ["getNextOrder"]
+  CALL R5 1 1
+  SETTABLEKS R5 R4 K8 ["LayoutOrder"]
+  CALL R2 2 -1
+  RETURN R2 -1
+
+PROTO_6:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["new"]
+  CALL R1 0 1
+  GETUPVAL R2 1
+  NAMECALL R2 R2 K1 ["use"]
+  CALL R2 1 1
+  GETUPVAL R3 2
+  LOADK R5 K2 ["UGCValidationErrorDialog"]
+  NAMECALL R3 R3 K1 ["use"]
+  CALL R3 2 1
+  GETUPVAL R5 3
+  GETTABLEKS R4 R5 K3 ["useState"]
+  LOADN R5 0
+  CALL R4 1 2
+  GETUPVAL R7 3
+  GETTABLEKS R6 R7 K4 ["useCallback"]
+  NEWCLOSURE R7 P0
+  CAPTURE VAL R5
+  NEWTABLE R8 0 0
+  CALL R6 2 1
+  GETUPVAL R8 3
+  GETTABLEKS R7 R8 K3 ["useState"]
+  LOADN R8 0
+  CALL R7 1 2
+  GETUPVAL R10 3
+  GETTABLEKS R9 R10 K4 ["useCallback"]
+  NEWCLOSURE R10 P1
+  CAPTURE VAL R8
+  NEWTABLE R11 0 0
+  CALL R9 2 1
+  GETUPVAL R11 3
+  GETTABLEKS R10 R11 K5 ["useContext"]
+  GETUPVAL R12 4
+  GETTABLEKS R11 R12 K6 ["Context"]
+  CALL R10 1 1
+  GETTABLEKS R12 R10 K7 ["canUploadBundles"]
+  JUMPIFEQKNIL R12 [+12]
+  GETTABLEKS R13 R10 K7 ["canUploadBundles"]
+  GETTABLEKS R12 R13 K8 ["type"]
+  JUMPIFNOTEQKS R12 K9 ["notAllowed"] [+6]
+  GETTABLEKS R12 R10 K7 ["canUploadBundles"]
+  GETTABLEKS R11 R12 K10 ["denyReason"]
+  JUMP [+1]
+  LOADNIL R11
+  GETUPVAL R13 3
+  GETTABLEKS R12 R13 K11 ["createElement"]
+  GETUPVAL R13 5
+  DUPTABLE R14 K20 [{"Style", "Title", "MinContentSize", "Modal", "Resizable", "Buttons", "OnButtonPressed", "OnClose"}]
+  GETUPVAL R16 6
+  CALL R16 0 1
+  JUMPIFNOT R16 [+2]
+  LOADK R15 K21 ["CancelAccept"]
+  JUMP [+1]
+  LOADK R15 K22 ["Alert"]
+  SETTABLEKS R15 R14 K12 ["Style"]
+  LOADK R17 K23 ["UGCValidation"]
+  LOADK R18 K24 ["AlertTitle"]
+  NAMECALL R15 R2 K25 ["getText"]
+  CALL R15 3 1
+  SETTABLEKS R15 R14 K13 ["Title"]
+  GETTABLEKS R15 R3 K26 ["AlertMinContentSize"]
+  SETTABLEKS R15 R14 K14 ["MinContentSize"]
+  GETUPVAL R15 7
+  SETTABLEKS R15 R14 K15 ["Modal"]
+  LOADB R15 1
+  SETTABLEKS R15 R14 K16 ["Resizable"]
+  GETUPVAL R16 6
+  CALL R16 0 1
+  JUMPIFNOT R16 [+37]
+  NEWTABLE R15 0 2
+  DUPTABLE R16 K30 [{"Key", "Text", "StyleModifier"}]
+  LOADK R17 K31 ["rerun"]
+  SETTABLEKS R17 R16 K27 ["Key"]
+  LOADK R19 K23 ["UGCValidation"]
+  LOADK R20 K32 ["RerunValidation"]
+  NAMECALL R17 R2 K25 ["getText"]
+  CALL R17 3 1
+  SETTABLEKS R17 R16 K28 ["Text"]
+  GETTABLEKS R18 R0 K33 ["ValidationCompleted"]
+  JUMPIFNOT R18 [+2]
+  LOADNIL R17
+  JUMP [+3]
+  GETUPVAL R18 8
+  GETTABLEKS R17 R18 K34 ["Disabled"]
+  SETTABLEKS R17 R16 K29 ["StyleModifier"]
+  DUPTABLE R17 K35 [{"Key", "Text"}]
+  LOADK R18 K36 ["ok"]
+  SETTABLEKS R18 R17 K27 ["Key"]
+  LOADK R20 K23 ["UGCValidation"]
+  LOADK R21 K37 ["OK"]
+  NAMECALL R18 R2 K25 ["getText"]
+  CALL R18 3 1
+  SETTABLEKS R18 R17 K28 ["Text"]
+  SETLIST R15 R16 2 [1]
+  JUMP [+11]
+  NEWTABLE R15 0 1
+  DUPTABLE R16 K35 [{"Key", "Text"}]
+  LOADK R17 K36 ["ok"]
+  SETTABLEKS R17 R16 K27 ["Key"]
+  LOADK R17 K37 ["OK"]
+  SETTABLEKS R17 R16 K28 ["Text"]
+  SETLIST R15 R16 1 [1]
+  SETTABLEKS R15 R14 K17 ["Buttons"]
+  GETUPVAL R16 6
+  CALL R16 0 1
+  JUMPIFNOT R16 [+3]
+  NEWCLOSURE R15 P2
+  CAPTURE VAL R0
+  JUMP [+2]
+  GETTABLEKS R15 R0 K19 ["OnClose"]
+  SETTABLEKS R15 R14 K18 ["OnButtonPressed"]
+  GETTABLEKS R15 R0 K19 ["OnClose"]
+  SETTABLEKS R15 R14 K19 ["OnClose"]
+  DUPTABLE R15 K39 [{"Contents"}]
+  GETUPVAL R17 3
+  GETTABLEKS R16 R17 K11 ["createElement"]
+  GETUPVAL R17 9
+  DUPTABLE R18 K43 [{"Layout", "HorizontalAlignment", "VerticalAlignment"}]
+  GETIMPORT R19 K47 [Enum.FillDirection.Horizontal]
+  SETTABLEKS R19 R18 K40 ["Layout"]
+  GETIMPORT R19 K49 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R19 R18 K41 ["HorizontalAlignment"]
+  GETIMPORT R19 K51 [Enum.VerticalAlignment.Top]
+  SETTABLEKS R19 R18 K42 ["VerticalAlignment"]
+  DUPTABLE R19 K55 [{"LeftColumn", "RightColumn", "Rerun_Disabled"}]
+  GETUPVAL R21 3
+  GETTABLEKS R20 R21 K11 ["createElement"]
+  GETUPVAL R21 9
+  DUPTABLE R22 K58 [{"Size", "LayoutOrder"}]
+  GETIMPORT R23 K61 [UDim2.fromOffset]
+  GETTABLEKS R25 R3 K62 ["TextSize"]
+  GETTABLEKS R26 R3 K63 ["IconTextSpacing"]
+  ADD R24 R25 R26
+  GETTABLEKS R25 R3 K62 ["TextSize"]
+  CALL R23 2 1
+  SETTABLEKS R23 R22 K56 ["Size"]
+  NAMECALL R23 R1 K64 ["getNextOrder"]
+  CALL R23 1 1
+  SETTABLEKS R23 R22 K57 ["LayoutOrder"]
+  DUPTABLE R23 K66 [{"Image"}]
+  GETUPVAL R25 3
+  GETTABLEKS R24 R25 K11 ["createElement"]
+  GETUPVAL R25 10
+  DUPTABLE R26 K68 [{"Image", "ImageColor3", "Size"}]
+  GETTABLEKS R27 R3 K69 ["WarningImage"]
+  SETTABLEKS R27 R26 K65 ["Image"]
+  GETTABLEKS R27 R3 K70 ["WarningColor"]
+  SETTABLEKS R27 R26 K67 ["ImageColor3"]
+  GETIMPORT R27 K61 [UDim2.fromOffset]
+  GETTABLEKS R28 R3 K62 ["TextSize"]
+  GETTABLEKS R29 R3 K62 ["TextSize"]
+  CALL R27 2 1
+  SETTABLEKS R27 R26 K56 ["Size"]
+  CALL R24 2 1
+  SETTABLEKS R24 R23 K65 ["Image"]
+  CALL R20 3 1
+  SETTABLEKS R20 R19 K52 ["LeftColumn"]
+  GETUPVAL R21 3
+  GETTABLEKS R20 R21 K11 ["createElement"]
+  GETUPVAL R21 9
+  NEWTABLE R22 8 0
+  GETIMPORT R23 K71 [UDim2.new]
+  LOADN R24 1
+  GETTABLEKS R26 R3 K62 ["TextSize"]
+  MINUS R25 R26
+  LOADN R26 1
+  LOADN R27 0
+  CALL R23 4 1
+  SETTABLEKS R23 R22 K56 ["Size"]
+  NAMECALL R23 R1 K64 ["getNextOrder"]
+  CALL R23 1 1
+  SETTABLEKS R23 R22 K57 ["LayoutOrder"]
+  GETIMPORT R23 K73 [Enum.FillDirection.Vertical]
+  SETTABLEKS R23 R22 K40 ["Layout"]
+  GETTABLEKS R23 R3 K74 ["TitleDetailsSpacing"]
+  SETTABLEKS R23 R22 K75 ["Spacing"]
+  GETIMPORT R23 K49 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R23 R22 K41 ["HorizontalAlignment"]
+  GETIMPORT R23 K51 [Enum.VerticalAlignment.Top]
+  SETTABLEKS R23 R22 K42 ["VerticalAlignment"]
+  GETUPVAL R25 3
+  GETTABLEKS R24 R25 K76 ["Change"]
+  GETTABLEKS R23 R24 K77 ["AbsoluteSize"]
+  SETTABLE R6 R22 R23
+  DUPTABLE R23 K80 [{"WarningLabel", "Warnings"}]
+  GETUPVAL R25 3
+  GETTABLEKS R24 R25 K11 ["createElement"]
+  GETUPVAL R25 11
+  DUPTABLE R26 K86 [{"AutomaticSize", "Font", "Size", "Text", "TextColor", "TextSize", "TextXAlignment", "TextWrapped"}]
+  GETIMPORT R27 K88 [Enum.AutomaticSize.Y]
+  SETTABLEKS R27 R26 K81 ["AutomaticSize"]
+  GETTABLEKS R27 R3 K89 ["WarningFont"]
+  SETTABLEKS R27 R26 K82 ["Font"]
+  GETIMPORT R27 K91 [UDim2.fromScale]
+  LOADN R28 1
+  LOADN R29 0
+  CALL R27 2 1
+  SETTABLEKS R27 R26 K56 ["Size"]
+  GETUPVAL R27 12
+  MOVE R28 R2
+  LOADK R29 K23 ["UGCValidation"]
+  LOADK R30 K92 ["WarningLongTitle"]
+  GETTABLEKS R33 R0 K93 ["Errors"]
+  LENGTH R32 R33
+  JUMPIFNOTEQKNIL R11 [+3]
+  LOADN R33 0
+  JUMP [+1]
+  LOADN R33 1
+  ADD R31 R32 R33
+  CALL R27 4 1
+  SETTABLEKS R27 R26 K28 ["Text"]
+  GETTABLEKS R27 R3 K70 ["WarningColor"]
+  SETTABLEKS R27 R26 K83 ["TextColor"]
+  GETTABLEKS R27 R3 K62 ["TextSize"]
+  SETTABLEKS R27 R26 K62 ["TextSize"]
+  GETIMPORT R27 K94 [Enum.TextXAlignment.Left]
+  SETTABLEKS R27 R26 K84 ["TextXAlignment"]
+  LOADB R27 1
+  SETTABLEKS R27 R26 K85 ["TextWrapped"]
+  CALL R24 2 1
+  SETTABLEKS R24 R23 K78 ["WarningLabel"]
+  GETUPVAL R25 3
+  GETTABLEKS R24 R25 K11 ["createElement"]
+  GETUPVAL R25 13
+  NEWTABLE R26 8 0
+  GETIMPORT R27 K88 [Enum.AutomaticSize.Y]
+  SETTABLEKS R27 R26 K95 ["AutomaticCanvasSize"]
+  GETIMPORT R27 K71 [UDim2.new]
+  LOADN R28 1
+  LOADN R29 0
+  LOADN R30 0
+  SUB R31 R4 R7
+  CALL R27 4 1
+  SETTABLEKS R27 R26 K56 ["Size"]
+  GETIMPORT R27 K73 [Enum.FillDirection.Vertical]
+  SETTABLEKS R27 R26 K40 ["Layout"]
+  GETIMPORT R27 K97 [UDim.new]
+  LOADN R28 0
+  GETTABLEKS R29 R3 K98 ["DetailsSpacing"]
+  CALL R27 2 1
+  SETTABLEKS R27 R26 K75 ["Spacing"]
+  GETUPVAL R29 3
+  GETTABLEKS R28 R29 K76 ["Change"]
+  GETTABLEKS R27 R28 K99 ["AbsolutePosition"]
+  SETTABLE R9 R26 R27
+  NEWTABLE R27 0 2
+  MOVE R28 R11
+  JUMPIFNOT R28 [+147]
+  GETUPVAL R29 3
+  GETTABLEKS R28 R29 K11 ["createElement"]
+  GETUPVAL R30 3
+  GETTABLEKS R29 R30 K100 ["Fragment"]
+  NEWTABLE R30 0 0
+  DUPTABLE R31 K103 [{"Header", "ErrorText"}]
+  GETUPVAL R33 3
+  GETTABLEKS R32 R33 K11 ["createElement"]
+  GETUPVAL R33 11
+  DUPTABLE R34 K104 [{"Text", "Style", "AutomaticSize", "Size", "TextXAlignment", "TextSize", "TextWrapped", "LayoutOrder"}]
+  LOADK R37 K23 ["UGCValidation"]
+  LOADK R38 K105 ["PermissionsRequiredHeader"]
+  NAMECALL R35 R2 K25 ["getText"]
+  CALL R35 3 1
+  SETTABLEKS R35 R34 K28 ["Text"]
+  LOADK R35 K106 ["Bold"]
+  SETTABLEKS R35 R34 K12 ["Style"]
+  GETIMPORT R35 K88 [Enum.AutomaticSize.Y]
+  SETTABLEKS R35 R34 K81 ["AutomaticSize"]
+  GETIMPORT R35 K91 [UDim2.fromScale]
+  LOADN R36 1
+  LOADN R37 0
+  CALL R35 2 1
+  SETTABLEKS R35 R34 K56 ["Size"]
+  GETIMPORT R35 K94 [Enum.TextXAlignment.Left]
+  SETTABLEKS R35 R34 K84 ["TextXAlignment"]
+  GETTABLEKS R35 R3 K62 ["TextSize"]
+  SETTABLEKS R35 R34 K62 ["TextSize"]
+  LOADB R35 1
+  SETTABLEKS R35 R34 K85 ["TextWrapped"]
+  NAMECALL R35 R1 K64 ["getNextOrder"]
+  CALL R35 1 1
+  SETTABLEKS R35 R34 K57 ["LayoutOrder"]
+  CALL R32 2 1
+  SETTABLEKS R32 R31 K101 ["Header"]
+  GETUPVAL R33 3
+  GETTABLEKS R32 R33 K11 ["createElement"]
+  GETUPVAL R33 14
+  DUPTABLE R34 K109 [{"LayoutOrder", "Text", "TextProps", "HorizontalAlignment", "LinkMap"}]
+  NAMECALL R35 R1 K64 ["getNextOrder"]
+  CALL R35 1 1
+  SETTABLEKS R35 R34 K57 ["LayoutOrder"]
+  JUMPIFNOTEQKS R11 K110 ["MissingIdVerification"] [+7]
+  LOADK R37 K23 ["UGCValidation"]
+  LOADK R38 K111 ["UploadBundleDenied_MissingIdVerification_Text"]
+  NAMECALL R35 R2 K25 ["getText"]
+  CALL R35 3 1
+  JUMP [+16]
+  JUMPIFNOTEQKS R11 K112 ["MissingPremiumSubscriptionTier"] [+7]
+  LOADK R37 K23 ["UGCValidation"]
+  LOADK R38 K113 ["UploadBundleDenied_MissingPremiumSubscriptionTier_Text"]
+  NAMECALL R35 R2 K25 ["getText"]
+  CALL R35 3 1
+  JUMP [+8]
+  LOADK R37 K23 ["UGCValidation"]
+  LOADK R38 K114 ["UploadBundleDenied_UnknownError"]
+  DUPTABLE R39 K116 [{"errorCode"}]
+  SETTABLEKS R11 R39 K115 ["errorCode"]
+  NAMECALL R35 R2 K25 ["getText"]
+  CALL R35 4 1
+  SETTABLEKS R35 R34 K28 ["Text"]
+  DUPTABLE R35 K117 [{"Font", "TextSize", "TextXAlignment"}]
+  GETIMPORT R36 K119 [Enum.Font.SourceSans]
+  SETTABLEKS R36 R35 K82 ["Font"]
+  GETTABLEKS R36 R3 K62 ["TextSize"]
+  SETTABLEKS R36 R35 K62 ["TextSize"]
+  GETIMPORT R36 K94 [Enum.TextXAlignment.Left]
+  SETTABLEKS R36 R35 K84 ["TextXAlignment"]
+  SETTABLEKS R35 R34 K107 ["TextProps"]
+  GETIMPORT R35 K49 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R35 R34 K41 ["HorizontalAlignment"]
+  NEWTABLE R35 2 0
+  DUPTABLE R36 K122 [{"LinkText", "LinkCallback"}]
+  LOADK R39 K23 ["UGCValidation"]
+  LOADK R40 K123 ["UploadBundleDenied_MissingIdVerification_Link"]
+  NAMECALL R37 R2 K25 ["getText"]
+  CALL R37 3 1
+  SETTABLEKS R37 R36 K120 ["LinkText"]
+  DUPCLOSURE R37 K124 [PROTO_3]
+  CAPTURE UPVAL U15
+  CAPTURE UPVAL U16
+  SETTABLEKS R37 R36 K121 ["LinkCallback"]
+  SETTABLEKS R36 R35 K125 ["[Age_Verified]"]
+  DUPTABLE R36 K122 [{"LinkText", "LinkCallback"}]
+  LOADK R39 K23 ["UGCValidation"]
+  LOADK R40 K126 ["UploadBundleDenied_MissingPremiumSubscriptionTier_Link"]
+  NAMECALL R37 R2 K25 ["getText"]
+  CALL R37 3 1
+  SETTABLEKS R37 R36 K120 ["LinkText"]
+  DUPCLOSURE R37 K127 [PROTO_4]
+  CAPTURE UPVAL U15
+  CAPTURE UPVAL U17
+  SETTABLEKS R37 R36 K121 ["LinkCallback"]
+  SETTABLEKS R36 R35 K128 ["[Premium_1000_Or_2200_Subscription]"]
+  SETTABLEKS R35 R34 K108 ["LinkMap"]
+  CALL R32 2 1
+  SETTABLEKS R32 R31 K102 ["ErrorText"]
+  CALL R28 3 1
+  LOADB R29 0
+  GETTABLEKS R31 R0 K93 ["Errors"]
+  LENGTH R30 R31
+  LOADN R31 0
+  JUMPIFNOTLT R31 R30 [+69]
+  GETUPVAL R30 3
+  GETTABLEKS R29 R30 K11 ["createElement"]
+  GETUPVAL R31 3
+  GETTABLEKS R30 R31 K100 ["Fragment"]
+  NEWTABLE R31 0 0
+  DUPTABLE R32 K129 [{"Header"}]
+  GETUPVAL R34 3
+  GETTABLEKS R33 R34 K11 ["createElement"]
+  GETUPVAL R34 11
+  DUPTABLE R35 K104 [{"Text", "Style", "AutomaticSize", "Size", "TextXAlignment", "TextSize", "TextWrapped", "LayoutOrder"}]
+  LOADK R38 K23 ["UGCValidation"]
+  LOADK R39 K130 ["ValidationErrorsHeader"]
+  NAMECALL R36 R2 K25 ["getText"]
+  CALL R36 3 1
+  SETTABLEKS R36 R35 K28 ["Text"]
+  LOADK R36 K106 ["Bold"]
+  SETTABLEKS R36 R35 K12 ["Style"]
+  GETIMPORT R36 K88 [Enum.AutomaticSize.Y]
+  SETTABLEKS R36 R35 K81 ["AutomaticSize"]
+  GETIMPORT R36 K91 [UDim2.fromScale]
+  LOADN R37 1
+  LOADN R38 0
+  CALL R36 2 1
+  SETTABLEKS R36 R35 K56 ["Size"]
+  GETIMPORT R36 K94 [Enum.TextXAlignment.Left]
+  SETTABLEKS R36 R35 K84 ["TextXAlignment"]
+  GETTABLEKS R36 R3 K62 ["TextSize"]
+  SETTABLEKS R36 R35 K62 ["TextSize"]
+  LOADB R36 1
+  SETTABLEKS R36 R35 K85 ["TextWrapped"]
+  NAMECALL R36 R1 K64 ["getNextOrder"]
+  CALL R36 1 1
+  SETTABLEKS R36 R35 K57 ["LayoutOrder"]
+  CALL R33 2 1
+  SETTABLEKS R33 R32 K101 ["Header"]
+  GETUPVAL R34 18
+  GETTABLEKS R33 R34 K131 ["map"]
+  GETTABLEKS R34 R0 K93 ["Errors"]
+  NEWCLOSURE R35 P5
+  CAPTURE UPVAL U3
+  CAPTURE UPVAL U11
+  CAPTURE VAL R2
+  CAPTURE UPVAL U19
+  CAPTURE VAL R3
+  CAPTURE VAL R1
+  CALL R33 2 -1
+  CALL R29 -1 1
+  SETLIST R27 R28 2 [1]
+  CALL R24 3 1
+  SETTABLEKS R24 R23 K79 ["Warnings"]
+  CALL R20 3 1
+  SETTABLEKS R20 R19 K53 ["RightColumn"]
+  GETUPVAL R20 6
+  CALL R20 0 1
+  JUMPIFNOT R20 [+9]
+  GETTABLEKS R21 R0 K33 ["ValidationCompleted"]
+  NOT R20 R21
+  JUMPIFNOT R20 [+5]
+  GETUPVAL R21 3
+  GETTABLEKS R20 R21 K11 ["createElement"]
+  LOADK R21 K132 ["Folder"]
+  CALL R20 1 1
+  SETTABLEKS R20 R19 K54 ["Rerun_Disabled"]
+  CALL R16 3 1
+  SETTABLEKS R16 R15 K38 ["Contents"]
+  CALL R12 3 -1
+  RETURN R12 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [game]
+  LOADK R2 K2 ["BrowserService"]
+  NAMECALL R0 R0 K3 ["GetService"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [script]
+  LOADK R3 K6 ["AvatarCompatibilityPreviewer"]
+  NAMECALL R1 R1 K7 ["FindFirstAncestor"]
+  CALL R1 2 1
+  GETIMPORT R2 K9 [require]
+  GETTABLEKS R4 R1 K10 ["Packages"]
+  GETTABLEKS R3 R4 K11 ["Dash"]
+  CALL R2 1 1
+  GETIMPORT R3 K9 [require]
+  GETTABLEKS R5 R1 K10 ["Packages"]
+  GETTABLEKS R4 R5 K12 ["Framework"]
+  CALL R3 1 1
+  GETIMPORT R4 K9 [require]
+  GETTABLEKS R6 R1 K10 ["Packages"]
+  GETTABLEKS R5 R6 K13 ["React"]
+  CALL R4 1 1
+  GETIMPORT R5 K9 [require]
+  GETTABLEKS R7 R1 K10 ["Packages"]
+  GETTABLEKS R6 R7 K14 ["UGCValidation"]
+  CALL R5 1 1
+  GETIMPORT R6 K9 [require]
+  GETTABLEKS R9 R1 K15 ["Src"]
+  GETTABLEKS R8 R9 K16 ["Components"]
+  GETTABLEKS R7 R8 K17 ["UGCValidationContext"]
+  CALL R6 1 1
+  GETIMPORT R7 K9 [require]
+  GETTABLEKS R10 R1 K15 ["Src"]
+  GETTABLEKS R9 R10 K18 ["Resources"]
+  GETTABLEKS R8 R9 K19 ["Theme"]
+  CALL R7 1 1
+  GETIMPORT R8 K9 [require]
+  GETTABLEKS R11 R1 K15 ["Src"]
+  GETTABLEKS R10 R11 K20 ["Util"]
+  GETTABLEKS R9 R10 K21 ["exhaustiveMatch"]
+  CALL R8 1 1
+  GETIMPORT R9 K9 [require]
+  GETTABLEKS R12 R1 K15 ["Src"]
+  GETTABLEKS R11 R12 K20 ["Util"]
+  GETTABLEKS R10 R11 K22 ["localizePlural"]
+  CALL R9 1 1
+  GETIMPORT R10 K9 [require]
+  GETTABLEKS R13 R1 K15 ["Src"]
+  GETTABLEKS R12 R13 K23 ["Flags"]
+  GETTABLEKS R11 R12 K24 ["getFFlagAvatarPreviewerRerunValidation"]
+  CALL R10 1 1
+  GETIMPORT R11 K1 [game]
+  LOADK R13 K25 ["AvatarPreviewerForceValidationDialogModal"]
+  LOADB R14 0
+  NAMECALL R11 R11 K26 ["DefineFastFlag"]
+  CALL R11 3 1
+  GETIMPORT R12 K1 [game]
+  LOADK R14 K27 ["AvatarPreviewerAgeIDVerificationLink"]
+  LOADK R15 K28 ["https://en.help.roblox.com/hc/en-us/articles/4407282410644-Age-ID-Verification"]
+  NAMECALL R12 R12 K29 ["DefineFastString"]
+  CALL R12 3 1
+  GETIMPORT R13 K1 [game]
+  LOADK R15 K30 ["AvatarPreviewerPremiumLink"]
+  LOADK R16 K31 ["https://www.roblox.com/premium/membership"]
+  NAMECALL R13 R13 K29 ["DefineFastString"]
+  CALL R13 3 1
+  GETTABLEKS R14 R3 K32 ["UI"]
+  GETTABLEKS R15 R14 K33 ["Image"]
+  GETTABLEKS R16 R14 K34 ["TextLabel"]
+  GETTABLEKS R17 R14 K35 ["TextWithLinks"]
+  GETTABLEKS R18 R14 K36 ["Pane"]
+  GETTABLEKS R19 R14 K37 ["ScrollingFrame"]
+  GETTABLEKS R20 R14 K38 ["StyledDialog"]
+  GETTABLEKS R22 R3 K20 ["Util"]
+  GETTABLEKS R21 R22 K39 ["LayoutOrderIterator"]
+  GETTABLEKS R23 R3 K20 ["Util"]
+  GETTABLEKS R22 R23 K40 ["StyleModifier"]
+  GETTABLEKS R24 R3 K41 ["ContextServices"]
+  GETTABLEKS R23 R24 K42 ["Localization"]
+  GETTABLEKS R25 R3 K41 ["ContextServices"]
+  GETTABLEKS R24 R25 K43 ["Stylizer"]
+  DUPCLOSURE R25 K44 [PROTO_6]
+  CAPTURE VAL R21
+  CAPTURE VAL R23
+  CAPTURE VAL R24
+  CAPTURE VAL R4
+  CAPTURE VAL R6
+  CAPTURE VAL R20
+  CAPTURE VAL R10
+  CAPTURE VAL R11
+  CAPTURE VAL R22
+  CAPTURE VAL R18
+  CAPTURE VAL R15
+  CAPTURE VAL R16
+  CAPTURE VAL R9
+  CAPTURE VAL R19
+  CAPTURE VAL R17
+  CAPTURE VAL R0
+  CAPTURE VAL R12
+  CAPTURE VAL R13
+  CAPTURE VAL R2
+  CAPTURE VAL R8
+  RETURN R25 1

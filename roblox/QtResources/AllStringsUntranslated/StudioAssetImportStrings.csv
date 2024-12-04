@@ -1,0 +1,4 @@
+Key,Context,Source,en-us
+Studio.AssetImport.TextureFilePickerCaption,,Open Texture File,Open Texture File
+Studio.AssetImport.ImportFilePickerCaption,,"Open 3D File (FBX, OBJ, GLB, GLTF)","Open 3D File (FBX, OBJ, GLB, GLTF)"
+Studio.AssetImport.GrantExperienceAssetPermissionsErrorMessage,,Failed to grant Game permission to use asset %1.,Failed to grant Game permission to use asset %1.

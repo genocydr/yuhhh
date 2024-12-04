@@ -1,0 +1,144 @@
+PROTO_0:
+  LOADK R3 K0 ["rbxthumb://type=AvatarHeadShot&id=%*&w=%*&h=%*&filters=circular"]
+  MOVE R5 R0
+  GETTABLEKS R6 R1 K1 ["X"]
+  GETTABLEKS R7 R1 K2 ["Y"]
+  NAMECALL R3 R3 K3 ["format"]
+  CALL R3 4 1
+  MOVE R2 R3
+  RETURN R2 1
+
+PROTO_1:
+  GETUPVAL R2 0
+  GETTABLEKS R1 R2 K0 ["createElement"]
+  LOADK R2 K1 ["Frame"]
+  NEWTABLE R3 1 0
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K2 ["Tag"]
+  GETUPVAL R5 1
+  LOADK R6 K3 ["Component-CollaboratorThumbnail Role-Surface"]
+  GETUPVAL R9 0
+  GETTABLEKS R8 R9 K2 ["Tag"]
+  GETTABLE R7 R0 R8
+  CALL R5 2 1
+  SETTABLE R5 R3 R4
+  NEWTABLE R4 2 1
+  GETTABLEKS R7 R0 K4 ["IsIdle"]
+  JUMPIF R7 [+26]
+  GETUPVAL R7 0
+  GETTABLEKS R6 R7 K0 ["createElement"]
+  LOADK R7 K1 ["Frame"]
+  NEWTABLE R8 1 0
+  GETUPVAL R10 0
+  GETTABLEKS R9 R10 K2 ["Tag"]
+  LOADK R10 K5 ["Role-Surface X-Fit"]
+  SETTABLE R10 R8 R9
+  DUPTABLE R9 K7 [{"RingColor"}]
+  GETUPVAL R11 0
+  GETTABLEKS R10 R11 K0 ["createElement"]
+  LOADK R11 K8 ["UIStroke"]
+  DUPTABLE R12 K10 [{"Color"}]
+  GETTABLEKS R13 R0 K6 ["RingColor"]
+  SETTABLEKS R13 R12 K9 ["Color"]
+  CALL R10 2 1
+  SETTABLEKS R10 R9 K6 ["RingColor"]
+  CALL R6 3 1
+  JUMP [+1]
+  LOADNIL R6
+  SETTABLEKS R6 R4 K11 ["ActivityRing"]
+  GETUPVAL R6 2
+  JUMPIFNOT R6 [+42]
+  GETUPVAL R6 0
+  GETTABLEKS R5 R6 K0 ["createElement"]
+  LOADK R6 K12 ["ImageLabel"]
+  NEWTABLE R7 4 0
+  GETTABLEKS R9 R0 K14 ["Username"]
+  ORK R8 R9 K13 ["Avatar"]
+  SETTABLEKS R8 R7 K15 ["key"]
+  GETTABLEKS R9 R0 K16 ["UserId"]
+  GETIMPORT R10 K19 [Vector2.new]
+  LOADN R11 60
+  LOADN R12 60
+  CALL R10 2 1
+  LOADK R11 K20 ["rbxthumb://type=AvatarHeadShot&id=%*&w=%*&h=%*&filters=circular"]
+  MOVE R13 R9
+  GETTABLEKS R14 R10 K21 ["X"]
+  GETTABLEKS R15 R10 K22 ["Y"]
+  NAMECALL R11 R11 K23 ["format"]
+  CALL R11 4 1
+  MOVE R8 R11
+  SETTABLEKS R8 R7 K24 ["Image"]
+  GETUPVAL R9 0
+  GETTABLEKS R8 R9 K2 ["Tag"]
+  GETTABLEKS R10 R0 K4 ["IsIdle"]
+  JUMPIFNOT R10 [+2]
+  LOADK R9 K25 ["Idle"]
+  JUMP [+1]
+  LOADNIL R9
+  SETTABLE R9 R7 R8
+  CALL R5 2 1
+  JUMP [+1]
+  LOADNIL R5
+  SETLIST R4 R5 1 [1]
+  GETUPVAL R7 2
+  JUMPIF R7 [+37]
+  GETUPVAL R7 0
+  GETTABLEKS R6 R7 K0 ["createElement"]
+  LOADK R7 K12 ["ImageLabel"]
+  NEWTABLE R8 2 0
+  GETTABLEKS R10 R0 K16 ["UserId"]
+  GETIMPORT R11 K19 [Vector2.new]
+  LOADN R12 60
+  LOADN R13 60
+  CALL R11 2 1
+  LOADK R12 K20 ["rbxthumb://type=AvatarHeadShot&id=%*&w=%*&h=%*&filters=circular"]
+  MOVE R14 R10
+  GETTABLEKS R15 R11 K21 ["X"]
+  GETTABLEKS R16 R11 K22 ["Y"]
+  NAMECALL R12 R12 K23 ["format"]
+  CALL R12 4 1
+  MOVE R9 R12
+  SETTABLEKS R9 R8 K24 ["Image"]
+  GETUPVAL R10 0
+  GETTABLEKS R9 R10 K2 ["Tag"]
+  GETTABLEKS R11 R0 K4 ["IsIdle"]
+  JUMPIFNOT R11 [+2]
+  LOADK R10 K25 ["Idle"]
+  JUMP [+1]
+  LOADNIL R10
+  SETTABLE R10 R8 R9
+  CALL R6 2 1
+  JUMP [+1]
+  LOADNIL R6
+  SETTABLEKS R6 R4 K13 ["Avatar"]
+  CALL R1 3 -1
+  RETURN R1 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["Ribbon"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R5 R0 K8 ["Src"]
+  GETTABLEKS R4 R5 K9 ["SharedFlags"]
+  GETTABLEKS R3 R4 K10 ["getFFlagAddUsernameToRibbonAvatars"]
+  CALL R2 1 1
+  CALL R2 0 1
+  GETIMPORT R3 K5 [require]
+  GETTABLEKS R5 R0 K6 ["Packages"]
+  GETTABLEKS R4 R5 K11 ["Framework"]
+  CALL R3 1 1
+  GETTABLEKS R5 R3 K12 ["Styling"]
+  GETTABLEKS R4 R5 K13 ["joinTags"]
+  DUPCLOSURE R5 K14 [PROTO_0]
+  DUPCLOSURE R6 K15 [PROTO_1]
+  CAPTURE VAL R1
+  CAPTURE VAL R4
+  CAPTURE VAL R2
+  RETURN R6 1

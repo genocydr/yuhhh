@@ -1,0 +1,378 @@
+PROTO_0:
+  GETUPVAL R3 0
+  NAMECALL R3 R3 K0 ["GetSessionId"]
+  CALL R3 1 1
+  GETUPVAL R4 0
+  NAMECALL R4 R4 K1 ["GetClientId"]
+  CALL R4 1 1
+  GETUPVAL R5 1
+  NAMECALL R5 R5 K2 ["GetUserId"]
+  CALL R5 1 1
+  GETUPVAL R7 2
+  GETTABLEKS R6 R7 K3 ["telemetry"]
+  MOVE R8 R0
+  LOADNIL R9
+  DUPTABLE R10 K9 [{"userId", "studioSid", "clientId", "interventionType", "dialogEvent"}]
+  SETTABLEKS R5 R10 K4 ["userId"]
+  SETTABLEKS R3 R10 K5 ["studioSid"]
+  SETTABLEKS R4 R10 K6 ["clientId"]
+  SETTABLEKS R1 R10 K7 ["interventionType"]
+  SETTABLEKS R2 R10 K8 ["dialogEvent"]
+  NAMECALL R6 R6 K10 ["logRobloxTelemetryEvent"]
+  CALL R6 4 0
+  RETURN R0 0
+
+PROTO_1:
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K0 ["log"]
+  GETUPVAL R1 1
+  GETUPVAL R4 0
+  GETTABLEKS R3 R4 K1 ["state"]
+  GETTABLEKS R2 R3 K2 ["type"]
+  LOADK R3 K3 ["Reactivate"]
+  CALL R0 3 0
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K4 ["moderationController"]
+  NAMECALL R0 R0 K5 ["ReactivateAsync"]
+  CALL R0 1 0
+  GETUPVAL R0 0
+  DUPTABLE R2 K7 [{"showDialog"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K6 ["showDialog"]
+  NAMECALL R0 R0 K8 ["setState"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_2:
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K0 ["log"]
+  GETUPVAL R1 1
+  GETUPVAL R4 0
+  GETTABLEKS R3 R4 K1 ["state"]
+  GETTABLEKS R2 R3 K2 ["type"]
+  LOADK R3 K3 ["Logout"]
+  CALL R0 3 0
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K4 ["moderationController"]
+  NAMECALL R0 R0 K5 ["LogoutAsync"]
+  CALL R0 1 0
+  GETUPVAL R0 0
+  DUPTABLE R2 K7 [{"showDialog"}]
+  LOADB R3 0
+  SETTABLEKS R3 R2 K6 ["showDialog"]
+  NAMECALL R0 R0 K8 ["setState"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_3:
+  GETTABLEKS R2 R0 K0 ["InterventionId"]
+  JUMPIFEQKNIL R2 [+3]
+  LOADB R1 1
+  JUMP [+1]
+  LOADB R1 0
+  JUMPIFNOT R1 [+14]
+  GETUPVAL R4 0
+  GETTABLEKS R3 R4 K1 ["state"]
+  GETTABLEKS R2 R3 K2 ["showDialog"]
+  JUMPIF R2 [+8]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K3 ["log"]
+  GETUPVAL R3 1
+  GETTABLEKS R4 R0 K4 ["PunishmentType"]
+  LOADK R5 K5 ["ShowDialog"]
+  CALL R2 3 0
+  GETUPVAL R2 0
+  DUPTABLE R4 K11 [{"showDialog", "messageToUser", "reason", "reviewDateTime", "type", "bannedDateTime"}]
+  SETTABLEKS R1 R4 K2 ["showDialog"]
+  GETTABLEKS R5 R0 K12 ["MessageToUser"]
+  SETTABLEKS R5 R4 K6 ["messageToUser"]
+  GETTABLEKS R6 R0 K13 ["BadUtterances"]
+  JUMPIFEQKNIL R6 [+22]
+  GETTABLEKS R7 R0 K13 ["BadUtterances"]
+  GETTABLEN R6 R7 1
+  JUMPIFEQKNIL R6 [+17]
+  DUPTABLE R5 K16 [{"abuseType", "utteranceText"}]
+  GETTABLEKS R8 R0 K13 ["BadUtterances"]
+  GETTABLEN R7 R8 1
+  GETTABLEKS R6 R7 K17 ["AbuseType"]
+  SETTABLEKS R6 R5 K14 ["abuseType"]
+  GETTABLEKS R8 R0 K13 ["BadUtterances"]
+  GETTABLEN R7 R8 1
+  GETTABLEKS R6 R7 K18 ["UtteranceText"]
+  SETTABLEKS R6 R5 K15 ["utteranceText"]
+  JUMP [+1]
+  LOADNIL R5
+  SETTABLEKS R5 R4 K7 ["reason"]
+  GETTABLEKS R5 R0 K19 ["BeginDate"]
+  SETTABLEKS R5 R4 K8 ["reviewDateTime"]
+  GETTABLEKS R5 R0 K4 ["PunishmentType"]
+  SETTABLEKS R5 R4 K9 ["type"]
+  GETTABLEKS R5 R0 K20 ["EndDate"]
+  SETTABLEKS R5 R4 K10 ["bannedDateTime"]
+  NAMECALL R2 R2 K21 ["setState"]
+  CALL R2 2 0
+  RETURN R0 0
+
+PROTO_4:
+  GETUPVAL R1 0
+  DUPTABLE R3 K1 [{"showDialog"}]
+  SETTABLEKS R0 R3 K0 ["showDialog"]
+  NAMECALL R1 R1 K2 ["setState"]
+  CALL R1 2 0
+  RETURN R0 0
+
+PROTO_5:
+  NEWTABLE R0 0 0
+  RETURN R0 1
+
+PROTO_6:
+  GETTABLEKS R2 R1 K0 ["Plugin"]
+  LOADK R4 K1 ["ModerationController"]
+  NAMECALL R2 R2 K2 ["GetPluginComponent"]
+  CALL R2 2 1
+  SETTABLEKS R2 R0 K3 ["moderationController"]
+  GETTABLEKS R2 R0 K3 ["moderationController"]
+  NAMECALL R2 R2 K4 ["GetModerationInfoAsync"]
+  CALL R2 1 1
+  GETUPVAL R4 0
+  GETTABLEKS R3 R4 K5 ["new"]
+  CALL R3 0 1
+  SETTABLEKS R3 R0 K6 ["telemetry"]
+  NEWCLOSURE R3 P0
+  CAPTURE UPVAL U1
+  CAPTURE UPVAL U2
+  CAPTURE VAL R0
+  SETTABLEKS R3 R0 K7 ["log"]
+  NEWCLOSURE R3 P1
+  CAPTURE VAL R0
+  CAPTURE UPVAL U3
+  SETTABLEKS R3 R0 K8 ["onReactivate"]
+  NEWCLOSURE R3 P2
+  CAPTURE VAL R0
+  CAPTURE UPVAL U3
+  SETTABLEKS R3 R0 K9 ["onLogout"]
+  DUPTABLE R3 K16 [{"showDialog", "messageToUser", "reason", "reviewDateTime", "type", "bannedDateTime"}]
+  GETTABLEKS R5 R2 K17 ["InterventionId"]
+  JUMPIFEQKNIL R5 [+3]
+  LOADB R4 1
+  JUMP [+1]
+  LOADB R4 0
+  SETTABLEKS R4 R3 K10 ["showDialog"]
+  GETTABLEKS R4 R2 K18 ["MessageToUser"]
+  SETTABLEKS R4 R3 K11 ["messageToUser"]
+  GETTABLEKS R5 R2 K19 ["BadUtterances"]
+  JUMPIFEQKNIL R5 [+22]
+  GETTABLEKS R6 R2 K19 ["BadUtterances"]
+  GETTABLEN R5 R6 1
+  JUMPIFEQKNIL R5 [+17]
+  DUPTABLE R4 K22 [{"abuseType", "utteranceText"}]
+  GETTABLEKS R7 R2 K19 ["BadUtterances"]
+  GETTABLEN R6 R7 1
+  GETTABLEKS R5 R6 K23 ["AbuseType"]
+  SETTABLEKS R5 R4 K20 ["abuseType"]
+  GETTABLEKS R7 R2 K19 ["BadUtterances"]
+  GETTABLEN R6 R7 1
+  GETTABLEKS R5 R6 K24 ["UtteranceText"]
+  SETTABLEKS R5 R4 K21 ["utteranceText"]
+  JUMP [+1]
+  LOADNIL R4
+  SETTABLEKS R4 R3 K12 ["reason"]
+  GETTABLEKS R4 R2 K25 ["BeginDate"]
+  SETTABLEKS R4 R3 K13 ["reviewDateTime"]
+  GETTABLEKS R4 R2 K26 ["PunishmentType"]
+  SETTABLEKS R4 R3 K14 ["type"]
+  GETTABLEKS R4 R2 K27 ["EndDate"]
+  SETTABLEKS R4 R3 K15 ["bannedDateTime"]
+  SETTABLEKS R3 R0 K28 ["state"]
+  GETTABLEKS R4 R0 K28 ["state"]
+  GETTABLEKS R3 R4 K10 ["showDialog"]
+  JUMPIFNOT R3 [+9]
+  GETTABLEKS R3 R0 K7 ["log"]
+  GETUPVAL R4 3
+  GETTABLEKS R6 R0 K28 ["state"]
+  GETTABLEKS R5 R6 K14 ["type"]
+  LOADK R6 K29 ["ShowDialog"]
+  CALL R3 3 0
+  GETTABLEKS R4 R0 K3 ["moderationController"]
+  GETTABLEKS R3 R4 K30 ["ShowModerationDialog"]
+  NEWCLOSURE R5 P3
+  CAPTURE VAL R0
+  CAPTURE UPVAL U3
+  NAMECALL R3 R3 K31 ["Connect"]
+  CALL R3 2 1
+  SETTABLEKS R3 R0 K32 ["showModerationDialogConnection"]
+  NEWCLOSURE R3 P4
+  CAPTURE VAL R0
+  SETTABLEKS R3 R0 K33 ["onRestore"]
+  GETUPVAL R5 4
+  GETTABLEKS R4 R5 K34 ["Localization"]
+  GETTABLEKS R3 R4 K5 ["new"]
+  DUPTABLE R4 K38 [{"stringResourceTable", "translationResourceTable", "pluginName"}]
+  GETUPVAL R5 5
+  SETTABLEKS R5 R4 K35 ["stringResourceTable"]
+  GETUPVAL R5 6
+  SETTABLEKS R5 R4 K36 ["translationResourceTable"]
+  LOADK R5 K39 ["ModerationDialog"]
+  SETTABLEKS R5 R4 K37 ["pluginName"]
+  CALL R3 1 1
+  SETTABLEKS R3 R0 K40 ["localization"]
+  GETUPVAL R5 4
+  GETTABLEKS R4 R5 K41 ["Analytics"]
+  GETTABLEKS R3 R4 K5 ["new"]
+  DUPCLOSURE R4 K42 [PROTO_5]
+  NEWTABLE R5 0 0
+  CALL R3 2 1
+  SETTABLEKS R3 R0 K43 ["analytics"]
+  GETUPVAL R4 7
+  GETTABLEKS R3 R4 K5 ["new"]
+  CALL R3 0 1
+  SETTABLEKS R3 R0 K44 ["DEPRECATED_stylizer"]
+  GETUPVAL R3 8
+  GETTABLEKS R4 R1 K0 ["Plugin"]
+  CALL R3 1 1
+  SETTABLEKS R3 R0 K45 ["design"]
+  RETURN R0 0
+
+PROTO_7:
+  GETTABLEKS R1 R0 K0 ["props"]
+  GETTABLEKS R2 R0 K1 ["state"]
+  GETTABLEKS R3 R1 K2 ["Plugin"]
+  GETUPVAL R5 0
+  GETTABLEKS R4 R5 K3 ["provide"]
+  NEWTABLE R5 0 5
+  GETUPVAL R7 1
+  GETTABLEKS R6 R7 K4 ["new"]
+  MOVE R7 R3
+  CALL R6 1 1
+  GETUPVAL R8 2
+  GETTABLEKS R7 R8 K4 ["new"]
+  NAMECALL R8 R3 K5 ["getMouse"]
+  CALL R8 1 -1
+  CALL R7 -1 1
+  GETTABLEKS R8 R0 K6 ["localization"]
+  GETTABLEKS R9 R0 K7 ["analytics"]
+  GETUPVAL R11 3
+  GETTABLEKS R10 R11 K4 ["new"]
+  GETTABLEKS R11 R0 K8 ["design"]
+  CALL R10 1 -1
+  SETLIST R5 R6 -1 [1]
+  DUPTABLE R6 K11 [{"DialogContainer", "StyleLink"}]
+  GETTABLEKS R7 R2 K12 ["showDialog"]
+  JUMPIFNOT R7 [+34]
+  GETUPVAL R8 4
+  GETTABLEKS R7 R8 K13 ["createElement"]
+  GETUPVAL R8 5
+  DUPTABLE R9 K21 [{"Reason", "ReviewDateTime", "ModeratorNote", "OnReactivate", "OnLogout", "Type", "BannedDateTime"}]
+  GETTABLEKS R10 R2 K22 ["reason"]
+  SETTABLEKS R10 R9 K14 ["Reason"]
+  GETTABLEKS R10 R2 K23 ["reviewDateTime"]
+  SETTABLEKS R10 R9 K15 ["ReviewDateTime"]
+  GETTABLEKS R10 R2 K24 ["messageToUser"]
+  SETTABLEKS R10 R9 K16 ["ModeratorNote"]
+  GETTABLEKS R10 R0 K25 ["onReactivate"]
+  SETTABLEKS R10 R9 K17 ["OnReactivate"]
+  GETTABLEKS R10 R0 K26 ["onLogout"]
+  SETTABLEKS R10 R9 K18 ["OnLogout"]
+  GETTABLEKS R10 R2 K27 ["type"]
+  SETTABLEKS R10 R9 K19 ["Type"]
+  GETTABLEKS R10 R2 K28 ["bannedDateTime"]
+  SETTABLEKS R10 R9 K20 ["BannedDateTime"]
+  CALL R7 2 1
+  SETTABLEKS R7 R6 K9 ["DialogContainer"]
+  GETUPVAL R8 4
+  GETTABLEKS R7 R8 K13 ["createElement"]
+  LOADK R8 K10 ["StyleLink"]
+  DUPTABLE R9 K30 [{"StyleSheet"}]
+  GETTABLEKS R10 R0 K8 ["design"]
+  SETTABLEKS R10 R9 K29 ["StyleSheet"]
+  CALL R7 2 1
+  SETTABLEKS R7 R6 K10 ["StyleLink"]
+  CALL R4 2 -1
+  RETURN R4 -1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["ModerationDialog"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Framework"]
+  CALL R2 1 1
+  GETTABLEKS R3 R2 K9 ["ContextServices"]
+  GETTABLEKS R4 R3 K10 ["Plugin"]
+  GETTABLEKS R5 R3 K11 ["Mouse"]
+  GETTABLEKS R6 R3 K12 ["Design"]
+  GETTABLEKS R9 R2 K13 ["Style"]
+  GETTABLEKS R8 R9 K14 ["Themes"]
+  GETTABLEKS R7 R8 K15 ["StudioTheme"]
+  GETTABLEKS R9 R2 K16 ["Styling"]
+  GETTABLEKS R8 R9 K17 ["registerPluginStyles"]
+  GETTABLEKS R12 R0 K18 ["Src"]
+  GETTABLEKS R11 R12 K19 ["Resources"]
+  GETTABLEKS R10 R11 K20 ["Localization"]
+  GETTABLEKS R9 R10 K21 ["SourceStrings"]
+  GETTABLEKS R13 R0 K18 ["Src"]
+  GETTABLEKS R12 R13 K19 ["Resources"]
+  GETTABLEKS R11 R12 K20 ["Localization"]
+  GETTABLEKS R10 R11 K22 ["LocalizedStrings"]
+  GETIMPORT R11 K5 [require]
+  GETTABLEKS R15 R0 K18 ["Src"]
+  GETTABLEKS R14 R15 K23 ["Util"]
+  GETTABLEKS R13 R14 K24 ["Telemetry"]
+  GETTABLEKS R12 R13 K25 ["TelemetryProtocol"]
+  CALL R11 1 1
+  GETIMPORT R12 K5 [require]
+  GETTABLEKS R16 R0 K18 ["Src"]
+  GETTABLEKS R15 R16 K23 ["Util"]
+  GETTABLEKS R14 R15 K24 ["Telemetry"]
+  GETTABLEKS R13 R14 K26 ["TelemetryProtocolTypes"]
+  CALL R12 1 1
+  GETIMPORT R13 K5 [require]
+  GETTABLEKS R17 R0 K18 ["Src"]
+  GETTABLEKS R16 R17 K23 ["Util"]
+  GETTABLEKS R15 R16 K24 ["Telemetry"]
+  GETTABLEKS R14 R15 K27 ["ModerationUXDialogEvent"]
+  CALL R13 1 1
+  GETTABLEKS R15 R0 K18 ["Src"]
+  GETTABLEKS R14 R15 K28 ["Components"]
+  GETIMPORT R15 K5 [require]
+  GETTABLEKS R16 R14 K29 ["DialogContainer"]
+  CALL R15 1 1
+  GETTABLEKS R16 R1 K30 ["PureComponent"]
+  LOADK R18 K31 ["MainPlugin"]
+  NAMECALL R16 R16 K32 ["extend"]
+  CALL R16 2 1
+  GETIMPORT R17 K34 [game]
+  LOADK R19 K35 ["StudioService"]
+  NAMECALL R17 R17 K36 ["GetService"]
+  CALL R17 2 1
+  GETIMPORT R18 K34 [game]
+  LOADK R20 K37 ["RbxAnalyticsService"]
+  NAMECALL R18 R18 K36 ["GetService"]
+  CALL R18 2 1
+  DUPCLOSURE R19 K38 [PROTO_6]
+  CAPTURE VAL R11
+  CAPTURE VAL R18
+  CAPTURE VAL R17
+  CAPTURE VAL R13
+  CAPTURE VAL R3
+  CAPTURE VAL R9
+  CAPTURE VAL R10
+  CAPTURE VAL R7
+  CAPTURE VAL R8
+  SETTABLEKS R19 R16 K39 ["init"]
+  DUPCLOSURE R19 K40 [PROTO_7]
+  CAPTURE VAL R3
+  CAPTURE VAL R4
+  CAPTURE VAL R5
+  CAPTURE VAL R6
+  CAPTURE VAL R1
+  CAPTURE VAL R15
+  SETTABLEKS R19 R16 K41 ["render"]
+  RETURN R16 1

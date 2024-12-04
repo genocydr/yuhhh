@@ -1,0 +1,426 @@
+PROTO_0:
+  GETUPVAL R4 0
+  GETTABLEKS R3 R4 K0 ["createElement"]
+  GETUPVAL R4 1
+  NEWTABLE R5 8 0
+  LOADB R6 1
+  SETTABLEKS R6 R5 K1 ["TextWrapped"]
+  GETIMPORT R6 K5 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R6 R5 K3 ["HorizontalAlignment"]
+  SETTABLEKS R1 R5 K6 ["Text"]
+  GETUPVAL R6 2
+  SETTABLEKS R6 R5 K7 ["TextProps"]
+  SETTABLEKS R2 R5 K8 ["LinkMap"]
+  SETTABLEKS R0 R5 K9 ["LayoutOrder"]
+  GETUPVAL R7 0
+  GETTABLEKS R6 R7 K10 ["Tag"]
+  LOADK R7 K11 ["X-FitY"]
+  SETTABLE R7 R5 R6
+  CALL R3 2 -1
+  RETURN R3 -1
+
+PROTO_1:
+  GETUPVAL R0 0
+  GETUPVAL R2 1
+  NAMECALL R0 R0 K0 ["OpenBrowserWindow"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_2:
+  GETUPVAL R0 0
+  GETUPVAL R2 1
+  NAMECALL R0 R0 K0 ["OpenBrowserWindow"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_3:
+  GETUPVAL R3 0
+  GETTABLEKS R1 R3 K0 ["BaseUrl"]
+  LOADK R2 K1 ["report-appeals?t_source=studio-nap"]
+  CONCAT R0 R1 R2
+  GETUPVAL R1 1
+  MOVE R3 R0
+  NAMECALL R1 R1 K2 ["OpenBrowserWindow"]
+  CALL R1 2 0
+  RETURN R0 0
+
+PROTO_4:
+  GETUPVAL R0 0
+  GETUPVAL R2 1
+  NAMECALL R0 R0 K0 ["OpenBrowserWindow"]
+  CALL R0 2 0
+  RETURN R0 0
+
+PROTO_5:
+  GETUPVAL R1 0
+  GETTABLEKS R0 R1 K0 ["SetChecked"]
+  GETUPVAL R3 0
+  GETTABLEKS R2 R3 K1 ["Checked"]
+  NOT R1 R2
+  CALL R0 1 0
+  RETURN R0 0
+
+PROTO_6:
+  GETUPVAL R1 0
+  NAMECALL R1 R1 K0 ["use"]
+  CALL R1 1 1
+  GETUPVAL R3 1
+  GETTABLEKS R2 R3 K1 ["new"]
+  CALL R2 0 1
+  DUPTABLE R3 K3 [{"DialogContainer"}]
+  GETUPVAL R5 2
+  GETTABLEKS R4 R5 K4 ["createElement"]
+  LOADK R5 K5 ["Frame"]
+  NEWTABLE R6 2 0
+  NAMECALL R7 R2 K6 ["getNextOrder"]
+  CALL R7 1 1
+  SETTABLEKS R7 R6 K7 ["LayoutOrder"]
+  GETUPVAL R8 2
+  GETTABLEKS R7 R8 K8 ["Tag"]
+  LOADK R8 K9 ["X-Fill X-Column Component-DialogContents"]
+  SETTABLE R8 R6 R7
+  DUPTABLE R7 K20 [{"Body", "ReviewedNote", "Separator1", "Reason", "Separator2", "Guidelines", "ReactivateDateNote", "AppealPortal", "ToUAgreement", "AgreeCheckBox"}]
+  NAMECALL R9 R2 K6 ["getNextOrder"]
+  CALL R9 1 1
+  LOADK R12 K21 ["WarningHeader"]
+  LOADK R13 K22 ["WarningLink"]
+  NAMECALL R10 R1 K23 ["getText"]
+  CALL R10 3 1
+  NEWTABLE R11 1 0
+  DUPTABLE R12 K26 [{"LinkText", "LinkCallback"}]
+  LOADK R15 K27 ["Links"]
+  LOADK R16 K28 ["ToULink"]
+  NAMECALL R13 R1 K23 ["getText"]
+  CALL R13 3 1
+  SETTABLEKS R13 R12 K24 ["LinkText"]
+  DUPCLOSURE R13 K29 [PROTO_1]
+  CAPTURE UPVAL U3
+  CAPTURE UPVAL U4
+  SETTABLEKS R13 R12 K25 ["LinkCallback"]
+  SETTABLEKS R12 R11 K30 ["[link1]"]
+  GETUPVAL R13 2
+  GETTABLEKS R12 R13 K4 ["createElement"]
+  GETUPVAL R13 5
+  NEWTABLE R14 8 0
+  LOADB R15 1
+  SETTABLEKS R15 R14 K31 ["TextWrapped"]
+  GETIMPORT R15 K35 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R15 R14 K33 ["HorizontalAlignment"]
+  SETTABLEKS R10 R14 K36 ["Text"]
+  GETUPVAL R15 6
+  SETTABLEKS R15 R14 K37 ["TextProps"]
+  SETTABLEKS R11 R14 K38 ["LinkMap"]
+  SETTABLEKS R9 R14 K7 ["LayoutOrder"]
+  GETUPVAL R16 2
+  GETTABLEKS R15 R16 K8 ["Tag"]
+  LOADK R16 K39 ["X-FitY"]
+  SETTABLE R16 R14 R15
+  CALL R12 2 1
+  MOVE R8 R12
+  SETTABLEKS R8 R7 K10 ["Body"]
+  GETUPVAL R9 2
+  GETTABLEKS R8 R9 K4 ["createElement"]
+  GETUPVAL R9 7
+  DUPTABLE R10 K42 [{"ReviewDateTime", "ModeratorNote", "LayoutOrder"}]
+  GETTABLEKS R11 R0 K40 ["ReviewDateTime"]
+  SETTABLEKS R11 R10 K40 ["ReviewDateTime"]
+  GETTABLEKS R11 R0 K41 ["ModeratorNote"]
+  SETTABLEKS R11 R10 K41 ["ModeratorNote"]
+  NAMECALL R11 R2 K6 ["getNextOrder"]
+  CALL R11 1 1
+  SETTABLEKS R11 R10 K7 ["LayoutOrder"]
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K11 ["ReviewedNote"]
+  GETUPVAL R9 2
+  GETTABLEKS R8 R9 K4 ["createElement"]
+  LOADK R9 K5 ["Frame"]
+  NEWTABLE R10 2 0
+  NAMECALL R11 R2 K6 ["getNextOrder"]
+  CALL R11 1 1
+  SETTABLEKS R11 R10 K7 ["LayoutOrder"]
+  GETUPVAL R12 2
+  GETTABLEKS R11 R12 K8 ["Tag"]
+  LOADK R12 K43 ["Separator"]
+  SETTABLE R12 R10 R11
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K12 ["Separator1"]
+  GETTABLEKS R8 R0 K13 ["Reason"]
+  JUMPIFNOT R8 [+26]
+  GETUPVAL R9 2
+  GETTABLEKS R8 R9 K4 ["createElement"]
+  GETUPVAL R9 8
+  DUPTABLE R10 K45 [{"Reason", "OffensiveItem", "LayoutOrder"}]
+  GETUPVAL R11 9
+  MOVE R12 R1
+  GETTABLEKS R14 R0 K13 ["Reason"]
+  GETTABLEKS R13 R14 K46 ["abuseType"]
+  CALL R11 2 1
+  SETTABLEKS R11 R10 K13 ["Reason"]
+  GETTABLEKS R12 R0 K13 ["Reason"]
+  GETTABLEKS R11 R12 K47 ["utteranceText"]
+  SETTABLEKS R11 R10 K44 ["OffensiveItem"]
+  NAMECALL R11 R2 K6 ["getNextOrder"]
+  CALL R11 1 1
+  SETTABLEKS R11 R10 K7 ["LayoutOrder"]
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K13 ["Reason"]
+  GETTABLEKS R8 R0 K13 ["Reason"]
+  JUMPIFNOT R8 [+17]
+  GETUPVAL R9 2
+  GETTABLEKS R8 R9 K4 ["createElement"]
+  LOADK R9 K5 ["Frame"]
+  NEWTABLE R10 2 0
+  NAMECALL R11 R2 K6 ["getNextOrder"]
+  CALL R11 1 1
+  SETTABLEKS R11 R10 K7 ["LayoutOrder"]
+  GETUPVAL R12 2
+  GETTABLEKS R11 R12 K8 ["Tag"]
+  LOADK R12 K43 ["Separator"]
+  SETTABLE R12 R10 R11
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K14 ["Separator2"]
+  NAMECALL R9 R2 K6 ["getNextOrder"]
+  CALL R9 1 1
+  LOADK R12 K48 ["AccountDisabled"]
+  LOADK R13 K15 ["Guidelines"]
+  NAMECALL R10 R1 K23 ["getText"]
+  CALL R10 3 1
+  NEWTABLE R11 1 0
+  DUPTABLE R12 K26 [{"LinkText", "LinkCallback"}]
+  LOADK R15 K27 ["Links"]
+  LOADK R16 K49 ["GuidelinesLink"]
+  NAMECALL R13 R1 K23 ["getText"]
+  CALL R13 3 1
+  SETTABLEKS R13 R12 K24 ["LinkText"]
+  DUPCLOSURE R13 K50 [PROTO_2]
+  CAPTURE UPVAL U3
+  CAPTURE UPVAL U10
+  SETTABLEKS R13 R12 K25 ["LinkCallback"]
+  SETTABLEKS R12 R11 K30 ["[link1]"]
+  GETUPVAL R13 2
+  GETTABLEKS R12 R13 K4 ["createElement"]
+  GETUPVAL R13 5
+  NEWTABLE R14 8 0
+  LOADB R15 1
+  SETTABLEKS R15 R14 K31 ["TextWrapped"]
+  GETIMPORT R15 K35 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R15 R14 K33 ["HorizontalAlignment"]
+  SETTABLEKS R10 R14 K36 ["Text"]
+  GETUPVAL R15 6
+  SETTABLEKS R15 R14 K37 ["TextProps"]
+  SETTABLEKS R11 R14 K38 ["LinkMap"]
+  SETTABLEKS R9 R14 K7 ["LayoutOrder"]
+  GETUPVAL R16 2
+  GETTABLEKS R15 R16 K8 ["Tag"]
+  LOADK R16 K39 ["X-FitY"]
+  SETTABLE R16 R14 R15
+  CALL R12 2 1
+  MOVE R8 R12
+  SETTABLEKS R8 R7 K15 ["Guidelines"]
+  LOADB R8 0
+  GETTABLEKS R9 R0 K51 ["Type"]
+  JUMPIFEQKS R9 K52 ["Warn"] [+16]
+  GETUPVAL R9 2
+  GETTABLEKS R8 R9 K4 ["createElement"]
+  GETUPVAL R9 11
+  DUPTABLE R10 K54 [{"BannedDateTime", "LayoutOrder"}]
+  GETTABLEKS R11 R0 K53 ["BannedDateTime"]
+  SETTABLEKS R11 R10 K53 ["BannedDateTime"]
+  NAMECALL R11 R2 K6 ["getNextOrder"]
+  CALL R11 1 1
+  SETTABLEKS R11 R10 K7 ["LayoutOrder"]
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K16 ["ReactivateDateNote"]
+  NAMECALL R9 R2 K6 ["getNextOrder"]
+  CALL R9 1 1
+  LOADK R12 K48 ["AccountDisabled"]
+  LOADK R13 K55 ["Appeal"]
+  NAMECALL R10 R1 K23 ["getText"]
+  CALL R10 3 1
+  NEWTABLE R11 1 0
+  DUPTABLE R12 K26 [{"LinkText", "LinkCallback"}]
+  LOADK R15 K27 ["Links"]
+  LOADK R16 K17 ["AppealPortal"]
+  NAMECALL R13 R1 K23 ["getText"]
+  CALL R13 3 1
+  SETTABLEKS R13 R12 K24 ["LinkText"]
+  DUPCLOSURE R13 K56 [PROTO_3]
+  CAPTURE UPVAL U12
+  CAPTURE UPVAL U3
+  SETTABLEKS R13 R12 K25 ["LinkCallback"]
+  SETTABLEKS R12 R11 K30 ["[link1]"]
+  GETUPVAL R13 2
+  GETTABLEKS R12 R13 K4 ["createElement"]
+  GETUPVAL R13 5
+  NEWTABLE R14 8 0
+  LOADB R15 1
+  SETTABLEKS R15 R14 K31 ["TextWrapped"]
+  GETIMPORT R15 K35 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R15 R14 K33 ["HorizontalAlignment"]
+  SETTABLEKS R10 R14 K36 ["Text"]
+  GETUPVAL R15 6
+  SETTABLEKS R15 R14 K37 ["TextProps"]
+  SETTABLEKS R11 R14 K38 ["LinkMap"]
+  SETTABLEKS R9 R14 K7 ["LayoutOrder"]
+  GETUPVAL R16 2
+  GETTABLEKS R15 R16 K8 ["Tag"]
+  LOADK R16 K39 ["X-FitY"]
+  SETTABLE R16 R14 R15
+  CALL R12 2 1
+  MOVE R8 R12
+  SETTABLEKS R8 R7 K17 ["AppealPortal"]
+  LOADB R8 0
+  GETTABLEKS R9 R0 K51 ["Type"]
+  JUMPIFNOTEQKS R9 K52 ["Warn"] [+55]
+  NAMECALL R9 R2 K6 ["getNextOrder"]
+  CALL R9 1 1
+  LOADK R12 K57 ["Agreement"]
+  LOADK R13 K58 ["TermsOfUse"]
+  NAMECALL R10 R1 K23 ["getText"]
+  CALL R10 3 1
+  NEWTABLE R11 1 0
+  DUPTABLE R12 K26 [{"LinkText", "LinkCallback"}]
+  LOADK R15 K27 ["Links"]
+  LOADK R16 K28 ["ToULink"]
+  NAMECALL R13 R1 K23 ["getText"]
+  CALL R13 3 1
+  SETTABLEKS R13 R12 K24 ["LinkText"]
+  DUPCLOSURE R13 K59 [PROTO_4]
+  CAPTURE UPVAL U3
+  CAPTURE UPVAL U4
+  SETTABLEKS R13 R12 K25 ["LinkCallback"]
+  SETTABLEKS R12 R11 K30 ["[link1]"]
+  GETUPVAL R13 2
+  GETTABLEKS R12 R13 K4 ["createElement"]
+  GETUPVAL R13 5
+  NEWTABLE R14 8 0
+  LOADB R15 1
+  SETTABLEKS R15 R14 K31 ["TextWrapped"]
+  GETIMPORT R15 K35 [Enum.HorizontalAlignment.Left]
+  SETTABLEKS R15 R14 K33 ["HorizontalAlignment"]
+  SETTABLEKS R10 R14 K36 ["Text"]
+  GETUPVAL R15 6
+  SETTABLEKS R15 R14 K37 ["TextProps"]
+  SETTABLEKS R11 R14 K38 ["LinkMap"]
+  SETTABLEKS R9 R14 K7 ["LayoutOrder"]
+  GETUPVAL R16 2
+  GETTABLEKS R15 R16 K8 ["Tag"]
+  LOADK R16 K39 ["X-FitY"]
+  SETTABLE R16 R14 R15
+  CALL R12 2 1
+  MOVE R8 R12
+  SETTABLEKS R8 R7 K18 ["ToUAgreement"]
+  LOADB R8 0
+  GETTABLEKS R9 R0 K51 ["Type"]
+  JUMPIFNOTEQKS R9 K52 ["Warn"] [+33]
+  GETUPVAL R9 2
+  GETTABLEKS R8 R9 K4 ["createElement"]
+  GETUPVAL R9 13
+  NEWTABLE R10 8 0
+  NAMECALL R11 R2 K6 ["getNextOrder"]
+  CALL R11 1 1
+  SETTABLEKS R11 R10 K7 ["LayoutOrder"]
+  LOADK R13 K57 ["Agreement"]
+  LOADK R14 K60 ["IAgree"]
+  NAMECALL R11 R1 K23 ["getText"]
+  CALL R11 3 1
+  SETTABLEKS R11 R10 K36 ["Text"]
+  GETTABLEKS R11 R0 K61 ["Checked"]
+  SETTABLEKS R11 R10 K61 ["Checked"]
+  NEWCLOSURE R11 P4
+  CAPTURE VAL R0
+  SETTABLEKS R11 R10 K62 ["OnChecked"]
+  GETUPVAL R12 2
+  GETTABLEKS R11 R12 K8 ["Tag"]
+  LOADK R12 K39 ["X-FitY"]
+  SETTABLE R12 R10 R11
+  CALL R8 2 1
+  SETTABLEKS R8 R7 K19 ["AgreeCheckBox"]
+  CALL R4 3 1
+  SETTABLEKS R4 R3 K2 ["DialogContainer"]
+  RETURN R3 1
+
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["ModerationDialog"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["React"]
+  CALL R1 1 1
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K8 ["Framework"]
+  CALL R2 1 1
+  GETTABLEKS R3 R2 K9 ["ContextServices"]
+  GETTABLEKS R4 R3 K10 ["Localization"]
+  GETTABLEKS R6 R2 K11 ["UI"]
+  GETTABLEKS R5 R6 K12 ["TextWithLinks"]
+  GETTABLEKS R7 R2 K13 ["Util"]
+  GETTABLEKS R6 R7 K14 ["LayoutOrderIterator"]
+  GETTABLEKS R8 R0 K15 ["Src"]
+  GETTABLEKS R7 R8 K16 ["Components"]
+  GETIMPORT R8 K5 [require]
+  GETTABLEKS R9 R7 K17 ["Checkbox"]
+  CALL R8 1 1
+  GETIMPORT R9 K5 [require]
+  GETTABLEKS R10 R7 K18 ["Reason"]
+  CALL R9 1 1
+  GETIMPORT R10 K5 [require]
+  GETTABLEKS R11 R7 K19 ["ReviewedNote"]
+  CALL R10 1 1
+  GETIMPORT R11 K5 [require]
+  GETTABLEKS R12 R7 K20 ["ReactivateDateNote"]
+  CALL R11 1 1
+  GETIMPORT R12 K5 [require]
+  GETTABLEKS R15 R0 K15 ["Src"]
+  GETTABLEKS R14 R15 K13 ["Util"]
+  GETTABLEKS R13 R14 K21 ["AbuseTypeToString"]
+  CALL R12 1 1
+  GETIMPORT R13 K23 [game]
+  LOADK R15 K24 ["BrowserService"]
+  NAMECALL R13 R13 K25 ["GetService"]
+  CALL R13 2 1
+  GETIMPORT R14 K23 [game]
+  LOADK R16 K26 ["ContentProvider"]
+  NAMECALL R14 R14 K25 ["GetService"]
+  CALL R14 2 1
+  GETIMPORT R15 K23 [game]
+  LOADK R17 K27 ["ModerationDialogToULink"]
+  LOADK R18 K28 ["https://en.help.roblox.com/hc/articles/115004647846-Roblox-Terms-of-Use"]
+  NAMECALL R15 R15 K29 ["DefineFastString"]
+  CALL R15 3 1
+  GETIMPORT R16 K23 [game]
+  LOADK R18 K30 ["ModerationDialogCommunityGuidelinesLink"]
+  LOADK R19 K31 ["https://en.help.roblox.com/hc/en-us/articles/203313410-Roblox-Community-Standards"]
+  NAMECALL R16 R16 K29 ["DefineFastString"]
+  CALL R16 3 1
+  DUPTABLE R17 K35 [{"Font", "TextSize", "TextXAlignment"}]
+  GETIMPORT R18 K38 [Enum.Font.SourceSans]
+  SETTABLEKS R18 R17 K32 ["Font"]
+  LOADN R18 16
+  SETTABLEKS R18 R17 K33 ["TextSize"]
+  GETIMPORT R18 K40 [Enum.TextXAlignment.Left]
+  SETTABLEKS R18 R17 K34 ["TextXAlignment"]
+  DUPCLOSURE R18 K41 [PROTO_0]
+  CAPTURE VAL R1
+  CAPTURE VAL R5
+  CAPTURE VAL R17
+  DUPCLOSURE R19 K42 [PROTO_6]
+  CAPTURE VAL R4
+  CAPTURE VAL R6
+  CAPTURE VAL R1
+  CAPTURE VAL R13
+  CAPTURE VAL R15
+  CAPTURE VAL R5
+  CAPTURE VAL R17
+  CAPTURE VAL R10
+  CAPTURE VAL R9
+  CAPTURE VAL R12
+  CAPTURE VAL R16
+  CAPTURE VAL R11
+  CAPTURE VAL R14
+  CAPTURE VAL R8
+  RETURN R19 1

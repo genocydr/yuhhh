@@ -1,0 +1,46 @@
+MAIN:
+  PREPVARARGS 0
+  GETIMPORT R0 K1 [script]
+  LOADK R2 K2 ["StartPage"]
+  NAMECALL R0 R0 K3 ["FindFirstAncestor"]
+  CALL R0 2 1
+  GETIMPORT R1 K5 [require]
+  GETTABLEKS R3 R0 K6 ["Packages"]
+  GETTABLEKS R2 R3 K7 ["TestLoader"]
+  CALL R1 1 1
+  GETTABLEKS R2 R1 K8 ["launch"]
+  LOADK R3 K2 ["StartPage"]
+  GETTABLEKS R4 R0 K9 ["Src"]
+  CALL R2 2 0
+  GETTABLEKS R2 R1 K10 ["isCli"]
+  CALL R2 0 1
+  JUMPIFNOT R2 [+1]
+  RETURN R0 0
+  GETIMPORT R2 K5 [require]
+  GETTABLEKS R4 R0 K6 ["Packages"]
+  GETTABLEKS R3 R4 K11 ["React"]
+  CALL R2 1 1
+  GETIMPORT R3 K5 [require]
+  GETTABLEKS R5 R0 K6 ["Packages"]
+  GETTABLEKS R4 R5 K12 ["ReactRoblox"]
+  CALL R3 1 1
+  GETIMPORT R4 K5 [require]
+  GETTABLEKS R6 R0 K9 ["Src"]
+  GETTABLEKS R5 R6 K13 ["MainPlugin"]
+  CALL R4 1 1
+  GETTABLEKS R5 R2 K14 ["createElement"]
+  MOVE R6 R4
+  DUPTABLE R7 K16 [{"Plugin"}]
+  GETIMPORT R8 K18 [plugin]
+  SETTABLEKS R8 R7 K15 ["Plugin"]
+  CALL R5 2 1
+  GETIMPORT R6 K21 [Instance.new]
+  LOADK R7 K22 ["Frame"]
+  CALL R6 1 1
+  GETTABLEKS R7 R3 K23 ["createRoot"]
+  MOVE R8 R6
+  CALL R7 1 1
+  MOVE R10 R5
+  NAMECALL R8 R7 K24 ["render"]
+  CALL R8 2 0
+  RETURN R0 0
